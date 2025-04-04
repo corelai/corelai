@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+trap 'rm -f .env; exit' EXIT INT TERM
+
+echo "📢 Sourcing env from /etc/quicksilvra/quicksilvra-env.sh"
+source /etc/quicksilvra/quicksilvra-env.sh
+
+cd /opt/deploy/%%servicename%%
+
+IMAGE_TAR_UNCOMPRESSED="%%IMAGE_TAR_UNCOMPRESSED%%"
+
+echo "🐳 Loading Docker image..."
+sudo docker load -i "$IMAGE_TAR_UNCOMPRESSED"
+
+echo "📝 Creating .env file for Docker Compose..."
+cat <<EOF > .env
+
+EOF
+
+
+echo "🛑 Stopping existing %%servicename%% container..."
+docker compose -f docker-compose.yaml stop %%servicename%%
+docker compose -f docker-compose.yaml rm -f %%servicename%%
+
+echo "🚀 Starting new %%servicename%% container..."
+docker compose -f docker-compose.yaml up -d %%servicename%%

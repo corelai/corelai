@@ -1,0 +1,22 @@
+# IDE
+.idea
+.vscode
+.vs
+*.csproj.user
+**/*.DotSettings.user
+
+# Build directories
+[Bb]in
+[Oo]bj
+/css/*
+
+# Test coverage
+**/*.opencover.xml
+TestResults
+
+# npm
+
+node_modules
+# temporary folders
+
+**/keys/*
