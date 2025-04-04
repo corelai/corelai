@@ -11,7 +11,6 @@ on:
         options:
           - all
           - nginx
-          - idp
       runner-labels:
         description: 'Runner labels (as JSON string, e.g. ["self-hosted", "build-runner"])'
         required: true
