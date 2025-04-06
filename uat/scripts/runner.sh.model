@@ -3,8 +3,8 @@
 set -e
 trap 'rm -f .env; exit' EXIT INT TERM
 
-echo "📢 Sourcing env from /etc/quicksilvra/quicksilvra-env.sh"
-source /etc/quicksilvra/quicksilvra-env.sh
+echo "📢 Sourcing env from /etc/corelai/corelai-env.sh"
+source /etc/corelai/corelai-env.sh
 
 cd /opt/deploy/%%servicename%%
 
