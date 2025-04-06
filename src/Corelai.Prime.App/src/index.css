@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+
+html, body, #root {
+    @apply h-full;
+}
+
+
+/* === Default: Corelai Ice === */
+@theme light{
+    --color-background: #EAF0F5;
+    --color-surface: #F7F9FB;
+    --color-text-base: #1E1F24;
+    --color-border: #C3CBD6;
+    --color-primary: #D6C38D;
+    --color-success: #5CBFA2;
+    --color-danger: #DC5C5C;
+    --color-info: #6DA9E5;
+    --color-warning: #EBCB6C;
+    --color-neutral: #8F9AA3;
+}
+
+/*@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));*/
+
+/*!* === Dark Mode: Corelai Dark === *!*/
+/*@theme dark {*/
+/*    --color-background: #131315;*/
+/*    --color-surface: #1C1D21;*/
+/*    --color-text-base: #F4F4F6;*/
+/*    --color-border: #2D2E32;*/
+/*    --color-primary: #D6C38D;*/
+/*    --color-success: #4CAF50;*/
+/*    --color-danger: #F44336;*/
+/*    --color-info: #2196F3;*/
+/*    --color-warning: #FFC107;*/
+/*    --color-neutral: #7A7D85;*/
+/*}*/
