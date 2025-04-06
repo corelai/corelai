@@ -1,0 +1,16 @@
+{
+  "extend": {
+    "colors": {
+      "background": "#EAF0F5",
+      "surface": "#F7F9FB",
+      "text-base": "#1E1F24",
+      "border": "#C3CBD6",
+      "primary": "#D6C38D",
+      "success": "#5CBFA2",
+      "danger": "#DC5C5C",
+      "info": "#6DA9E5",
+      "warning": "#EBCB6C",
+      "neutral": "#8F9AA3"
+    }
+  }
+}
