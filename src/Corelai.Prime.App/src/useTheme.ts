@@ -2,17 +2,20 @@ import { useEffect, useState } from 'react';
 
 export type Theme = 'light' | 'dark';
 
+const setThemeHtml = (theme:Theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
 export const useTheme = () => {
-    const [theme, setTheme] = useState<Theme>('light');
+    const [theme, setThemeState] = useState<Theme>('light');
 
     useEffect(() => {
-        const html = document.documentElement;
         const localTheme = localStorage.getItem('theme') as Theme | null;
 
         // Use user's theme selection if present
         if (localTheme) {
-            setTheme(localTheme);
-            html.setAttribute('data-theme', localTheme);
+            setThemeState(localTheme);
+            setThemeHtml(localTheme ?? 'light');
             return;
         }
 
@@ -20,15 +23,15 @@ export const useTheme = () => {
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const systemTheme: Theme = systemPrefersDark ? 'dark' : 'light';
 
-        setTheme(systemTheme);
-        html.setAttribute('data-theme', systemTheme);
+        setThemeState(systemTheme);
+        setThemeHtml(systemTheme);
     }, []);
 
     const toggleTheme = () => {
         const next = theme === 'dark' ? 'light' : 'dark';
-        setTheme(next);
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
+        setThemeState(next);
+        setThemeHtml(next);
+        localStorage.setItem('theme', theme);
     };
 
     return { theme, toggleTheme };
