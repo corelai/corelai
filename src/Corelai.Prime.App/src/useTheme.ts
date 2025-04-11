@@ -9,14 +9,14 @@ export const useTheme = () => {
         const html = document.documentElement;
         const localTheme = localStorage.getItem('theme') as Theme | null;
 
-        // Se utente ha scelto un tema lo rispetto
+        // Use user's theme selection if present
         if (localTheme) {
             setTheme(localTheme);
             html.setAttribute('data-theme', localTheme);
             return;
         }
 
-        // Altrimenti uso quello di sistema
+        // Use system's theme
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const systemTheme: Theme = systemPrefersDark ? 'dark' : 'light';
 
