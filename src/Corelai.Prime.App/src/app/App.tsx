@@ -1,4 +1,4 @@
-import {ThemeToggleButton} from "./ThemeToggleButton.tsx";
+import {ThemeToggleButton} from "../components/ThemeToggleButton/ThemeToggleButton.tsx";
 
 function App() {
 

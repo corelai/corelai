@@ -1,4 +1,4 @@
-import {useTheme} from "./hooks/useTheme.ts";
+import {useTheme} from "../hooks/useTheme.ts";
 
 
 export const ThemeProvider = () => {
