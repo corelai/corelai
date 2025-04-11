@@ -1,23 +1,11 @@
-import { useState, useEffect } from 'react';
-import { toggleTheme } from './toggleTheme';
+import { useTheme } from './useTheme';
 
 export const ThemeToggleButton = () => {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
-    useEffect(() => {
-        const current = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
-        setTheme(current);
-    }, []);
-
-    const handleClick = () => {
-        toggleTheme();
-        setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
-    };
+    const { theme, toggleTheme } = useTheme();
 
     return (
-        <button onClick={handleClick}>
+        <button onClick={toggleTheme}>
             {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
         </button>
     );
 };
-
