@@ -1,0 +1,28 @@
+@theme {
+
+    --color-gold: #D6C38D;
+    --font-corelai: 'Orbitron', sans-serif;
+    --font-header: 'Oxanium', sans-serif;
+    --font-text: 'Encode Sans Expanded', sans-serif;
+    --color-background: var(--color-zinc-100);
+    --color-primary: var(--color-slate-700);
+    --color-secondary: #D6C38D;
+    --color-primary-surface: var(--color-slate-300);
+    --color-secondary-surface: var(--color-slate-600);
+    --color-normal: var(--color-stone-800);
+
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+@layer base {
+    @variant dark {
+        --color-background: var(--color-slate-900);
+        --color-primary: #D6C38D;
+        --color-secondary: var(--color-slate-100);
+        --color-primary-surface: var(--color-slate-950);
+        --color-secondary-surface: var(--color-slate-800);
+        --color-normal: var(--color-stone-50);
+    }
+}

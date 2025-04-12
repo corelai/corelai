@@ -1,40 +1,84 @@
+/* Tailwind layers */
 @import "tailwindcss";
+
+/* Font-face declarations */
 @import "./typography.css";
-* {
+
+/* Breakpoint overrides */
+@import "./breakpoints.css";
+
+/* Design Tokens: colors, radius, spacing ecc. */
+@import "./tokens.css";
+
+
+/* -------------------------------------------------------------------
+  Corelai Prime Base Stylesheet
+  Purpose: Establish global layout + sensible defaults
+------------------------------------------------------------------- */
+
+/* Border-box sizing model everywhere */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
-
-
-
+/* Full-height layout system for SPA apps */
 html, body, #root {
-
     @apply h-full;
+
+    margin: 0;
+    padding: 0;
 }
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-
-@theme {
-    --font-corelai: 'Orbitron', sans-serif;
-    --font-header: 'Oxanium', sans-serif;
-    --font-text: 'Encode Sans Expanded', sans-serif;
-    --color-background: var(--color-zinc-50);
-    --color-primary: var(--color-slate-700);
-    --color-secondary: #D6C38D;
-    --color-primary-surface: var(--color-slate-200);
-    --color-secondary-surface: var(--color-slate-600);
-    --color-normal: var(--color-stone-800);
-
+/* Optional: system font stack fallback if font-face fails */
+body {
+    font-family: var(--font-text), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: var(--color-normal);
+    background-color: var(--color-background);
 }
 
-@layer base {
-    @variant dark {
-        --color-background: var(--color-slate-900);
-        --color-primary: #D6C38D;
-        --color-secondary: var(--color-slate-100);
-        --color-primary-surface: var(--color-slate-950);
-        --color-secondary-surface: var(--color-slate-600);
-        --color-normal: var(--color-stone-50);
-    }
+/* Images: Prevent overflow */
+img, svg, video, canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Links: No underline by default */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Strong emphasis */
+strong {
+    font-weight: 600;
+}
+
+/* Headings inherit color */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    font-family: var(--font-header), sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Lists: Reset */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Forms: Clean inputs */
+input, textarea, button, select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
 }

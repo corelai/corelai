@@ -11,9 +11,7 @@ export const ThemeToggleButton = () => {
             p-2
             "
         >
-            <span className="text-primary">
             {theme === 'dark' ? '🌙' : '☀️'}
-                </span>
         </button>
     );
 };
