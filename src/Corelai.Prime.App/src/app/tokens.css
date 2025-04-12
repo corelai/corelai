@@ -1,6 +1,20 @@
 @theme {
 
-    --color-gold: #D6C38D;
+    /* Color Gold Scale */
+    --color-gold: var(--color-gold-300); /* Base */
+
+    --color-gold-50:  #f9f7ef;
+    --color-gold-100: #f3efdb;
+    --color-gold-200: #e6deba;
+    --color-gold-300: #d6c38d;
+    --color-gold-400: #bfa970;
+    --color-gold-500: #a58f58;
+    --color-gold-600: #897447;
+    --color-gold-700: #6d5b38;
+    --color-gold-800: #53452b;
+    --color-gold-900: #3c3320;
+    --color-gold-950: #221d12;
+
     --font-corelai: 'Orbitron', sans-serif;
     --font-header: 'Oxanium', sans-serif;
     --font-text: 'Encode Sans Expanded', sans-serif;

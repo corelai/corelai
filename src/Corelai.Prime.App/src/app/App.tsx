@@ -9,7 +9,7 @@ function App() {
                 <ThemeToggleButton/>
             </div>
             <Header/>
-            <div className="text-center">
+            <div className="text-center border-t-4 sm:border-t-6 md:border-t-8 golden-border">
                 <h1
                     className="
                     text-primary
