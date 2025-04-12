@@ -5,7 +5,7 @@ function App() {
 
     return (
         <>
-            <div className="bg-secondary-surface ">
+            <div className="bg-secondary-surface flex justify-end pt-2 pe-2">
                 <ThemeToggleButton/>
             </div>
             <Header/>
