@@ -1,10 +1,14 @@
 @import "tailwindcss";
-
+@import "./typography.css";
 * {
     box-sizing: border-box;
 }
 
+
+
+
 html, body, #root {
+
     @apply h-full;
 }
 
@@ -12,6 +16,9 @@ html, body, #root {
 
 
 @theme {
+    --font-corelai: 'Orbitron', sans-serif;
+    --font-header: 'Oxanium', sans-serif;
+    --font-text: 'Encode Sans Expanded', sans-serif;
     --color-background: var(--color-zinc-50);
     --color-primary: var(--color-slate-700);
     --color-secondary: #D6C38D;

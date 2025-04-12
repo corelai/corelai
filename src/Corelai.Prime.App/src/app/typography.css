@@ -1,0 +1,47 @@
+/* Orbitron - Main Title */
+@font-face {
+    font-family: 'Orbitron';
+    src: url('/fonts/orbitron-v31-latin/orbitron-v31-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* Oxanium - Headings */
+@font-face {
+    font-family: 'Oxanium';
+    src: url('/fonts/oxanium-v19-latin/oxanium-v19-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Oxanium';
+    src: url('/fonts/oxanium-v19-latin/oxanium-v19-latin-600.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Oxanium';
+    src: url('/fonts/oxanium-v19-latin/oxanium-v19-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* Encode Sans Expanded - Body Text */
+@font-face {
+    font-family: 'Encode Sans Expanded';
+    src: url('/fonts/encode-sans-expanded-v11-latin/encode-sans-expanded-v11-latin-200.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Encode Sans Expanded';
+    src: url('/fonts/encode-sans-expanded-v11-latin/encode-sans-expanded-v11-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Encode Sans Expanded';
+    src: url('/fonts/encode-sans-expanded-v11-latin/encode-sans-expanded-v11-latin-600.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}

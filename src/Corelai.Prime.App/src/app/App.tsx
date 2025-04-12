@@ -5,15 +5,26 @@ function App() {
     return (
         <>
             <ThemeToggleButton/>
+            <p className="font-corelai">Corelai</p>
             <div className="text-center">
-                <p className="text-primary bg-primary-surface">
+                <h1
+                    className="
+                    text-primary
+                     bg-primary-surface
+                     font-header">
                 Primary text
-                </p>
-                <p className="text-normal ">
+                </h1>
+                <p className="text-normal
+                 font-text">
                     Normal text
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore enim minima perspiciatis quasi sequi velit. Aliquid aperiam enim esse eveniet hic id in, ipsam laudantium molestiae officiis provident sint sit ullam unde, veniam! A iste molestias qui repellat veniam.
                 </p>
 
-                <p className="text-secondary bg-secondary-surface">
+                <p className="
+                text-secondary
+                bg-secondary-surface
+                font-text">
                     Secondary text
                 </p>
             </div>
