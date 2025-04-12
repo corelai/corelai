@@ -6,9 +6,14 @@ export const ThemeToggleButton = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="cursor-pointer"
+            className="
+            cursor-pointer
+            p-2
+            "
         >
+            <span className="text-primary">
             {theme === 'dark' ? '🌙' : '☀️'}
+                </span>
         </button>
     );
 };
