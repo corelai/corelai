@@ -5,7 +5,14 @@ function App() {
     return (
         <>
             <ThemeToggleButton/>
-            <p className="font-corelai">Corelai</p>
+            <h1 className="
+            text-center
+            font-corelai
+            uppercase
+            text-4xl
+
+            ">
+                Corelai</h1>
             <div className="text-center">
                 <h1
                     className="
