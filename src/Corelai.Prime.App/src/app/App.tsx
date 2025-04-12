@@ -24,8 +24,22 @@ function App() {
                 <p className="
                 text-secondary
                 bg-secondary-surface
-                font-text">
+                font-text-400">
                     Secondary text
+                </p>
+
+                <p className="
+                text-secondary
+                bg-secondary-surface
+                font-text-200">
+                    Secondary small text
+                </p>
+
+                <p className="
+                text-secondary
+                bg-secondary-surface
+                font-text-600">
+                    Secondary bold text
                 </p>
             </div>
         </>
