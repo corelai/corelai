@@ -10,11 +10,7 @@ function App() {
             </div>
             <Header/>
             <div className="text-center border-t-4 sm:border-t-6 md:border-t-8 golden-border">
-                <h1
-                    className="
-                    text-primary
-                     bg-primary-surface
-                     font-header">
+                <h1 className="font-[700]">
                     Primary text
                 </h1>
                 <p className="text-normal
@@ -25,6 +21,13 @@ function App() {
                     quasi sequi velit. Aliquid aperiam enim esse eveniet hic id in, ipsam laudantium molestiae officiis
                     provident sint sit ullam unde, veniam! A iste molestias qui repellat veniam.
                 </p>
+                <h3 className="font-[600]">
+                    h3 text
+                </h3>
+
+                <h6 className="font-[400]">
+                    h6 text
+                </h6>
 
                 <p className="
                 text-secondary

@@ -60,9 +60,8 @@ strong {
 /* Headings inherit color */
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
+    background-color: var(--color-primary-surface);
     font-family: var(--font-oxanium), sans-serif;
-    font-weight: 600;
-    line-height: 1.2;
 }
 
 /* Lists: Reset */
