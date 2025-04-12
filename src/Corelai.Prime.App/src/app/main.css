@@ -19,8 +19,8 @@ html, body, #root {
 
 @layer base {
     @variant dark {
-        --color-background: var(--color-zinc-900);
+        --color-background: var(--color-slate-900);
         --color-primary: #D6C38D;
-        --color-secondary: var(--color-slate-700);
+        --color-secondary: var(--color-zinc-400);
     }
 }
