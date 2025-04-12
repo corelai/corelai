@@ -15,9 +15,9 @@
     --color-gold-900: #3c3320;
     --color-gold-950: #221d12;
 
-    --font-corelai: 'Orbitron', sans-serif;
-    --font-header: 'Oxanium', sans-serif;
-    --font-text: 'Encode Sans Expanded', sans-serif;
+    --font-orbitron: 'Orbitron', sans-serif;
+    --font-oxanium: 'Oxanium', sans-serif;
+    --font-encode: 'Encode Sans Expanded', sans-serif;
     --color-background: var(--color-zinc-100);
     --color-primary: var(--color-slate-700);
     --color-secondary: #D6C38D;

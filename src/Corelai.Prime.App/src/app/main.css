@@ -31,7 +31,7 @@ html, body, #root {
 
 /* Optional: system font stack fallback if font-face fails */
 body {
-    font-family: var(--font-text), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-encode), ui-sans-serif, system-ui, sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -60,7 +60,7 @@ strong {
 /* Headings inherit color */
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
-    font-family: var(--font-header), sans-serif;
+    font-family: var(--font-oxanium), sans-serif;
     font-weight: 600;
     line-height: 1.2;
 }

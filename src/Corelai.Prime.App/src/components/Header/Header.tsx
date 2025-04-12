@@ -6,12 +6,12 @@ export default function Header() {
             <div className="w-30 sm:w-16 px-4 sm:px-0">
                 <img src={img} alt="logo"/>
             </div>
-            <h1 className="text-center font-corelai uppercase text-4xl  bg-secondary-surface ">
-                <div className="flex flex-col sm:flex-row sm:gap-2">
+            <div className="text-center  bg-secondary-surface ">
+                <div className="flex flex-col font-orbitron text-4xl uppercase sm:flex-row sm:gap-2">
                     <span className="text-white">Corelai</span>
                     <span className="text-gold">prime</span>
                 </div>
-            </h1>
+            </div>
         </div>
     );
 }
