@@ -15,12 +15,19 @@ html, body, #root {
     --color-background: var(--color-zinc-50);
     --color-primary: var(--color-slate-700);
     --color-secondary: #D6C38D;
+    --color-primary-surface: var(--color-slate-200);
+    --color-secondary-surface: var(--color-slate-600);
+    --color-normal: var(--color-stone-800);
+
 }
 
 @layer base {
     @variant dark {
         --color-background: var(--color-slate-900);
         --color-primary: #D6C38D;
-        --color-secondary: var(--color-zinc-400);
+        --color-secondary: var(--color-slate-100);
+        --color-primary-surface: var(--color-slate-950);
+        --color-secondary-surface: var(--color-slate-600);
+        --color-normal: var(--color-stone-50);
     }
 }
