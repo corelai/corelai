@@ -4,8 +4,11 @@ export const ThemeToggleButton = () => {
     const {theme, toggleTheme} = useTheme();
 
     return (
-        <button onClick={toggleTheme}>
-            {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
+        <button
+            onClick={toggleTheme}
+            className="cursor-pointer"
+        >
+            {theme === 'dark' ? '🌙' : '☀️'}
         </button>
     );
 };

@@ -5,8 +5,11 @@ function App() {
     return (
         <>
             <ThemeToggleButton/>
-            <div className="bg-background text-primary text-center">
-                Loading...
+            <div className="text-primary text-center">
+                Primary text
+            </div>
+            <div className="text-secondary text-center">
+                Secondary text
             </div>
         </>
     )
