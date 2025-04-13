@@ -13,7 +13,7 @@ on:
         options:
           - all
           - nginx
-          - prime-app
+          - primeapp
       runner-labels:
         description: 'Runner labels (as JSON string, e.g. ["self-hosted", "build-runner"])'
         required: true
@@ -68,8 +68,8 @@ jobs:
       build-share: "/mnt/buildshare/builds"
 
 
-  build-webapp:
-    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'webapp' }}
+  build-primeapp:
+    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'primeapp' }}
     needs: [prepare-metadata, set-defaults]
     uses: ./.github/workflows/shared-01-build.yaml
     with:
