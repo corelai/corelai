@@ -1,0 +1,55 @@
+@theme {
+
+    /* Color Gold Scale */
+    --color-gold: var(--color-gold-300); /* Base */
+
+    --color-gold-50:  #f9f7ef;
+    --color-gold-100: #f3efdb;
+    --color-gold-200: #e6deba;
+    --color-gold-300: #d6c38d;
+    --color-gold-400: #bfa970;
+    --color-gold-500: #a58f58;
+    --color-gold-600: #897447;
+    --color-gold-700: #6d5b38;
+    --color-gold-800: #53452b;
+    --color-gold-900: #3c3320;
+    --color-gold-950: #221d12;
+
+    --border-gradient-gold: linear-gradient(
+            to right,
+            var(--color-gold-100) 0%,
+            var(--color-gold-400) 20%,
+            var(--color-gold-600) 30%,
+            var(--color-gold-300) 45%,
+            var(--color-gold-100) 50%,
+            var(--color-gold-300) 55%,
+            var(--color-gold-600) 70%,
+            var(--color-gold-400) 80%,
+            var(--color-gold-100) 100%
+    );
+
+    --font-orbitron: 'Orbitron', sans-serif;
+    --font-oxanium: 'Oxanium', sans-serif;
+    --font-encode: 'Encode Sans Expanded', sans-serif;
+    --color-background: var(--color-zinc-100);
+    --color-primary: var(--color-slate-700);
+    --color-secondary: #D6C38D;
+    --color-primary-surface: var(--color-slate-300);
+    --color-secondary-surface: var(--color-slate-600);
+    --color-normal: var(--color-stone-800);
+
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+@layer base {
+    @variant dark {
+        --color-background: var(--color-slate-900);
+        --color-primary: #D6C38D;
+        --color-secondary: var(--color-slate-100);
+        --color-primary-surface: var(--color-slate-950);
+        --color-secondary-surface: var(--color-slate-800);
+        --color-normal: var(--color-stone-50);
+    }
+}

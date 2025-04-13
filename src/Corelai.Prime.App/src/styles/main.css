@@ -1,0 +1,105 @@
+/* Tailwind layers */
+@import "tailwindcss";
+
+/* Font-face declarations */
+@import "./typography.css";
+
+/* Breakpoint overrides */
+@import "./breakpoints.css";
+
+/* Design Tokens: colors, radius, spacing ecc. */
+@import "./tokens.css";
+
+/* Layout grid definitions */
+@import "./layout.css";
+
+
+/* -------------------------------------------------------------------
+  Corelai Prime Base Stylesheet
+  Purpose: Establish global layout + sensible defaults
+------------------------------------------------------------------- */
+
+/* Border-box sizing model everywhere */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Full-height layout system for SPA apps */
+html, body, #root {
+    @apply h-full;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Optional: system font stack fallback if font-face fails */
+body {
+    font-family: var(--font-encode), ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: var(--color-normal);
+    background-color: var(--color-background);
+}
+
+/* Images: Prevent overflow */
+img, svg, video, canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Links: No underline by default */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Strong emphasis */
+strong {
+    font-weight: 600;
+}
+
+/* Headings inherit color */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    background-color: var(--color-primary-surface);
+    font-family: var(--font-oxanium), sans-serif;
+}
+
+/* Lists: Reset */
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Forms: Clean inputs */
+input, textarea, button, select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+.tonno {
+    border-image:linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) 100
+}
+
+.bongo {
+    border-image:linear-gradient(to right, #312f14 19%, #9a9042 43%, #d6c051 57%, #8a7d30 81%) 100
+
+}
+
+
+.bongo2 {
+    border-image:linear-gradient(to right, #312f14 20%, var(--color-gold) 50%, #312f14 80%) 100
+
+}
+
+.golden-border {
+    border-image: var(--border-gradient-gold) 100;
+}
