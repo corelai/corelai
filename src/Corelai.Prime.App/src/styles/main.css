@@ -103,3 +103,8 @@ input, textarea, button, select {
 .golden-border {
     border-image: var(--border-gradient-gold) 100;
 }
+
+
+.main-background {
+    background-image: url('../../public/blurry-gradient.svg');
+}

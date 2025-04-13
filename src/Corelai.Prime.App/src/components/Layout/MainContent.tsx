@@ -2,7 +2,7 @@ import React from 'react';
 
 const MainContent: React.FC = () => {
     return (
-        <div className="text-center">
+        <div className="text-center main-background" >
             <h1 className="font-[700]">
                 Primary text
             </h1>
