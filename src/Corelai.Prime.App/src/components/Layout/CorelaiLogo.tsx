@@ -1,5 +1,6 @@
 import React from "react";
-import img from "/corelai-logo.svg";
+import {Symbol} from "./Symbol.tsx";
+
 
 export const CorelaiLogo: React.FC = () => {
     return (<div className="relative border-white">
@@ -10,7 +11,7 @@ export const CorelaiLogo: React.FC = () => {
             <div className="text-white font-orbitron text-xl sm:text-4xl uppercase   whitespace-nowrap">
                 C
                 <div className="w-5 h-5 sm:w-9 sm:h-9 inline-block sm:pt-0.5">
-                    <img src={img} alt="logo"/>
+                    <Symbol/>
                 </div>
                 relai
             </div>
