@@ -5,8 +5,10 @@
     grid-template-areas:
       "nav nav nav nav"
       "header header header header"
-      "side side main main"
+      "side main main main"
       "footer footer footer footer";
+
+    grid-template-columns: clamp(8rem, 20vw, 24rem) 1fr 1fr 1fr;
   }
 
   /*
@@ -25,6 +27,8 @@
         "header header header header"
         "main main main main"
         "footer footer footer footer";
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 

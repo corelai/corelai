@@ -15,10 +15,10 @@ const Layout: React.FC = () => {
             <header className="grid-in-header col-span-4">
                 <Header />
             </header>
-            <aside className="grid-in-side sm:col-span-2 hidden sm:block">
+            <aside className="grid-in-side hidden sm:block">
                 <Sidebar />
             </aside>
-            <main className="grid-in-main col-span-4 sm:col-span-2">
+            <main className="grid-in-main col-span-4 sm:col-span-3">
                 <MainContent />
             </main>
             <footer className="grid-in-footer col-span-4">
