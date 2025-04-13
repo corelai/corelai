@@ -28,38 +28,40 @@ const MainContent: React.FC = () => {
 
             </p>
             <p className="py-4 sm:py-8 font-orbitron text-sm text-center">{CORELAI_SLOGAN}</p>
-            <h3 className="font-[600]">
-                h3 text
-            </h3>
 
-            <h6 className="font-[400]">
-                h6 text
-            </h6>
 
-            <p className="
-                text-secondary
-                bg-secondary-surface
-                font-text font-[400]">
-                Secondary text 400
-            </p>
+            {/*<h3 className="font-[600]">*/}
+            {/*    h3 text*/}
+            {/*</h3>*/}
 
-            <p className="
-                text-secondary
-                bg-secondary-surface
-                font-text font-[200]">
-                Secondary text 200
-            </p>
+            {/*<h6 className="font-[400]">*/}
+            {/*    h6 text*/}
+            {/*</h6>*/}
 
-            <p className="
-                text-secondary
-                bg-secondary-surface
-                font-text font-[600]">
-                Secondary text 600
-            </p>
+            {/*<p className="*/}
+            {/*    text-secondary*/}
+            {/*    bg-secondary-surface*/}
+            {/*    font-text font-[400]">*/}
+            {/*    Secondary text 400*/}
+            {/*</p>*/}
 
-            <p>
-                P without nothing applied
-            </p>
+            {/*<p className="*/}
+            {/*    text-secondary*/}
+            {/*    bg-secondary-surface*/}
+            {/*    font-text font-[200]">*/}
+            {/*    Secondary text 200*/}
+            {/*</p>*/}
+
+            {/*<p className="*/}
+            {/*    text-secondary*/}
+            {/*    bg-secondary-surface*/}
+            {/*    font-text font-[600]">*/}
+            {/*    Secondary text 600*/}
+            {/*</p>*/}
+
+            {/*<p>*/}
+            {/*    P without nothing applied*/}
+            {/*</p>*/}
         </div>
     );
 };
