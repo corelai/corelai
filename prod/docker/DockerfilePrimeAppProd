@@ -12,7 +12,7 @@ RUN pnpm run build
 
 FROM nginx:alpine AS production-stage
 
-COPY ./uat/nginx-prod-prime-app.conf /etc/nginx/conf.d/default.conf
+COPY ./prod/nginx-prod-prime-app.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
