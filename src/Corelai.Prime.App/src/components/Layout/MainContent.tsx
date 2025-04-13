@@ -1,18 +1,31 @@
 import React from 'react';
 
+const welcomeMessage = `
+Welcome, Citizen.
+
+▸ You have reached CORELAI PRIME
+the official entrypoint to Corelai SECTOR operations.
+
+▸ This platform provides controlled access to our active divisions, projects, and planetary initiatives.
+
+▸ Your presence is acknowledged. 
+▸ Your actions are monitored. 
+▸ Your progress is yours to shape.
+
+▸ Proceed with purpose.
+`
+const CORELAI_SLOGAN = `
+✦ Control to Corelai ✦ 
+`
 const MainContent: React.FC = () => {
     return (
         <div className="text-center" >
             <h1 className="font-[700]">
-                Primary text
+                Welcome to Corelai Prime
             </h1>
-            <p className="text-normal
-                 font-text">
-                Normal text
-
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore enim minima perspiciatis
-                quasi sequi velit. Aliquid aperiam enim esse eveniet hic id in, ipsam laudantium molestiae officiis
-                provident sint sit ullam unde, veniam! A iste molestias qui repellat veniam.
+            <p className="text-start px-8 pb-8 text-xs font-text whitespace-pre-line">
+                {welcomeMessage}
+                <span className="font-orbitron">{CORELAI_SLOGAN}</span>
             </p>
             <h3 className="font-[600]">
                 h3 text
