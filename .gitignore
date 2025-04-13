@@ -4,11 +4,12 @@
 .vs
 *.csproj.user
 **/*.DotSettings.user
-
 # Build directories
 [Bb]in
 [Oo]bj
 /css/*
+# Vite
+**/.vite/
 
 # Test coverage
 **/*.opencover.xml
