@@ -1,6 +1,7 @@
 import {useTheme} from "../../hooks/useTheme.ts";
+import React from "react";
 
-export const ThemeToggleButton = () => {
+export const ThemeToggleButton: React.FC = () => {
     const {theme, toggleTheme} = useTheme();
 
     return (
