@@ -15,6 +15,17 @@
     --color-gold-900: #3c3320;
     --color-gold-950: #221d12;
 
+    --border-gradient-gold: linear-gradient(
+            to right,
+            var(--color-gold-950) 0%,
+            var(--color-gold-600) 30%,
+            var(--color-gold-300) 45%,
+            var(--color-gold-100) 50%,
+            var(--color-gold-300) 65%,
+            var(--color-gold-600) 70%,
+            var(--color-gold-950) 100%
+    );
+
     --font-orbitron: 'Orbitron', sans-serif;
     --font-oxanium: 'Oxanium', sans-serif;
     --font-encode: 'Encode Sans Expanded', sans-serif;
