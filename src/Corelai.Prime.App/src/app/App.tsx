@@ -1,5 +1,6 @@
 import {ThemeToggleButton} from "../components/ThemeToggleButton/ThemeToggleButton.tsx";
 import Header from "../components/Header/Header.tsx";
+import Layout from "../components/Layout/Layout.tsx";
 
 function App() {
 
@@ -54,6 +55,9 @@ function App() {
                     P without nothing applied
                 </p>
             </div>
+
+
+            <Layout/>
         </>
     )
 }

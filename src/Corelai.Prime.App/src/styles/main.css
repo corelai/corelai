@@ -10,6 +10,9 @@
 /* Design Tokens: colors, radius, spacing ecc. */
 @import "./tokens.css";
 
+/* Layout grid definitions */
+@import "./layout.css";
+
 
 /* -------------------------------------------------------------------
   Corelai Prime Base Stylesheet

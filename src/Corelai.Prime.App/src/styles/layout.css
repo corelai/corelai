@@ -1,0 +1,24 @@
+@layer utilities {
+  .grid-areas-layout {
+    grid-template-areas:
+      "nav nav nav nav"
+      "header header header header"
+      "side side main main"
+      "footer footer footer footer";
+  }
+  .grid-in-nav {
+    grid-area: nav;
+  }
+  .grid-in-header {
+    grid-area: header;
+  }
+  .grid-in-side {
+    grid-area: side;
+  }
+  .grid-in-main {
+    grid-area: main;
+  }
+  .grid-in-footer {
+    grid-area: footer;
+  }
+}
