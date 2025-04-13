@@ -15,17 +15,23 @@ const Footer: React.FC = () => {
                 <div className="text-xs opacity-60">Terraforming Authorization: Level 1</div>
             </section>
 
-            <section className="text-xs text-slate-600 flex items-center justify-end gap-2 align-middle p-4 pt-8 bg-slate-950">
+            <section
+                className="text-xs text-slate-600 flex items-center justify-end gap-2 align-middle p-4 pt-8 bg-slate-950">
+                Corelai Repo -
                 <a href="https://github.com/corelai" target="_blank" rel="noopener noreferrer">
                     <FaGithub className="w-4 h-4 sm:w-6 sm:h-6 hover:text-secondary transition-colors"/>
                 </a>
                 <div>Powered by</div>
                 <div className="h-4 w-4 sm:w-6 sm:h-6">
-                    <img src={reactLogo} alt="React"/>
+                    <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
+                        <img src={reactLogo} alt="React"/>
+                    </a>
                 </div>
                 <div>&</div>
                 <div className="h-4 w-4 sm:w-6 sm:h-6 pt-1">
-                    <img src={tailwindLogo} alt="Tailwind" className="h-4"/>
+                    <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
+                        <img src={tailwindLogo} alt="Tailwind" className="h-4"/>
+                    </a>
                 </div>
             </section>
         </footer>
