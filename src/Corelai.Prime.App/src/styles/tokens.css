@@ -15,17 +15,6 @@
     --color-gold-900: #3c3320;
     --color-gold-950: #221d12;
 
-    --border-gradient-gold2: linear-gradient(
-            to right,
-            var(--color-gold-950) 0%,
-            var(--color-gold-600) 30%,
-            var(--color-gold-300) 45%,
-            var(--color-gold-100) 50%,
-            var(--color-gold-300) 65%,
-            var(--color-gold-600) 70%,
-            var(--color-gold-950) 100%
-    );
-
     --border-gradient-gold: linear-gradient(
             to right,
             var(--color-gold-100) 0%,
@@ -37,19 +26,6 @@
             var(--color-gold-600) 70%,
             var(--color-gold-400) 80%,
             var(--color-gold-100) 100%
-    );
-
-    --border-gradient-gold3: linear-gradient(
-            to right,
-            var(--color-gold-700) 0%,
-            var(--color-gold-300) 15%,
-            var(--color-gold-600) 30%,
-            var(--color-gold-300) 45%,
-            var(--color-gold-500) 55%,
-            var(--color-gold-200) 75%,
-            var(--color-gold-300) 80%,
-            var(--color-gold-100) 90%,
-            var(--color-gold-300) 100%
     );
 
     --font-orbitron: 'Orbitron', sans-serif;
