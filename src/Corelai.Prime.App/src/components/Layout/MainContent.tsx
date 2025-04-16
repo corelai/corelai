@@ -21,12 +21,12 @@ const MainContent: React.FC = () => {
     return (
         <div className="text-center" >
             <h1 className="font-[700] py-2 sm:py-4 relative overflow-hidden">
-                <div className="
-                rotate-30
-                size-20 -translate-y-9 -translate-x-16
-                sm:size-28 sm:-translate-y-19 sm:-translate-x-19
-                bg-gradient-to-br from-[var(--color-primary-surface)] to-[var(--color-division-surface)]
-                absolute inset-0 "></div>
+                {/*<div className="*/}
+                {/*rotate-30*/}
+                {/*size-20 -translate-y-9 -translate-x-16*/}
+                {/*sm:size-28 sm:-translate-y-19 sm:-translate-x-19*/}
+                {/*bg-gradient-to-br from-[var(--color-primary-surface)] to-[var(--color-division-surface)]*/}
+                {/*absolute inset-0 "></div>*/}
                 Welcome to Corelai Prime
             </h1>
             <p className="

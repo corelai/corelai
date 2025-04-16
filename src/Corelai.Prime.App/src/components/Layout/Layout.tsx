@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Header from './Header';
-import Sidebar from './Sidebar';
 import MainContent from './MainContent';
 import Footer from './Footer';
 import '../../styles/layout.css';
@@ -15,9 +14,9 @@ const Layout: React.FC = () => {
             <header className="grid-in-header col-span-4">
                 <Header />
             </header>
-            <aside className="grid-in-side hidden sm:block">
-                <Sidebar />
-            </aside>
+            {/*<aside className="grid-in-side hidden sm:hidden">*/}
+            {/*    <Sidebar />*/}
+            {/*</aside>*/}
             <main className="grid-in-main col-span-4 sm:col-span-3">
                 <MainContent />
             </main>
