@@ -1,5 +1,6 @@
 import React from 'react';
 import {WelcomeCitizen} from "../WelcomeCitizen/WelcomeCitizen.tsx";
+import History from "../History/History.tsx";
 
 
 const MainContent: React.FC = () => {
@@ -18,6 +19,7 @@ const MainContent: React.FC = () => {
             relative overflow-hidden">
                     History of Corelai
                 </h1>
+                <History/>
             </div>
         </>
     );
