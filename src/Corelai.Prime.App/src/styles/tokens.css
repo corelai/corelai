@@ -32,8 +32,8 @@
     --font-oxanium: 'Oxanium', sans-serif;
     --font-encode: 'Encode Sans Expanded', sans-serif;
     --color-background: var(--color-zinc-100);
-    --color-primary: var(--color-zinc-700);
-    --color-primary-surface: var(--color-zinc-300);
+    --color-primary: var(--color-zinc-800);
+    --color-primary-surface: var(--color-zinc-200);
     --color-secondary:  var(--color-zinc-900);
     --color-secondary-surface: var(--color-zinc-400);
     --color-normal: var(--color-zinc-950);
