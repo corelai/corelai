@@ -10,14 +10,14 @@ export const CorelaiLogo: React.FC = () => {
         <div className="flex flex-row">
             <div className="text-white font-orbitron text-xl sm:text-4xl uppercase   whitespace-nowrap">
 
-                <div className="w-5 h-5 sm:size-12 inline-block sm:pt-0.5">
+                <div className="size-7 sm:size-12 inline-block sm:pt-0.5">
                     <CorelaiLaurel className="size-full text-white"/>
                 </div>
                 orelai
             </div>
             <div
                 className="text-stone-200 text-xs sm:text-lg font-oxanium font-[400] uppercase
-                -translate-x-11 translate-y-6
+                -translate-x-11 translate-y-7
                 sm:-translate-x-16 sm:translate-y-12">
                 sector
             </div>
