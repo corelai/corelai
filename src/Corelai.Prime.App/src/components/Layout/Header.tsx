@@ -9,7 +9,6 @@ const Header: React.FC = () => {
              flex justify-center
              ">
             <CorelaiLogo/>
-
         </div>
     );
 };
