@@ -5,7 +5,7 @@ const Header: React.FC = () => {
     return (
         <div
             className="bg-primary-surface
-             border-b-4 sm:border-b-6 md:border-b-8 golden-border">
+             border-t-4 sm:border-t-6 md:border-t-8 golden-border">
             <CorelaiLogo/>
 
         </div>

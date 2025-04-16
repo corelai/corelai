@@ -1,11 +1,11 @@
 @layer utilities {
 
-  /* Grid layout areas for Corelai Prime base layout */
+  /* Grid layout areas for Corelai Prime base mobile layout */
   .grid-areas-layout {
     grid-template-areas:
       "nav nav nav nav"
       "header header header header"
-      "side main main main"
+      "main main main main"
       "footer footer footer footer";
 
     grid-template-columns: clamp(8rem, 20vw, 24rem) 1fr 1fr 1fr;
@@ -14,13 +14,13 @@
   /*
     Decision Note (Corelai SECTOR Standard):
 
-    Breakpoint value is hardcoded (29.999rem = 479.984px) for mobile layout switch.
+    Breakpoint value is hardcoded (29.999rem = 479.984px) for desktop layout switch.
     This is required because CSS custom properties (var(--breakpoint-sm))
     cannot be used inside media queries for responsive layouts.
 
     See: https://github.com/tailwindlabs/tailwindcss/discussions/15113
   */
-  @media (max-width: 29.999rem) {
+  @media (min-width: 29.999rem) {
     .grid-areas-layout {
       grid-template-areas:
         "nav nav nav nav"
