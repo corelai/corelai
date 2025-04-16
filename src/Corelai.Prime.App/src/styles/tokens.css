@@ -47,11 +47,11 @@
 
 @layer base {
     @variant dark {
-        --color-background: var(--color-slate-900);
-        --color-primary: #D6C38D;
-        --color-secondary: var(--color-slate-100);
-        --color-primary-surface: var(--color-slate-950);
-        --color-secondary-surface: var(--color-slate-800);
-        --color-normal: var(--color-stone-50);
+        --color-background: var(--color-black);
+        --color-primary: var(--color-zinc-300);
+        --color-primary-surface: var(--color-zinc-900);
+        --color-secondary: var(--color-zinc-400);
+        --color-secondary-surface: var(--color-zinc-950);
+        --color-normal: var(--color-zinc-300);
     }
 }
