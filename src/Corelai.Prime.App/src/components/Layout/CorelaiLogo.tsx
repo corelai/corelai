@@ -8,20 +8,35 @@ export const CorelaiLogo: React.FC = () => {
             <span className="absolute inset-0"></span>
         </a>
         <div className="flex flex-row">
-            <div className="text-primary font-orbitron text-xl sm:text-4xl uppercase   whitespace-nowrap">
+            <div className="
+                translate-x-0.5
+                sm:translate-x-1
 
-                <div className="size-7 sm:size-12 inline-block sm:pt-0.5">
-                    <CorelaiLaurel className="size-full text-division"/>
-                </div>
+                size-8 pt-0.5
+                sm:size-13
+                md:size-12 md:pt-0.5">
+                <CorelaiLaurel className="size-full text-primary"/>
+            </div>
+            <div className="text-primary/80 font-orbitron
+            pt-3
+            sm:pt-5
+            text-lg
+            sm:text-4xl
+            uppercase
+            whitespace-nowrap">
                 orelai
             </div>
             <div
-                className="text-primary/50 text-xs sm:text-lg font-oxanium font-[400] uppercase
-                -translate-x-11 translate-y-7
-                sm:-translate-x-16 sm:translate-y-12">
+                className="text-division  font-oxanium font-[400] uppercase
+                text-xs
+                sm:text-sm
+                md:text-lg
+
+                md:text-blue-500
+                -translate-x-11 translate-y-8
+                sm:-translate-x-13 sm:translate-y-13">
                 sector
             </div>
-            {/*<span className="text-gold">prime</span>*/}
         </div>
     </div>);
 }
