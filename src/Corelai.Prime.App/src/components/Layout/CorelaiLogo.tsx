@@ -1,27 +1,55 @@
 import React from "react";
-import {Symbol} from "./Symbol.tsx";
+import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
 
 
 export const CorelaiLogo: React.FC = () => {
-    return (<div className="relative border-white">
-        <a href="/">
-            <span className="absolute inset-0"></span>
-        </a>
-        <div className="flex flex-row">
-            <div className="text-white font-orbitron text-xl sm:text-4xl uppercase   whitespace-nowrap">
-                C
-                <div className="w-5 h-5 sm:w-9 sm:h-9 inline-block sm:pt-0.5">
-                    <Symbol/>
+    return (
+        <div className="relative
+        py-3
+        ">
+            <a href="/" className="">
+                <span className="absolute inset-0"></span>
+            </a>
+            <div className="
+                flex
+            flex-row
+            sm:flex-col
+            justify-evenly
+            sm:justify-start
+            sm:items-center
+            ">
+                <div className="flex flex-row">
+                    <div className="
+                        size-8 pt-0.5
+                        sm:size-13
+                    ">
+                        <CorelaiLaurel className="size-full text-primary"/>
+                    </div>
+                    <div className="text-primary/65 font-orbitron tracking-widest
+                                    pt-3
+                                    sm:pt-5
+                                    text-lg
+                                    sm:text-4xl
+                                    uppercase
+                                    whitespace-nowrap">
+                        orelai
+                    </div>
                 </div>
-                relai
+                <div
+                    className="text-division  font-oxanium font-[400] uppercase
+                self-end
+                sm:self-auto
+                text-xs
+                sm:text-sm
+                md:text-lg
+
+                {/*-translate-x-11 translate-y-8*/}
+                {/*sm:-translate-x-13 sm:translate-y-13*/}
+                {/*md:-translate-x-16 */}
+                ">
+                    sector // prime
+                </div>
             </div>
-            <div
-                className="text-stone-200 text-xs sm:text-lg font-oxanium font-[400] uppercase
-                -translate-x-11 translate-y-6
-                sm:-translate-x-16 sm:translate-y-9">
-                sector
-            </div>
-            {/*<span className="text-gold">prime</span>*/}
         </div>
-    </div>);
+    );
 }
