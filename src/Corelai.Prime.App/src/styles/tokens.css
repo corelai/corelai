@@ -32,15 +32,23 @@
     --font-oxanium: 'Oxanium', sans-serif;
     --font-encode: 'Encode Sans Expanded', sans-serif;
     --color-background: var(--color-zinc-100);
+
     --color-primary: var(--color-zinc-800);
     --color-primary-surface: var(--color-zinc-200);
+
     --color-secondary:  var(--color-zinc-900);
-    --color-secondary-surface: var(--color-zinc-400);
+    --color-secondary-surface: var(--color-zinc-50);
+
     --color-normal: var(--color-zinc-950);
-    --color-division:  var(--color-gold-600);
-    --color-division-surface: var(--color-gold-500);
+    --color-division:  var(--color-gold-700);
+    --color-division-surface: var(--color-gold-200);
     --color-division-secondary:  var(--color-red-500);
     --color-division-secondary-surface:  var(--color-pink-500);
+
+    /*debug colors*/
+    /*--color-background: var(--color-blue-400);*/
+    /*--color-primary-surface: var(--color-lime-200);*/
+    /*--color-secondary-surface: var(--color-pink-500);*/
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -55,7 +63,7 @@
         --color-secondary-surface: var(--color-zinc-950);
         --color-normal: var(--color-zinc-300);
         --color-division:  var(--color-gold-200);
-        --color-division-surface: var(--color-gold-100);
+        --color-division-surface: var(--color-gold-700);
         /*--color-division-secondary:  var(--color-gold-300);*/
         /*--color-division-secondary-surface:  var(--color-gold-500);*/
     }
