@@ -1,11 +1,11 @@
 import React from 'react';
-import {CorelaiSymbol} from "./CorelaiSymbol.tsx";
+import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
 
 const Sidebar: React.FC = () => {
     return (
         <div className="flex justify-center h-full bg-secondary-surface text-white p-4 border-e-1 border-primary">
             <div className="flex h-full max-w-3/4">
-                <CorelaiSymbol/>
+                <CorelaiLaurel className="size-full text-primary"/>
             </div>
         </div>
     );
