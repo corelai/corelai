@@ -29,7 +29,17 @@ const MainContent: React.FC = () => {
                 absolute inset-0 "></div>
                 Welcome to Corelai Prime
             </h1>
-            <p className="text-start px-8 text-sm font-text text-normal whitespace-pre-line">
+            <p className="
+            text-start
+            px-8
+            text-sm
+            font-text
+            text-normal
+            whitespace-pre-line
+            m-auto
+            md:max-w-[75%]
+            lg:max-w-[50%]
+            ">
                 {welcomeMessage}
 
             </p>
