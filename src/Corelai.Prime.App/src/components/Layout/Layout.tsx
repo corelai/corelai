@@ -17,7 +17,7 @@ const Layout: React.FC = () => {
             {/*<aside className="grid-in-side hidden sm:hidden">*/}
             {/*    <Sidebar />*/}
             {/*</aside>*/}
-            <main className="grid-in-main col-span-4 sm:col-span-3">
+            <main className="grid-in-main col-span-4 sm:col-span-4">
                 <MainContent />
             </main>
             <footer className="grid-in-footer col-span-4">
