@@ -23,7 +23,7 @@ const MainContent: React.FC = () => {
             <h1 className="font-[700] py-2 sm:py-4">
                 Welcome to Corelai Prime
             </h1>
-            <p className="text-start px-8 text-xs font-text whitespace-pre-line">
+            <p className="text-start px-8 text-xs font-text text-normal whitespace-pre-line">
                 {welcomeMessage}
 
             </p>

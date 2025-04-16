@@ -85,20 +85,6 @@ input, textarea, button, select {
     outline: none;
 }
 
-.tonno {
-    border-image:linear-gradient(to right, #6fbe2e 19%, #00bbd6 43%, #0f61a9 57%, #5a39a0 81%) 100
-}
-
-.bongo {
-    border-image:linear-gradient(to right, #312f14 19%, #9a9042 43%, #d6c051 57%, #8a7d30 81%) 100
-
-}
-
-
-.bongo2 {
-    border-image:linear-gradient(to right, #312f14 20%, var(--color-gold) 50%, #312f14 80%) 100
-
-}
 
 .golden-border {
     border-image: var(--border-gradient-gold) 100;
