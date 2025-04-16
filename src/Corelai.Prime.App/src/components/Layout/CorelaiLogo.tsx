@@ -14,9 +14,7 @@ export const CorelaiLogo: React.FC = () => {
                 flex
             flex-row
             sm:flex-col
-            justify-evenly
-            sm:justify-start
-            sm:items-center
+            items-center
             ">
                 <div className="flex flex-row">
                     <div className="
@@ -37,8 +35,8 @@ export const CorelaiLogo: React.FC = () => {
                 </div>
                 <div
                     className="text-division  font-oxanium font-[400] uppercase
-                self-end
-                sm:self-auto
+                self-end pb-0.5 ps-3
+                sm:self-auto sm:pb-0 sm:ps-0
                 text-xs
                 sm:text-sm
                 md:text-lg

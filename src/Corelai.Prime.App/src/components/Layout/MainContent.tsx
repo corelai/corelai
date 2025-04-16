@@ -20,7 +20,13 @@ const CORELAI_SLOGAN = `
 const MainContent: React.FC = () => {
     return (
         <div className="text-center" >
-            <h1 className="font-[700] py-2 sm:py-4 relative overflow-hidden">
+            <h1 className="font-[700]
+            pt-1 pb-2
+            sm:py-4
+            text-sm
+            sm:text-base
+            md:text-lg
+            relative overflow-hidden">
                 {/*<div className="*/}
                 {/*rotate-30*/}
                 {/*size-20 -translate-y-9 -translate-x-16*/}
@@ -32,7 +38,10 @@ const MainContent: React.FC = () => {
             <p className="
             text-start
             px-8
-            text-sm
+            text-xs
+            sm:text-sm
+            md:text-base
+
             font-text
             text-normal
             whitespace-pre-line
@@ -43,7 +52,14 @@ const MainContent: React.FC = () => {
                 {welcomeMessage}
 
             </p>
-            <p className="py-4 sm:py-8 font-orbitron text-md text-center">{CORELAI_SLOGAN}</p>
+            <p className="py-4 sm:py-8 font-orbitron
+            text-center
+            text-sm
+            sm:text-base
+            md:text-lg
+            ">
+                {CORELAI_SLOGAN}
+            </p>
 
 
             {/*<h3 className="font-[600]">*/}
