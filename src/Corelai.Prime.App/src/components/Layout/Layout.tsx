@@ -10,8 +10,9 @@ const Layout: React.FC = () => {
         <>
             <div className="w-full h-full flex justify-center items-center">
 
-                <div className="bg-surface-50 p-8 rounded-4xl
+                <div className="bg-surface-50 p-8
                 shadow-sm shadow-surface-400
+                dark:shadow-none
                 ">
                     <h1 className="uppercase tracking-wide font-[400]">h1 400 test for the win</h1>
                     <h1 className="uppercase tracking-wide font-[600]">h1 600 test for the win</h1>
