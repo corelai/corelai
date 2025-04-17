@@ -48,7 +48,23 @@ export const HistoryEntryExpanded: React.FC = () => {
                 </div>
 
 
-                <h1 className="uppercase tracking-wide font-[600] bg-surface-50">h1 600 test for the win</h1>
+                <div className="relative">
+                    <h1 className="
+                        uppercase tracking-tight
+                        font-[600]
+                        text-xs text-center
+                        px-4 py-2
+                        bg-surface-200 rounded-2xl sm:rounded-4xl
+                        shadow-xs shadow-surface-500
+                        absolute
+                        left-1/2 -translate-x-1/2
+                        sm:left-1/2 sm:-translate-x-1/2
+                        top-full  -translate-y-1/2
+                        ">
+                        Authorization for Extra-Orbital Expansion
+                    </h1>
+                </div>
+                <div className="py-4"></div>
                 <h1 className="uppercase tracking-wide font-[700] bg-surface-50">h1 700 test for the win</h1>
                 <div className="py-4 bg-surface-50"></div>
                 <div className="hyphens-auto indent-4 font-[400] text-base bg-surface-50"> Font 200.
