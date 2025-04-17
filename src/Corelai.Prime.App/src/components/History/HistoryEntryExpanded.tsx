@@ -17,10 +17,19 @@ export const HistoryEntryExpanded: React.FC = () => {
                     <div className="bg-surface-900/65 absolute inset-0"></div>
                     <h2 className="uppercase tracking-wide font-[700] text-writing-50
                     relative z-1
-                    py-8
+                    text-base/4
+                    pt-8
                     ps-2
                     "
-                    >2025 Mar 16 13:19</h2>
+                    >2025 Mar 16</h2>
+                    <h4 className="uppercase tracking-wide font-[400] text-writing-300
+                    relative z-1
+                    text-sm/4
+                    pt-0
+                    ps-2
+                    "
+                    >13:19</h4>
+
                 </div>
 
 
