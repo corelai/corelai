@@ -14,25 +14,37 @@ export const HistoryEntryExpanded: React.FC = () => {
                 ">
 
                 <div
-                    className="h-48 bg-[url(/images/history/CL-PRM-HIST-0001.png)] bg-center bg-cover bg-no-repeat relative">
+                    className="h-48 bg-[url(/images/history/CL-PRM-HIST-0001.png)] bg-center bg-cover bg-no-repeat relative
+                    grid grid-cols-2
+                    ">
                     <div className="bg-surface-900/65 absolute inset-0"></div>
                     <div className="ps-8">
+                        <h2 className="uppercase tracking-wide font-[700] text-writing-50
+                        relative z-1
+                        text-base/4
+                        pt-8
+                        ">
+                            2025 Mar 16
+                        </h2>
+                        <h4 className="uppercase tracking-wide font-[400] text-writing-300
+                        relative z-1
+                        text-sm/4
+                        pt-0
+                        ">
+                            13:19
+                        </h4>
+                    </div>
+
+                    <div className="ms-auto pe-8">
                         <h2 className="uppercase tracking-wide font-[700] text-writing-50
                     relative z-1
                     text-base/4
                     pt-8
+                    text-nowrap
                     ">
-                            2025 Mar 16</h2>
-                        <h4 className="uppercase tracking-wide font-[400] text-writing-300
-                    relative z-1
-                    text-sm/4
-                    pt-0
-                    ">
-                            13:19</h4>
+                            CL-PRM-HIST-0001</h2>
 
                     </div>
-
-
                 </div>
 
 
