@@ -13,7 +13,9 @@ export const HistoryEntryExpanded: React.FC = () => {
                 overflow-hidden
                 ">
 
-                <div className="h-48 bg-[url(/images/history/CL-PRM-HIST-0001.png)] bg-center bg-cover bg-no-repeat"></div>
+                <div className="h-48 bg-[url(/images/history/CL-PRM-HIST-0001.png)] bg-center bg-cover bg-no-repeat relative">
+                    <div className="bg-surface-900/50 absolute inset-0"></div>
+                </div>
 
                 <h1 className="uppercase tracking-wide font-[400] bg-surface-50">h1 400 test for the win</h1>
                 <h1 className="uppercase tracking-wide font-[600] bg-surface-50">h1 600 test for the win</h1>
