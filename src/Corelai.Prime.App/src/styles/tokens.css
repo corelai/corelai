@@ -2,8 +2,7 @@
 
     /* Color Gold Scale */
     --color-gold: var(--color-gold-300); /* Base */
-
-    --color-gold-50:  #f9f7ef;
+    --color-gold-50: #f9f7ef;
     --color-gold-100: #f3efdb;
     --color-gold-200: #e6deba;
     --color-gold-300: #d6c38d;
@@ -28,6 +27,7 @@
             var(--color-gold-100) 100%
     );
 
+
     --font-orbitron: 'Orbitron', sans-serif;
     --font-oxanium: 'Oxanium', sans-serif;
     --font-encode: 'Encode Sans Expanded', sans-serif;
@@ -35,6 +35,8 @@
 
     --color-primary: var(--color-zinc-800);
     --color-primary-surface: var(--color-zinc-200);
+    --color-secondary: var(--color-zinc-900);
+    --color-secondary-surface: var(--color-zinc-400);
 
     --color-secondary:  var(--color-zinc-900);
     --color-secondary-surface: var(--color-zinc-50);
@@ -49,6 +51,38 @@
     /*--color-background: var(--color-blue-400);*/
     /*--color-primary-surface: var(--color-lime-200);*/
     /*--color-secondary-surface: var(--color-pink-500);*/
+    --color-division: var(--color-gold-600);
+    --color-division-surface: var(--color-gold-500);
+    --color-division-secondary: var(--color-red-500);
+    --color-division-secondary-surface: var(--color-pink-500);
+
+
+
+    /*new version*/
+
+    --color-surface-50: var(--color-neutral-50);
+    --color-surface-100: var(--color-neutral-100);
+    --color-surface-200: var(--color-neutral-200);
+    --color-surface-300: var(--color-neutral-300);
+    --color-surface-400: var(--color-neutral-400);
+    --color-surface-500: var(--color-neutral-500);
+    --color-surface-600: var(--color-neutral-600);
+    --color-surface-700: var(--color-neutral-700);
+    --color-surface-800: var(--color-neutral-800);
+    --color-surface-900: var(--color-neutral-900);
+    --color-surface-950: var(--color-neutral-950);
+
+    --color-writing-50: var(--color-neutral-50);
+    --color-writing-100: var(--color-neutral-100);
+    --color-writing-200: var(--color-neutral-200);
+    --color-writing-300: var(--color-neutral-300);
+    --color-writing-400: var(--color-neutral-400);
+    --color-writing-500: var(--color-neutral-500);
+    --color-writing-600: var(--color-neutral-600);
+    --color-writing-700: var(--color-neutral-700);
+    --color-writing-800: var(--color-neutral-800);
+    --color-writing-900: var(--color-neutral-900);
+    --color-writing-950: var(--color-neutral-950);
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -64,7 +98,11 @@
         --color-normal: var(--color-zinc-300);
         --color-division:  var(--color-gold-200);
         --color-division-surface: var(--color-gold-700);
+        --color-division: var(--color-gold-200);
+        --color-division-surface: var(--color-gold-100);
         /*--color-division-secondary:  var(--color-gold-300);*/
         /*--color-division-secondary-surface:  var(--color-gold-500);*/
     }
 }
+
+

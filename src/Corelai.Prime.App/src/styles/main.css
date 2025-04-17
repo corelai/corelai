@@ -38,8 +38,8 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    color: var(--color-normal);
-    background-color: var(--color-background);
+    color: var(--color-writing-900);
+    background-color: var(--color-surface-300);
 }
 
 /* Images: Prevent overflow */
@@ -62,8 +62,7 @@ strong {
 
 /* Headings inherit color */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--color-primary);
-    background-color: var(--color-primary-surface);
+    color: var(--color-writing-950);
     font-family: var(--font-oxanium), sans-serif;
 }
 
