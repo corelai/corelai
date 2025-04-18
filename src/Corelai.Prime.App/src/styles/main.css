@@ -13,6 +13,7 @@
 /* Layout grid definitions */
 @import "./layout.css";
 
+@plugin "tailwind-scrollbar";
 
 /* -------------------------------------------------------------------
   Corelai Prime Base Stylesheet

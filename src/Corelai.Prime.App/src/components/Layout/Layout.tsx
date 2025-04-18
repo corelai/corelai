@@ -10,10 +10,11 @@ import History from "../History/History.tsx";
 const Layout: React.FC = () => {
     return (
         <>
+            <Header/>
             <div className="w-full h-full flex-col justify-center items-center
             sm:p-8 md:p-16 lg:p-32
             ">
-                <div className="overflow-y-auto max-h-[50%]">
+                <div className="overflow-y-auto max-h-[50%] scrollbar-thin scrollbar-thumb-surface-400 scrollbar-track-transparent">
                 <History/>
                     </div>
 
