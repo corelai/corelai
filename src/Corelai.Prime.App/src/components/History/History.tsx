@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {HistoryEntry} from "./HistoryEntryExpanded.tsx";
+import {TimelineEntry} from "./HistoryEntryExpanded.tsx";
 import {HistoryEntryFullDate, HistoryEntryHour} from "./HistoryEntryDate.tsx";
+import {TimelineEntryImage} from "./TimelineEntryHeroImage.tsx";
 
-const isValidHistoryEntry = (obj: any): obj is HistoryEntry =>
+const isValidHistoryEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
     typeof obj.id === 'string' &&
     typeof obj.code === 'string' &&
@@ -12,7 +13,7 @@ const isValidHistoryEntry = (obj: any): obj is HistoryEntry =>
     typeof obj.body === 'string' &&
     typeof obj.imagePath === 'string';
 
-const parseHistoryData = (raw: any): HistoryEntry[] => {
+const parseHistoryData = (raw: any): TimelineEntry[] => {
     if (!Array.isArray(raw)) throw new Error('Invalid JSON structure');
     return raw.map(item => {
         if (!isValidHistoryEntry(item)) throw new Error('Invalid history entry');
@@ -48,7 +49,7 @@ const HistoryPlainDate = ({date}: HistoryPlainDateProps) => (
 )
 
 const History: React.FC = () => {
-    const [data, setData] = useState<HistoryEntry[]>([]);
+    const [data, setData] = useState<TimelineEntry[]>([]);
 
     useEffect(() => {
         const loadJson = async () => {
@@ -68,38 +69,77 @@ const History: React.FC = () => {
 
     return (
         <div>
-            <h3 className={`font-[200] 
-            text-xl
+            <div className="flex flex-row sm:flex-col">
+                <h3 className={`font-[200]             
+            sm:text-xl
             text-writing-600
             dark:text-writing-500
-            `}>events</h3>
-            <h1 className={`
-            text-2xl
-             font-oxanium font-[600] uppercase
+            hidden sm:block
+            ps-20
+            `}>
+                    events
+                </h3>
+                <h1 className={`
+            text-xl
+            sm:text-2xl
+            font-oxanium font-[600] uppercase
             dark:text-writing-300
-            `}>Timeline</h1>
-            {data.map((historyEntry: HistoryEntry) => (
-                    <div key={historyEntry.id} className="
-                    cursor-pointer
-                    border-l-2
-                    border-surface-400 hover:border-surface-900
-                     dark:border-surface-600 dark:hover:border-surface-400
-                    hover:bg-gold-200 dark:hover:bg-gold-200/20
-                    dark:bg-linear-to-r dark:from-surface-300/5 dark:to-surface-900/0
-                    ms-10
-                    ps-8
-                    flex
-                    sm:justify-left items-start
-                    flex-col sm:flex-row
-                    relative
-                    py-4 sm:py-8
-                    ">
-                        <HistoryPlainDate date={historyEntry.date}/>
-                        <div className={`uppercase tracking-tight
-                        dark:text-writing-300
-                        `}>{historyEntry.title}</div>
-                    </div>
+            ps-20
+            -mb-1
+            underline
+            `}>
+                    Timeline
+                </h1>
+            </div>
+            {data.map((timelineEntry: TimelineEntry) => (
+                    <div className={`flex flex-row items-center
+                        cursor-pointer group
+                        
+                        `}>
+                        {/*image*/}
+                        <div className={`size-18 bg-center bg-cover bg-no-repeat 
+                        border-surface-950   dark:border-gold-100/25
+                         border-2 dark:border-2
+                        rounded-full`}
+                             style={{backgroundImage: `url(${timelineEntry.imagePath})`}}>
 
+                        </div>
+
+                        {/*timeline data*/}
+                        <div key={timelineEntry.id} className="
+                        border-l-2
+                        border-surface-400 group-hover:border-surface-900
+                         dark:border-surface-600 dark:group-hover:border-surface-400
+
+                        group-hover:bg-gold-200 dark:group-hover:bg-transparent
+                        active:bg-gold-200 dark:active:bg-transparent
+                        dark:group-hover:bg-linear-to-r dark:group-hover:from-surface-300/25 dark:group-hover:to-surface-900/0
+                        dark:active:bg-linear-to-r dark:active:from-surface-300/25 dark:active:to-surface-900/0
+                        dark:bg-linear-to-r dark:from-surface-300/5 dark:to-surface-900/0
+
+                        ms-10
+                        ps-8
+                        flex
+                        sm:justify-left items-start
+                        flex-col sm:flex-row
+                        relative
+                        py-4 sm:py-8
+                        shadow-xs
+                        grow
+                        ">
+                            {/*date*/}
+                            <HistoryPlainDate date={timelineEntry.date}/>
+
+
+                            {/*title*/}
+                            <div className={`uppercase tracking-tight
+                            dark:text-writing-300
+                            `}>
+                                {timelineEntry.title}
+                            </div>
+
+                        </div>
+                    </div>
                 )
             )}
 

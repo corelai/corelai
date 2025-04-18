@@ -1,14 +1,14 @@
 import React from "react";
 import {Guid} from "../../utils/guid.ts";
 import HistoryEntryTitle from "./HistoryEntryTitle.tsx";
-import HistoryEntryHeroImage from "./HistoryEntryHeroImage.tsx";
+import TimelineEntryHeroImage from "./TimelineEntryHeroImage.tsx";
 import HistoryEntryDate from "./HistoryEntryDate.tsx";
 import HistoryEntryCode from "./HistoryEntryCode.tsx";
 import HistoryEntryTag from "./HistoryEntryTag.tsx";
 import HistoryEntrySummary from "./HistoryEntrySummary.tsx";
 
 
-export interface HistoryEntry {
+export interface TimelineEntry {
     id: Guid;
     code: string;
     title: string;
@@ -23,7 +23,7 @@ export interface HistoryEntry {
 
 interface HistoryEntryExpandedProps {
     className:string;
-    historyEntry: HistoryEntry;
+    historyEntry: TimelineEntry;
 }
 
 
@@ -45,10 +45,10 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 overflow-hidden
                 ">
 
-                <HistoryEntryHeroImage imagePath={historyEntry.imagePath}>
+                <TimelineEntryHeroImage imagePath={historyEntry.imagePath}>
                     <HistoryEntryDate textColor={`text-writing-50`} date={historyEntry.date}/>
                     <HistoryEntryCode code={historyEntry.code}/>
-                </HistoryEntryHeroImage>
+                </TimelineEntryHeroImage>
 
 
                 <HistoryEntryTitle title={historyEntry.title} relative={true}/>

@@ -1,10 +1,10 @@
 import React from "react";
 
-interface HistoryEntryHeroImageProps {
+interface TimelineEntryImageProps {
     imagePath: string;
     children: React.ReactNode;
 }
-const HistoryEntryHeroImage: React.FC<HistoryEntryHeroImageProps> = ({imagePath, children}) => (
+const TimelineEntryHeroImage: React.FC<TimelineEntryImageProps> = ({imagePath, children}) => (
     <div
         className="h-48 bg-center bg-cover bg-no-repeat relative grid grid-cols-2"
         style={{backgroundImage: `url(${imagePath})`}}
@@ -18,4 +18,4 @@ const HistoryEntryHeroImage: React.FC<HistoryEntryHeroImageProps> = ({imagePath,
     </div>
 );
 
-export default HistoryEntryHeroImage;
+export default TimelineEntryHeroImage;
