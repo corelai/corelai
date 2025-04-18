@@ -52,12 +52,13 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 text-sm sm:text-sm/6
                 font-[400]  py-12
                 px-8 sm:px-16
+                shadow-xs shadow-surface-100
                 ">
                     {historyEntry.summary}
                 </h2>
 
                 <div className="flex justify-center
-                p-12
+                p-8
                 gap-4
                 flex-wrap
                 ">
