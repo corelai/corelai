@@ -13,7 +13,9 @@ const Layout: React.FC = () => {
             <div className="w-full h-full flex-col justify-center items-center
             sm:p-8 md:p-16 lg:p-32
             ">
+                <div className="overflow-y-auto max-h-[50%]">
                 <History/>
+                    </div>
 
             </div>
             {/*<div className="grid grid-areas-layout grid-cols-4 grid-rows-[auto_auto_1fr_auto] min-h-dvh ">*/}
