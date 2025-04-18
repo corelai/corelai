@@ -5,14 +5,19 @@ const HistoryEntryTitle = ({title}: HistoryEntryProps) =>
         <div className="relative">
             <h1 className="
             uppercase
-            font-[600]
-            text-xs text-center
+            font-[700]
+            text-sm text-center
             px-4 pt-3 pb-2
-            bg-surface-300
-             dark:bg-surface-200
-             rounded-2xl sm:rounded-4xl
-            shadow-xs shadow-surface-500
-            dark:shadow-surface-400
+
+
+            text-gold-300
+            dark:text-gold-100
+            bg-surface-900
+            dark:bg-gold-500
+
+            rounded-2xl sm:rounded-4xl
+            border-2 border-surface-50
+            dark:border-2 dark:border-gold-300/80
             absolute
             left-1/2 -translate-x-1/2
             sm:left-1/2 sm:-translate-x-1/2
