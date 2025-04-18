@@ -24,9 +24,11 @@ export const CorelaiLogo: React.FC = () => {
                     ">
                         <CorelaiLaurel className="
                         size-full
-                        text-writing-900"/>
+                        text-writing-900
+                        dark:text-writing-100"/>
                     </div>
                     <div className="text-writing-800
+                                    dark:text-writing-200
                                     font-orbitron
                                     tracking-widest
                                     pt-3
@@ -39,7 +41,11 @@ export const CorelaiLogo: React.FC = () => {
                     </div>
                 </div>
                 <div
-                    className="text-writing-800 font-oxanium font-[400] uppercase
+                    className="
+                    text-writing-800
+                      dark:text-writing-200
+
+                    font-oxanium font-[400] uppercase
                 self-end pb-0.5 ps-3
                 sm:self-auto sm:pb-0 sm:ps-0
                 text-xs
@@ -51,16 +57,16 @@ export const CorelaiLogo: React.FC = () => {
                     <SlArrowLeft className="
                     text-[0.3rem]
                     sm:text-[0.5rem]
-                    " />
+                    "/>
                     sector
                     <span
-                    className="
+                        className="
                     text-gold-600"
                     > prime </span>
                     <SlArrowRight className="
                     text-[0.3rem]
                     sm:text-[0.5rem]
-                    " />
+                    "/>
                 </div>
             </div>
         </div>
