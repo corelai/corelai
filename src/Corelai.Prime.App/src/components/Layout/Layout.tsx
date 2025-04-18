@@ -13,7 +13,10 @@ const Layout: React.FC = () => {
             <Header/>
             <div className="py-4"></div>
             <div className="w-full h-full flex-col justify-center items-center
-            sm:p-8 md:p-16 lg:p-32
+            py-16
+            sm:p-16
+            md:p-24
+            lg:p-32
             ">
                 <div className="overflow-y-auto min-h-[75%] max-h-[75%] scrollbar-thin scrollbar-thumb-surface-400 scrollbar-track-transparent">
                 <History/>
