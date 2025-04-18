@@ -5,14 +5,12 @@ import MainContent from './MainContent';
 import Footer from './Footer';
 import '../../styles/layout.css';
 import History from "../History/History.tsx";
-import {ThemeToggleButton} from "../ThemeToggleButton/ThemeToggleButton.tsx";
 
 
 const Layout: React.FC = () => {
     return (
         <>
             <Header/>
-            <ThemeToggleButton/>
             <div className="w-full h-full flex-col justify-center items-center
             sm:p-8 md:p-16 lg:p-32
             ">

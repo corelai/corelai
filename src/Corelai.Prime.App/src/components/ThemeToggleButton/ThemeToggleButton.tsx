@@ -1,15 +1,19 @@
 import {useTheme} from "../../hooks/useTheme.ts";
 import React from "react";
 
-export const ThemeToggleButton: React.FC = () => {
+type Props = {
+    className?: string;
+}
+
+export const ThemeToggleButton: React.FC<Props> = ({className}) => {
     const {theme, toggleTheme} = useTheme();
 
     return (
-            <button
-                onClick={toggleTheme}
-                className="cursor-pointer p-4"
-            >
-                {theme === 'dark' ? '🌙' : '☀️'}
-            </button>
+        <div onClick={toggleTheme} className={
+            `cursor-pointer uppercase
+            ${className}`
+        }>
+            {theme === 'dark' ? 'dark' : 'light️'}
+        </div>
     );
 };
