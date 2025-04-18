@@ -32,6 +32,9 @@ html, body, #root {
     padding: 0;
 }
 
+html {
+    background-color: var(--color-surface-300);
+}
 /* Optional: system font stack fallback if font-face fails */
 body {
     font-family: var(--font-encode), ui-sans-serif, system-ui, sans-serif;
@@ -39,7 +42,7 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     color: var(--color-writing-900);
-    background-color: var(--color-surface-300);
+
 }
 
 /* Images: Prevent overflow */
