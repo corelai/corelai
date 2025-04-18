@@ -27,11 +27,12 @@ const Header: React.FC = () => {
             <MediaSpy/>
             <CorelaiLogo/>
             <ThemeToggleButton className="
+            size-10
             rounded-full
             transition-colors
-            text-gold-500
+            text-surface-950
             hover:text-gold-400
-            dark:text-gold-600
+            dark:text-surface-300
             dark:hover:text-gold-400
             text-center
             self-center
@@ -39,7 +40,7 @@ const Header: React.FC = () => {
             right-2 sm:right-4
             top-2 sm:top-4
             "
-                               moonClassName="size-6 sm:size-12"
+                               iconClassName="size-6 sm:size-12"
             />
         </div>
     );

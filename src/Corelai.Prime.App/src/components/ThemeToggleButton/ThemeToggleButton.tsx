@@ -1,24 +1,25 @@
 import {useTheme} from "../../hooks/useTheme.ts";
 import React from "react";
 import { WiMoonAltWaxingCrescent2 } from "react-icons/wi";
+import {CiLight} from "react-icons/ci";
 
 type Props = {
     className: string;
-    moonClassName: string;
+    iconClassName: string;
 }
 
-export const ThemeToggleButton: React.FC<Props> = ({className, moonClassName}) => {
+export const ThemeToggleButton: React.FC<Props> = ({className, iconClassName}) => {
     const {theme, toggleTheme} = useTheme();
 
     return (
         <div onClick={toggleTheme} className={
-            `cursor-pointer uppercase
+            `cursor-pointer
             ${className}`
         }>
             {theme === 'dark' ?
-                <WiMoonAltWaxingCrescent2 className={`${moonClassName}`}/>
+                <CiLight className={`${iconClassName}`}/>
                 :
-                <WiMoonAltWaxingCrescent2 className={`${moonClassName}`}/>
+                <WiMoonAltWaxingCrescent2 className={`${iconClassName}`}/>
             }
         </div>
     );
