@@ -3,6 +3,7 @@ import {Guid} from "../../utils/guid.ts";
 import HistoryEntryTitle from "./HistoryEntryTitle.tsx";
 import HistoryEntryHeroImage from "./HistoryEntryHeroImage.tsx";
 import HistoryEntryDate from "./HistoryEntryDate.tsx";
+import HistoryEntryCode from "./HistoryEntryCode.tsx";
 
 
 export interface HistoryEntry {
@@ -23,6 +24,7 @@ interface HistoryEntryExpandedProps {
 }
 
 
+
 const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry}) => {
 
     return (
@@ -38,18 +40,8 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 ">
 
                 <HistoryEntryHeroImage imagePath={historyEntry.imagePath}>
-                   <HistoryEntryDate date={historyEntry.date} />
-
-                    <div className="ms-auto pe-8">
-                        <h2 className="uppercase tracking-wide font-[700] text-writing-50
-                    relative z-1
-                    text-base/4
-                    pt-8
-                    text-nowrap
-                    ">
-                            {historyEntry.code}</h2>
-
-                    </div>
+                    <HistoryEntryDate date={historyEntry.date}/>
+                    <HistoryEntryCode code={historyEntry.code}/>
                 </HistoryEntryHeroImage>
 
 
