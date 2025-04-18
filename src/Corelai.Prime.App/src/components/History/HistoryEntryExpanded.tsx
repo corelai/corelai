@@ -2,6 +2,7 @@ import React from "react";
 import {Guid} from "../../utils/guid.ts";
 import {formatEntryDateOnly, formatEntryTimeOnly} from "../../utils/FormatEntryDate.ts";
 import HistoryEntryTitle from "./HistoryEntryTitle.tsx";
+import {HistoryEntryHeroImage} from "./HistoryEntryHeroImage.tsx";
 
 
 export interface HistoryEntry {
@@ -22,6 +23,7 @@ interface HistoryEntryExpandedProps {
 }
 
 
+
 const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry}) => {
 
     return (
@@ -36,13 +38,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 overflow-hidden
                 ">
 
-                <div
-                    className="h-48
-                    bg-center bg-cover bg-no-repeat relative
-                    grid grid-cols-2
-                    "
-                    style={{backgroundImage: `url(${historyEntry.imagePath})`}}
-                >
+                <HistoryEntryHeroImage imagePath={historyEntry.imagePath}>
                     <div className="
                      bg-linear-to-b from-surface-900/95 to-50% to-surface-50/0
                      absolute inset-0
@@ -74,7 +70,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                             {historyEntry.code}</h2>
 
                     </div>
-                </div>
+                </HistoryEntryHeroImage>
 
 
                 <HistoryEntryTitle title={historyEntry.title}/>
