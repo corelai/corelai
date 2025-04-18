@@ -8,23 +8,24 @@ const Header: React.FC = () => {
             className="
              border-t-4 sm:border-t-6 md:border-t-8 golden-border
              flex justify-center
+             relative
              ">
+            <CorelaiLogo/>
             <ThemeToggleButton className="
-            rounded-4xl
-            border-2
+            rounded-full
             transition-colors
-            border-gold-600
-            hover:border-gold-800
-            text-gold-600
-            hover:text-gold-800
-            border-dashed
-            w-24
-            h-8
+            text-gold-500
+            hover:text-gold-400
+            dark:text-gold-600
+            dark:hover:text-gold-400
             text-center
             self-center
-            p-0.5
-            "/>
-            <CorelaiLogo/>
+            absolute
+            right-2 sm:right-4
+            top-2 sm:top-4
+            "
+            moonClassName="size-6 sm:size-12"
+            />
         </div>
     );
 };
