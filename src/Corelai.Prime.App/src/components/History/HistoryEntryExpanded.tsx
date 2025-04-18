@@ -4,6 +4,7 @@ import HistoryEntryTitle from "./HistoryEntryTitle.tsx";
 import HistoryEntryHeroImage from "./HistoryEntryHeroImage.tsx";
 import HistoryEntryDate from "./HistoryEntryDate.tsx";
 import HistoryEntryCode from "./HistoryEntryCode.tsx";
+import HistoryEntryTag from "./HistoryEntryTag.tsx";
 
 
 export interface HistoryEntry {
@@ -61,18 +62,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 flex-wrap
                 ">
                     {historyEntry.tags.map((tag: string) => (
-                        <div className="
-                    p-1
-                    rounded-4xl text-nowrap
-                    font-[200]
-                    bg-surface-50
-                    text-writing-900
-                    outline outline-offset-1
-                    text-xs
-                    uppercase tracking-tighter
-                    " key={tag}>
-                            #{tag}
-                        </div>
+                       <HistoryEntryTag key={tag} tag={tag}/>
                     ))}
                 </div>
 
@@ -80,5 +70,6 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
         </>
     )
 }
+
 
 export default HistoryEntryExpanded;
