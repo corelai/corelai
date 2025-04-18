@@ -11,6 +11,7 @@ const Layout: React.FC = () => {
     return (
         <>
             <Header/>
+            <div className="py-4"></div>
             <div className="w-full h-full flex-col justify-center items-center
             sm:p-8 md:p-16 lg:p-32
             ">
