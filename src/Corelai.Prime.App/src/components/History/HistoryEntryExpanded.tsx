@@ -21,15 +21,16 @@ export interface HistoryEntry {
 
 
 interface HistoryEntryExpandedProps {
+    className:string;
     historyEntry: HistoryEntry;
 }
 
 
 
-const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry}) => {
+const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry, className}) => {
 
     return (
-        <>
+        <div className={className}>
 
             <div className="
                 sm:rounded-4xl
@@ -68,7 +69,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 </div>
 
             </div>
-        </>
+        </div>
     )
 }
 

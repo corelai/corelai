@@ -48,7 +48,7 @@ const History: React.FC = () => {
 
             {data.map((historyEntry: HistoryEntry) => (
 
-                <HistoryEntryExpanded key={historyEntry.id} historyEntry={historyEntry}/>
+                <HistoryEntryExpanded key={historyEntry.id} className="py-2" historyEntry={historyEntry}/>
                 )
             )}
 
