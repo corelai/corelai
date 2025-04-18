@@ -4,8 +4,12 @@ const HistoryEntryTag = ({tag}: { tag: string }) => (
                     rounded-4xl text-nowrap
                     font-[400]
                     bg-surface-50
-                    text-writing-900
-                    outline outline-offset-1 outline-surface-200
+                    dark:bg-transparent
+                    text-writing-500
+                    dark:text-writing-300
+                    outline-[0.08rem] outline-offset-1
+                    outline-writing-300
+                    dark:outline-writing-400
                     text-[0.5rem]
                     uppercase tracking-tighter
                     ">

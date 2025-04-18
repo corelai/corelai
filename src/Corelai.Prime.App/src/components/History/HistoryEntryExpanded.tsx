@@ -36,6 +36,8 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
             <div className="
                 sm:rounded-4xl
                 bg-surface-50
+                dark:bg-transparent
+                dark:bg-linear-to-b dark:from-surface-50 dark:from-50% dark:to-surface-800
                 shadow-sm shadow-surface-400
                 dark:shadow-none
                 max-w-[499px]
