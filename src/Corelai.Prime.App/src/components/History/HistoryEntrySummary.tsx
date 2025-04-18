@@ -4,6 +4,7 @@ const HistoryEntrySummary = ({summary}: { summary: string }) =>
                 text-sm sm:text-sm/6
                 font-[400] py-12
                 px-8 sm:px-16
+                dark:font-[600]
                 ">
             {summary}
         </h2>

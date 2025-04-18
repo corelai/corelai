@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
             <div className="w-full h-full flex-col justify-center items-center
             sm:p-8 md:p-16 lg:p-32
             ">
-                <div className="overflow-y-auto max-h-[50%] scrollbar-thin scrollbar-thumb-surface-400 scrollbar-track-transparent">
+                <div className="overflow-y-auto min-h-[75%] max-h-[75%] scrollbar-thin scrollbar-thumb-surface-400 scrollbar-track-transparent">
                 <History/>
                     </div>
 

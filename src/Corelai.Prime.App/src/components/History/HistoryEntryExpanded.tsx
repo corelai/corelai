@@ -46,12 +46,12 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 ">
 
                 <HistoryEntryHeroImage imagePath={historyEntry.imagePath}>
-                    <HistoryEntryDate date={historyEntry.date}/>
+                    <HistoryEntryDate textColor={`text-writing-50`} date={historyEntry.date}/>
                     <HistoryEntryCode code={historyEntry.code}/>
                 </HistoryEntryHeroImage>
 
 
-                <HistoryEntryTitle title={historyEntry.title}/>
+                <HistoryEntryTitle title={historyEntry.title} relative={true}/>
 
                 <HistoryEntrySummary summary={historyEntry.summary}/>
 
