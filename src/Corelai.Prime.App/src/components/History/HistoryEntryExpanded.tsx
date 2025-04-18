@@ -19,7 +19,29 @@ interface HistoryEntryExpandedProps {
     historyEntry: HistoryEntry;
 }
 
+type HistoryEntryProps = { title: string }
+const HistoryEntryTitle = ({title}: HistoryEntryProps) =>
+    (
+        <div className="relative">
+            <h1 className="
+            uppercase tracking-tight
+            font-[600]
+            text-xs text-center
+            px-4 py-2
+            bg-surface-200 rounded-2xl sm:rounded-4xl
+            shadow-xs shadow-surface-500
+            absolute
+            left-1/2 -translate-x-1/2
+            sm:left-1/2 sm:-translate-x-1/2
+            top-full  -translate-y-1/2
+            text-nowrap
+            ">
+                {title}
+            </h1>
+        </div>)
+
 const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry}) => {
+
     return (
         <>
 
@@ -37,7 +59,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                     bg-center bg-cover bg-no-repeat relative
                     grid grid-cols-2
                     "
-                    style={{ backgroundImage: `url(${historyEntry.imagePath})` }}
+                    style={{backgroundImage: `url(${historyEntry.imagePath})`}}
                 >
                     <div className="
                      bg-linear-to-b from-surface-900/95 to-50% to-surface-50/0
@@ -73,23 +95,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 </div>
 
 
-                <div className="relative">
-                    <h1 className="
-                        uppercase tracking-tight
-                        font-[600]
-                        text-xs text-center
-                        px-4 py-2
-                        bg-surface-200 rounded-2xl sm:rounded-4xl
-                        shadow-xs shadow-surface-500
-                        absolute
-                        left-1/2 -translate-x-1/2
-                        sm:left-1/2 sm:-translate-x-1/2
-                        top-full  -translate-y-1/2
-                        text-nowrap
-                        ">
-                        {historyEntry.title}
-                    </h1>
-                </div>
+                <HistoryEntryTitle title={historyEntry.title}/>
                 <h2 className="tracking-wide text-sm/4 font-[400] bg-surface-50 py-12
                 ps-8
                 ">
