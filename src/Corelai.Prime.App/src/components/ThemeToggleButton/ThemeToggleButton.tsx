@@ -1,9 +1,6 @@
 import {useTheme} from "../../hooks/useTheme.ts";
 import React from "react";
-import {
-    WiMoonAltWaningCrescent5,
-    WiMoonAltWaxingCrescent3
-} from "react-icons/wi";
+import { WiMoonAltWaxingCrescent2 } from "react-icons/wi";
 
 type Props = {
     className: string;
@@ -19,9 +16,9 @@ export const ThemeToggleButton: React.FC<Props> = ({className, moonClassName}) =
             ${className}`
         }>
             {theme === 'dark' ?
-                <WiMoonAltWaxingCrescent3 className={`${moonClassName}`}/>
+                <WiMoonAltWaxingCrescent2 className={`${moonClassName}`}/>
                 :
-                <WiMoonAltWaningCrescent5 className={`${moonClassName}`}/>
+                <WiMoonAltWaxingCrescent2 className={`${moonClassName}`}/>
             }
         </div>
     );
