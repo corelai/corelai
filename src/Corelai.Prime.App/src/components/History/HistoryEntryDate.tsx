@@ -2,29 +2,40 @@ import {formatEntryDateOnly, formatEntryTimeOnly} from "../../utils/FormatEntryD
 
 
 interface HistoryEntryDateProps {
-    textColor:string;
+    textColor: string;
     date: Date;
 }
 
-const HistoryEntryDate = ({textColor,date}: HistoryEntryDateProps) => {
-    return (
-        <div className="ps-8">
-            <h2 className={`uppercase tracking-wide font-[700] 
+export const HistoryEntryFullDate = ({textColor, date}: HistoryEntryDateProps) =>
+    (
+        <h2 className={`uppercase tracking-wide font-[700] 
             ${textColor}
                         relative z-1
                         text-base/4
-                        pt-8
+                        
                         `}>
-                {formatEntryDateOnly(date)}
-            </h2>
-            <h4 className={`uppercase tracking-wide font-[400] 
+            {formatEntryDateOnly(date)}
+        </h2>
+    )
+export const HistoryEntryHour = ({textColor, date}: HistoryEntryDateProps) =>
+    (
+        <h4 className={`uppercase tracking-wide font-[400] 
             ${textColor}
                         relative z-1
                         text-sm/4
-                        pt-0
                         `}>
-                {formatEntryTimeOnly(date)}
-            </h4>
+            {formatEntryTimeOnly(date)}
+        </h4>
+    )
+const HistoryEntryDate = ({textColor, date}: HistoryEntryDateProps) => {
+    return (
+        <div className="ps-8">
+            <div className="pt-8">
+                <HistoryEntryFullDate textColor={textColor} date={date} />
+            </div>
+            <div className="pt-0">
+                <HistoryEntryHour textColor={textColor} date={date} />
+            </div>
         </div>
     )
 }

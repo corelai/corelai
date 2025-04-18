@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import HistoryEntryExpanded, {HistoryEntry} from "./HistoryEntryExpanded.tsx";
 import {HistoryEntryTitleCore} from "./HistoryEntryTitle.tsx";
-import HistoryEntryDate from "./HistoryEntryDate.tsx";
+import {HistoryEntryFullDate, HistoryEntryHour} from "./HistoryEntryDate.tsx";
 
 const isValidHistoryEntry = (obj: any): obj is HistoryEntry =>
     typeof obj === 'object' &&
@@ -49,13 +49,22 @@ const History: React.FC = () => {
             {data.map((historyEntry: HistoryEntry) => (
                     <div key={historyEntry.id} className="
                     flex
-                    justify-left items-center
+                    sm:justify-left items-center
                     flex-col sm:flex-row
                     ">
                         <div className="
-                        pb-2 sm:pb-6
+                        w-48 sm:w-32
+                        flex flex-row sm:flex-col
+                        pb-2 sm:pb-0
+                        pt-8 sm:pt-0
                         sm:pe-2 ">
-                            <HistoryEntryDate textColor={`
+                            <div className="pe-2">
+                                <HistoryEntryFullDate textColor={`
+                            text-writing-800
+                            dark:text-writing-200                            
+                            `} date={historyEntry.date}/>
+                            </div>
+                            <HistoryEntryHour textColor={`
                             text-writing-800
                             dark:text-writing-200                            
                             `} date={historyEntry.date}/>
