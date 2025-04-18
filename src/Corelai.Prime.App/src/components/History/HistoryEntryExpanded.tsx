@@ -12,6 +12,7 @@ export interface HistoryEntry {
     summary: string;
     body: string;
     imagePath: string;
+    tags: string[];
 
 }
 
@@ -19,7 +20,6 @@ export interface HistoryEntry {
 interface HistoryEntryExpandedProps {
     historyEntry: HistoryEntry;
 }
-
 
 
 const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry}) => {
@@ -81,11 +81,32 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
 
                 <h2 className="tracking-wide
                 text-sm sm:text-sm/6
-                font-[400] bg-surface-50 py-12
+                font-[400]  py-12
                 px-8 sm:px-16
                 ">
                     {historyEntry.summary}
                 </h2>
+
+                <div className="flex justify-center
+                p-12
+                gap-4
+                flex-wrap
+                ">
+                    {historyEntry.tags.map((tag: string) => (
+                        <div className="
+                    p-1
+                    rounded-4xl text-nowrap
+                    font-[200]
+                    bg-surface-50
+                    text-writing-900
+                    outline outline-offset-1
+                    text-xs
+                    uppercase tracking-tighter
+                    " key={tag}>
+                            #{tag}
+                        </div>
+                    ))}
+                </div>
 
             </div>
         </>
