@@ -17,7 +17,7 @@ const HistoryEntryTitle = ({title}: HistoryEntryProps) =>
 
             rounded-2xl sm:rounded-4xl
             border-2 border-surface-50
-            dark:border-2 dark:border-gold-300/80
+            dark:border-0 dark:border-y-2 dark:border-gold-300
             absolute
             left-1/2 -translate-x-1/2
             sm:left-1/2 sm:-translate-x-1/2
