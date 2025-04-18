@@ -79,8 +79,10 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
 
                 <HistoryEntryTitle title={historyEntry.title}/>
 
-                <h2 className="tracking-wide text-sm/4 font-[400] bg-surface-50 py-12
-                px-16
+                <h2 className="tracking-wide
+                text-sm sm:text-sm/6
+                font-[400] bg-surface-50 py-12
+                px-8 sm:px-16
                 ">
                     {historyEntry.summary}
                 </h2>
