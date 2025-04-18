@@ -19,8 +19,8 @@ export const CorelaiLogo: React.FC = () => {
             ">
                 <div className="flex flex-row">
                     <div className="
-                        size-8 pt-0.5
-                        sm:size-13
+                        size-10 pt-0.5
+                        sm:size-18
                     ">
                         <CorelaiLaurel className="
                         size-full
@@ -33,8 +33,8 @@ export const CorelaiLogo: React.FC = () => {
                                     tracking-widest
                                     pt-3
                                     sm:pt-5
-                                    text-lg
-                                    sm:text-4xl
+                                    text-3xl
+                                    sm:text-6xl
                                     uppercase
                                     whitespace-nowrap">
                         orelai
@@ -46,13 +46,13 @@ export const CorelaiLogo: React.FC = () => {
                       dark:text-writing-200
 
                     font-oxanium font-[400] uppercase
-                self-end pb-0.5 ps-3
-                sm:self-auto sm:pb-0 sm:ps-0
-                text-xs
-                sm:text-sm
-                md:text-lg
+                    self-end pb-0.5 ps-3
+                    sm:self-auto sm:pb-0 sm:ps-0
+                    text-xs
+                    sm:text-lg
+                    md:text-xl
 
-                flex align-center gap-x-1
+                    flex align-center gap-x-1
                 ">
                     <SlArrowLeft className="
                     text-[0.3rem]
