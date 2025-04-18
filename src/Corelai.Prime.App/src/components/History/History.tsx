@@ -56,7 +56,7 @@ const History: React.FC = () => {
                         w-48 sm:w-32
                         flex flex-row sm:flex-col
                         pb-2 sm:pb-0
-                        pt-8 sm:pt-0
+                        pt-8 sm:pt-1
                         sm:pe-2 ">
                             <div className="pe-2">
                                 <HistoryEntryFullDate textColor={`
