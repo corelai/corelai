@@ -1,6 +1,25 @@
 import React from "react";
+import {Guid} from "../../utils/guid.ts";
+import {formatEntryDateOnly, formatEntryTimeOnly} from "../../utils/FormatEntryDate.ts";
 
-export const HistoryEntryExpanded: React.FC = () => {
+
+export interface HistoryEntry {
+    id: Guid;
+    code: string;
+    title: string;
+    date: Date;
+    summary: string;
+    body: string;
+    imagePath: string;
+
+}
+
+
+interface HistoryEntryExpandedProps {
+    historyEntry: HistoryEntry;
+}
+
+const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry}) => {
     return (
         <>
 
@@ -14,24 +33,30 @@ export const HistoryEntryExpanded: React.FC = () => {
                 ">
 
                 <div
-                    className="h-48 bg-[url(/images/history/CL-PRM-HIST-0001.png)] bg-center bg-cover bg-no-repeat relative
+                    className="h-48
+                    bg-center bg-cover bg-no-repeat relative
                     grid grid-cols-2
-                    ">
-                    <div className="bg-surface-900/65 absolute inset-0"></div>
+                    "
+                    style={{ backgroundImage: `url(${historyEntry.imagePath})` }}
+                >
+                    <div className="
+                     bg-linear-to-b from-surface-900/95 to-50% to-surface-50/0
+                     absolute inset-0
+                    "></div>
                     <div className="ps-8">
                         <h2 className="uppercase tracking-wide font-[700] text-writing-50
                         relative z-1
                         text-base/4
                         pt-8
                         ">
-                            2025 Mar 16
+                            {formatEntryDateOnly(historyEntry.date)}
                         </h2>
                         <h4 className="uppercase tracking-wide font-[400] text-writing-300
                         relative z-1
                         text-sm/4
                         pt-0
                         ">
-                            13:19
+                            {formatEntryTimeOnly(historyEntry.date)}
                         </h4>
                     </div>
 
@@ -42,7 +67,7 @@ export const HistoryEntryExpanded: React.FC = () => {
                     pt-8
                     text-nowrap
                     ">
-                            CL-PRM-HIST-0001</h2>
+                            {historyEntry.code}</h2>
 
                     </div>
                 </div>
@@ -60,24 +85,20 @@ export const HistoryEntryExpanded: React.FC = () => {
                         left-1/2 -translate-x-1/2
                         sm:left-1/2 sm:-translate-x-1/2
                         top-full  -translate-y-1/2
+                        text-nowrap
                         ">
-                        Authorization for Extra-Orbital Expansion
+                        {historyEntry.title}
                     </h1>
                 </div>
-                <div className="py-4"></div>
-                <h1 className="uppercase tracking-wide font-[700] bg-surface-50">h1 700 test for the win</h1>
-                <div className="py-4 bg-surface-50"></div>
-                <div className="hyphens-auto indent-4 font-[400] text-base bg-surface-50"> Font 200.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusantium adipisci architecto blanditiis, corporis dolor eos labore laudantium maiores nisi non
-                    odit
-                    perspiciatis, quae
-                    quaerat repellat sed soluta veritatis vitae voluptatem?
+                <h2 className="tracking-wide text-sm/4 font-[400] bg-surface-50 py-12
+                ps-8
+                ">
+                    {historyEntry.summary}
+                </h2>
 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam cumque est iure
-                    maxime minima molestias non perferendis saepe, velit!
-                </div>
             </div>
         </>
     )
 }
+
+export default HistoryEntryExpanded;

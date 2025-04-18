@@ -4,7 +4,7 @@ import Header from './Header';
 import MainContent from './MainContent';
 import Footer from './Footer';
 import '../../styles/layout.css';
-import {HistoryEntryExpanded} from "../History/HistoryEntryExpanded.tsx";
+import History from "../History/History.tsx";
 
 
 const Layout: React.FC = () => {
@@ -13,7 +13,7 @@ const Layout: React.FC = () => {
             <div className="w-full h-full flex-col justify-center items-center
             sm:p-8 md:p-16 lg:p-32
             ">
-                <HistoryEntryExpanded/>
+                <History/>
 
             </div>
             {/*<div className="grid grid-areas-layout grid-cols-4 grid-rows-[auto_auto_1fr_auto] min-h-dvh ">*/}
