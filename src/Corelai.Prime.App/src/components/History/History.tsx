@@ -32,10 +32,11 @@ const HistoryPlainDate = ({date}: HistoryPlainDateProps) => (
     <div className="
                         w-48 sm:w-32
                         flex flex-row sm:flex-col
-                        pb-2 sm:pb-0
-                        pt-8 sm:pt-1
+                        pb-0 sm:pb-0
+                        pt-0 sm:pt-1
+
                         sm:pe-2 ">
-        <div className="pe-2">
+        <div>
             <HistoryEntryFullDate textColor={`
                             text-writing-800
                             dark:text-writing-200                            
@@ -50,7 +51,7 @@ const HistoryPlainDate = ({date}: HistoryPlainDateProps) => (
 
 const History: React.FC = () => {
     const [data, setData] = useState<TimelineEntry[]>([]);
-    const { open } = useModal();
+    const {open} = useModal();
 
     useEffect(() => {
         const loadJson = async () => {
@@ -113,12 +114,13 @@ const History: React.FC = () => {
                     >
 
 
-
+                        {/*spacer*/}
                         <div className={`
                         pe-8
                         sm:pe-10
                         
                         `}></div>
+
                         {/*image*/}
                         <div className={`     
                                            
@@ -152,15 +154,15 @@ const History: React.FC = () => {
 
                         ps-8
                         flex
-                        sm:justify-left items-start
                         flex-col sm:flex-row
                         relative
-                        py-4 sm:py-8
+                        py-6 sm:py-8
                         shadow-xs
                         grow
                         ">
                             {/*date*/}
                             <HistoryPlainDate date={timelineEntry.date}/>
+
                             {/*title*/}
                             <div className={`uppercase tracking-tight
                             dark:text-writing-300
