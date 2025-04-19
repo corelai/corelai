@@ -7,7 +7,7 @@ const HistoryEntrySummary = ({summary}: { summary: string }) =>
                 px-8 sm:px-16
                 dark:font-[600]
                 ">
-            {summary} dio
+            {summary}
         </div>
     )
 
