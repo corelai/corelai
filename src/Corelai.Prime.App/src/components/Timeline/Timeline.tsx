@@ -36,7 +36,7 @@ const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
                         pt-0 sm:pt-1
 
                         sm:pe-2 ">
-        <div>
+        <div className={`pe-2 sm:pe-0`}>
             <TimelineEntryFullDate textColor={`
                             text-writing-800
                             dark:text-writing-200                            

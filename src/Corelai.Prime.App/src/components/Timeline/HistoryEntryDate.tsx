@@ -10,9 +10,8 @@ export const TimelineEntryFullDate = ({textColor, date}: HistoryEntryDateProps) 
     (
         <h2 className={`uppercase tracking-wide font-[700] 
             ${textColor}
-                        relative z-1
-                        text-base/4
-                        
+                        relative z-1                        
+                        text-sm sm:text-base/4
                         `}>
             {formatEntryDateOnly(date)}
         </h2>
@@ -22,7 +21,7 @@ export const TimelineEntryTime = ({textColor, date}: HistoryEntryDateProps) =>
         <h4 className={`uppercase tracking-wide font-[400] 
             ${textColor}
                         relative z-1
-                        text-sm/4
+                        text-sm sm:text-sm/4
                         `}>
             {formatEntryTimeOnly(date)}
         </h4>
