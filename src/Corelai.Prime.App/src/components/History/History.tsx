@@ -75,6 +75,7 @@ const History: React.FC = () => {
             dark:text-writing-500
             hidden sm:block
             ps-20
+            sm:ps-23         
             `}>
                     events
                 </h3>
@@ -84,6 +85,7 @@ const History: React.FC = () => {
             font-oxanium font-[600] uppercase
             dark:text-writing-300
             ps-20
+            sm:ps-23
             -mb-1
             underline
             `}>
@@ -91,16 +93,31 @@ const History: React.FC = () => {
                 </h1>
             </div>
             {data.map((timelineEntry: TimelineEntry) => (
-                    <div key={timelineEntry.id} className={`flex flex-row items-center
+                    <div key={timelineEntry.id} className={`flex flex-row 
+                        items-center
                         cursor-pointer group
                         
                         `}>
+                        <div className={`
+                        pe-8
+                        sm:pe-10
+                        
+                        `}></div>
                         {/*image*/}
-                        <div className={`h-18 aspect-square bg-center bg-cover bg-no-repeat 
+                        <div className={`     
+                                           
+                        h-14 sm:h-18
+                         aspect-square bg-center bg-cover bg-no-repeat 
                         border-surface-950   dark:border-gold-100/25
                          border-2 dark:border-2
                         rounded-full`}
                              style={{backgroundImage: `url(${timelineEntry.imagePath})`}}>
+
+                        </div>
+                        <div className={`
+                        px-5
+                        sm:ps-4 sm:pe-5
+                        `}>
 
                         </div>
 
@@ -116,7 +133,7 @@ const History: React.FC = () => {
                         dark:active:bg-linear-to-r dark:active:from-surface-300/25 dark:active:to-surface-900/0
                         dark:bg-linear-to-r dark:from-surface-300/5 dark:to-surface-900/0
 
-                        ms-10
+
                         ps-8
                         flex
                         sm:justify-left items-start
@@ -128,11 +145,11 @@ const History: React.FC = () => {
                         ">
                             {/*date*/}
                             <HistoryPlainDate date={timelineEntry.date}/>
-
-
                             {/*title*/}
                             <div className={`uppercase tracking-tight
                             dark:text-writing-300
+                            text-xs
+                            sm:text-base
                             `}>
                                 {timelineEntry.title}
                             </div>
