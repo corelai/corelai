@@ -1,4 +1,3 @@
-// src/context/ModalContext.tsx
 import React, { createContext, useContext, useState } from 'react'
 import {Modal} from "../components/UI/Modal.tsx";
 
@@ -9,7 +8,11 @@ type ModalContextType = {
 
 const ModalContext = createContext<ModalContextType | null>(null)
 
-export const useModal = () => useContext(ModalContext)!
+export const useModal = () => {
+    const ctx = useContext(ModalContext)
+    if (!ctx) throw new Error('useModal must be used within a ModalProvider')
+    return ctx
+}
 
 export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
