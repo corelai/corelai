@@ -24,12 +24,13 @@ export const CorelaiLogo: React.FC = () => {
 
             {/*ring*/}
             <div id="corelaiRing"
-                 className={` bg-lime-500/0
-                 ${rotation} transform-style-preserve-3d
+                 className={` bg-lime-500/30
+                 ${rotation} transform-style-preserve-3d                 
                  absolute
                  -z-1  
-                 h-[300%] w-[300%] -top-[100%] -left-[100%]
+                 h-[300%] w-[120%] -top-[100%] -left-[10%]
                  `}>
+                <div className="z-1 h-5 w-15 dark:bg-surface-900 bg-surface-100 absolute bottom-0 left-0"></div>
             </div>
 
             <div className="
