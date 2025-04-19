@@ -16,10 +16,13 @@ export const CorelaiLogo: React.FC = () => {
             flex-col
             items-center
             ">
+
+
+                {/*CORELAI*/}
                 <div className="flex flex-row">
                     <div className="
-                        size-10 pt-0.5
-                        sm:size-15
+                        size-16
+                        sm:size-15 sm:pt-2
                         md:size-18
                     ">
                         <CorelaiLaurel className="
@@ -33,7 +36,8 @@ export const CorelaiLogo: React.FC = () => {
                                     tracking-widest
                                     pt-3
                                     sm:pt-5
-                                    text-3xl
+
+                                    text-5xl
                                     sm:text-5xl
                                     md:text-6xl
                                     uppercase
@@ -41,6 +45,9 @@ export const CorelaiLogo: React.FC = () => {
                         orelai
                     </div>
                 </div>
+
+
+                {/*sector prime*/}
                 <div
                     className="
                     text-writing-800
