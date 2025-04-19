@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import {IoCloseOutline} from "react-icons/io5";
-
 type ModalProps = {
     isOpen: boolean
     onClose: () => void
@@ -30,24 +28,29 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             onClick={onClose}
         >
             <div
-                className=" rounded-xl p-6  relative"
+                className="
+                  relative
+                  flex flex-col items-center"
                 onClick={e => e.stopPropagation()}
             >
                 <div
                     className="
-                    cursor-pointer
-                    absolute top-0 right-0
-                    rounded-full
-                    bg-gold-500
-                    hover:bg-gold-300
-                    transition-colors duration-200
-                    p-2
-                    z-1
 
+                    cursor-pointer
+                    text-center
+                    border-b-2 golden-border
+                    transition-colors duration-200
+                    text-xl
+                    z-2
+                    font-oxanium
+                    uppercase
+                    w-[50%]
+                    text-writing-200
+                    dark:text-gold-300
                     "
                     onClick={onClose}
                 >
-                    <IoCloseOutline />
+                    Close
                 </div>
                 {children}
             </div>
