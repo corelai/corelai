@@ -1,4 +1,4 @@
-const HistoryEntrySummary = ({summary}: { summary: string }) =>
+const TimelineEntrySummary = ({summary}: { summary: string }) =>
     (
         <div className="tracking-wide
                 text-sm
@@ -11,4 +11,4 @@ const HistoryEntrySummary = ({summary}: { summary: string }) =>
         </div>
     )
 
-export default HistoryEntrySummary;
+export default TimelineEntrySummary;

@@ -5,7 +5,7 @@ import TimelineEntryHeroImage from "./TimelineEntryHeroImage.tsx";
 import HistoryEntryDate from "./HistoryEntryDate.tsx";
 import HistoryEntryCode from "./HistoryEntryCode.tsx";
 import HistoryEntryTag from "./HistoryEntryTag.tsx";
-import HistoryEntrySummary from "./HistoryEntrySummary.tsx";
+import TimelineEntrySummary from "./TimelineEntrySummary.tsx";
 
 
 export interface TimelineEntry {
@@ -53,7 +53,7 @@ const TimelineEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({timelineEnt
 
                 <HistoryEntryTitle title={timelineEntry.title} relative={true}/>
 
-                <HistoryEntrySummary summary={timelineEntry.summary}/>
+                <TimelineEntrySummary summary={timelineEntry.summary}/>
 
                 <div className="flex justify-center
                 px-8 pb-8
