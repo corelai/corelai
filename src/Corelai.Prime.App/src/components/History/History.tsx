@@ -70,18 +70,7 @@ const History: React.FC = () => {
 
     return (
         <div>
-            <button
-                onClick={() =>
-                    open(
-                        <div>
-                            <h1 className="text-lg font-bold">Modale Globale</h1>
-                            <p className="mt-2">Controllata via context Corelai-style™</p>
-                        </div>
-                    )
-                }
-            >
-                Apri Modale
-            </button>
+
             <div className="flex flex-row sm:flex-col">
                 <h3 className={`font-[200]             
             sm:text-xl
@@ -107,11 +96,24 @@ const History: React.FC = () => {
                 </h1>
             </div>
             {data.map((timelineEntry: TimelineEntry) => (
+                    // main timeline container
                     <div key={timelineEntry.id} className={`flex flex-row 
                         items-center
                         cursor-pointer group
                         
-                        `}>
+                        `}
+                         onClick={() =>
+                             open(
+                                 <div>
+                                     <TimelineEntryExpanded className="py-2" timelineEntry={timelineEntry}/>
+                                 </div>
+                             )
+                         }
+
+                    >
+
+
+
                         <div className={`
                         pe-8
                         sm:pe-10
@@ -173,11 +175,24 @@ const History: React.FC = () => {
                 )
             )}
 
-            {data.map((timelineEntry: TimelineEntry) => (
+            {/*<button*/}
+            {/*    onClick={() =>*/}
+            {/*        open(*/}
+            {/*            <div>*/}
+            {/*                <h1 className="text-lg font-bold">Modale Globale</h1>*/}
+            {/*                <p className="mt-2">Controllata via context Corelai-style™</p>*/}
+            {/*            </div>*/}
+            {/*        )*/}
+            {/*    }*/}
+            {/*>*/}
+            {/*    Apri Modale*/}
+            {/*</button>*/}
 
-                    <TimelineEntryExpanded key={timelineEntry.id} className="py-2" timelineEntry={timelineEntry}/>
-                )
-            )}
+            {/*{data.map((timelineEntry: TimelineEntry) => (*/}
+
+            {/*        <TimelineEntryExpanded key={timelineEntry.id} className="py-2" timelineEntry={timelineEntry}/>*/}
+            {/*    )*/}
+            {/*)}*/}
 
         </div>
     );
