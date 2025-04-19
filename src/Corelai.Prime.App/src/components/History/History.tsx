@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import TimelineEntryExpanded, {TimelineEntry} from "./TimelineEntryExpanded.tsx";
 import {HistoryEntryFullDate, HistoryEntryHour} from "./HistoryEntryDate.tsx";
+import {useModal} from "../../context/ModalContext.tsx";
 
 const isValidHistoryEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
@@ -49,6 +50,7 @@ const HistoryPlainDate = ({date}: HistoryPlainDateProps) => (
 
 const History: React.FC = () => {
     const [data, setData] = useState<TimelineEntry[]>([]);
+    const { open } = useModal();
 
     useEffect(() => {
         const loadJson = async () => {
@@ -68,6 +70,18 @@ const History: React.FC = () => {
 
     return (
         <div>
+            <button
+                onClick={() =>
+                    open(
+                        <div>
+                            <h1 className="text-lg font-bold">Modale Globale</h1>
+                            <p className="mt-2">Controllata via context Corelai-style™</p>
+                        </div>
+                    )
+                }
+            >
+                Apri Modale
+            </button>
             <div className="flex flex-row sm:flex-col">
                 <h3 className={`font-[200]             
             sm:text-xl
