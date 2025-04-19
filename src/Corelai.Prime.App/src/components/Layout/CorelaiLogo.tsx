@@ -1,19 +1,37 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
 import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
 
 
 export const CorelaiLogo: React.FC = () => {
+    const [rotation, setRotation] = useState<string>('rotate-y-[0deg]');
+    useEffect(
+        () => {
+            setTimeout(() => {
+                setRotation('rotate-y-[0deg]');
+            }, 101);
+
+        }, []
+    );
+
     return (
         <div className="relative
-        py-3
+        py-3 perspective-[500px] perspective-origin-center
         ">
             <a href="/" className="">
                 <span className="absolute inset-0"></span>
             </a>
-            <div id="corelaiRing" className={`-z-1 absolute h-[200%] w-[200%] -top-[50%] -left-[50%]`}>
-            <div className="z-1 h-5 w-15 dark:bg-surface-900 bg-surface-100 absolute bottom-0 left-0"></div>
+
+            {/*ring*/}
+            <div id="corelaiRing"
+                 className={` bg-lime-500/0
+                 ${rotation} transform-style-preserve-3d
+                 absolute
+                 -z-1  
+                 h-[300%] w-[300%] -top-[100%] -left-[100%]
+                 `}>
             </div>
+
             <div className="
                 flex
             flex-col
