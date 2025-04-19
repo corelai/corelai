@@ -11,6 +11,9 @@ export const CorelaiLogo: React.FC = () => {
             <a href="/" className="">
                 <span className="absolute inset-0"></span>
             </a>
+            <div id="corelaiRing" className={`-z-1 absolute h-[200%] w-[200%] -top-[50%] -left-[50%]`}>
+            <div className="z-1 h-5 w-15 dark:bg-surface-900 bg-surface-100 absolute bottom-0 left-0"></div>
+            </div>
             <div className="
                 flex
             flex-col

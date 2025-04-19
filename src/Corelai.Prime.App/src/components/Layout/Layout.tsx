@@ -19,8 +19,6 @@ const Layout: React.FC = () => {
                  md:py-36
                  lg:py-48
                  grid-in-header col-span-4 relative">
-                    <div
-                        className="w-full h-full absolute inset-0 bg-center bg-[url(/images/hero-desaturate.svg)]"></div>
                     <Header/>
                 </header>
                 <main className="grid-in-main col-span-4 sm:col-span-4">
