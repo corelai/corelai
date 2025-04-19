@@ -20,18 +20,17 @@ const Layout: React.FC = () => {
                 <main className="grid-in-main col-span-4 sm:col-span-4">
                     <div className="py-4"></div>
                     <WelcomeCitizen/>
-                    <div className="
-                            py-16
-                            sm:p-16
-                            md:p-24
-                            lg:p-32
-                            ">
-                        <div
-                            className="overflow-y-auto min-h-[75%] max-h-[75%] scrollbar-thin scrollbar-thumb-surface-400 scrollbar-track-transparent">
+                    <div className={`col-span-1`}></div>
+                    <div className="w-full flex justify-center">
+                        <div className="
+                                    w-full lg:w-7/12
+                                    py-16 sm:py-24
+                        ">
                             <Timeline/>
                         </div>
                     </div>
                 </main>
+
                 <footer className="grid-in-footer col-span-4">
                     <Footer/>
                 </footer>

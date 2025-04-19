@@ -72,36 +72,44 @@ const Timeline: React.FC = () => {
     return (
         <div>
 
+            {/*timeline header*/}
             <div className="flex flex-row sm:flex-col">
                 <h3 className={`font-[200]             
-            sm:text-xl
-            text-writing-600
-            dark:text-writing-500
-            hidden sm:block
-            ps-20
-            sm:ps-23         
-            `}>
-                    events
+                    sm:text-xl
+                    text-writing-600
+                    dark:text-writing-500
+                    hidden sm:block
+                    ps-20
+                    sm:ps-23         
+                    `}>
+                            events
                 </h3>
                 <h1 className={`
-            text-xl
-            sm:text-2xl
-            font-oxanium font-[600] uppercase
-            dark:text-writing-300
-            ps-20
-            sm:ps-23
-            -mb-1
-            underline
-            `}>
+                    text-xl
+                    sm:text-2xl
+                    font-oxanium font-[600] uppercase
+                    dark:text-writing-300
+                    ps-20
+                    sm:ps-23
+                    -mb-1
+                    underline
+                    `}>
                     Timeline
                 </h1>
             </div>
+            <div
+                className="overflow-y-auto
+                max-h-48
+                scrollbar-thin
+                scrollbar-thumb-surface-300
+                scrollbar-track-transparent">
+
+            {/*timeline table*/}
             {data.map((timelineEntry: TimelineEntry) => (
                     // main timeline container
                     <div key={timelineEntry.id} className={`flex flex-row 
                         items-center
                         cursor-pointer group
-                        
                         `}
                          onClick={() =>
                              open(
@@ -176,26 +184,7 @@ const Timeline: React.FC = () => {
                     </div>
                 )
             )}
-
-            {/*<button*/}
-            {/*    onClick={() =>*/}
-            {/*        open(*/}
-            {/*            <div>*/}
-            {/*                <h1 className="text-lg font-bold">Modale Globale</h1>*/}
-            {/*                <p className="mt-2">Controllata via context Corelai-style™</p>*/}
-            {/*            </div>*/}
-            {/*        )*/}
-            {/*    }*/}
-            {/*>*/}
-            {/*    Apri Modale*/}
-            {/*</button>*/}
-
-            {/*{data.map((timelineEntry: TimelineEntry) => (*/}
-
-            {/*        <TimelineEntryExpanded key={timelineEntry.id} className="py-2" timelineEntry={timelineEntry}/>*/}
-            {/*    )*/}
-            {/*)}*/}
-
+        </div>
         </div>
     );
 };
