@@ -56,7 +56,7 @@ const Timeline: React.FC = () => {
     useEffect(() => {
         const loadJson = async () => {
             try {
-                const response = await fetch('/history/prime-history.json');
+                const response = await fetch('/timeline/prime-timeline.json');
                 if (!response.ok) throw new Error('Fetch Error');
                 const jsonData = await response.json();
                 const parsed = parseTimelineData(jsonData);
