@@ -6,7 +6,7 @@ interface TimelineEntryImageProps {
 }
 const TimelineEntryHeroImage: React.FC<TimelineEntryImageProps> = ({imagePath, children}) => (
     <div
-        className="h-48 bg-center bg-cover bg-no-repeat relative grid grid-cols-2"
+        className="h-72 bg-center bg-cover bg-no-repeat relative grid grid-cols-2"
         style={{backgroundImage: `url(${imagePath})`}}
     >
         {/*darkening*/}
