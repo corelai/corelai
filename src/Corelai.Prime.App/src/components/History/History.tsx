@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {TimelineEntry} from "./HistoryEntryExpanded.tsx";
 import {HistoryEntryFullDate, HistoryEntryHour} from "./HistoryEntryDate.tsx";
-import {TimelineEntryImage} from "./TimelineEntryHeroImage.tsx";
 
 const isValidHistoryEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
@@ -92,12 +91,12 @@ const History: React.FC = () => {
                 </h1>
             </div>
             {data.map((timelineEntry: TimelineEntry) => (
-                    <div className={`flex flex-row items-center
+                    <div key={timelineEntry.id} className={`flex flex-row items-center
                         cursor-pointer group
                         
                         `}>
                         {/*image*/}
-                        <div className={`size-18 bg-center bg-cover bg-no-repeat 
+                        <div className={`h-18 aspect-square bg-center bg-cover bg-no-repeat 
                         border-surface-950   dark:border-gold-100/25
                          border-2 dark:border-2
                         rounded-full`}
