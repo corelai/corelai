@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import {IoCloseOutline} from "react-icons/io5";
 
 type ModalProps = {
     isOpen: boolean
@@ -23,20 +24,31 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
     return (
         <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-1 flex items-center justify-center
+
+            "
             onClick={onClose}
         >
             <div
-                className="bg-white dark:bg-neutral-900 rounded-xl p-6 max-w-lg w-full relative shadow-lg"
-                onClick={e => e.stopPropagation()} // blocca la chiusura se clicchi dentro
+                className=" rounded-xl p-6  relative"
+                onClick={e => e.stopPropagation()}
             >
-                <button
-                    className="absolute top-2 right-3 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                <div
+                    className="
+                    cursor-pointer
+                    absolute top-0 right-0
+                    rounded-full
+                    bg-gold-500
+                    hover:bg-gold-300
+                    transition-colors duration-200
+                    p-2
+                    z-1
+
+                    "
                     onClick={onClose}
                 >
-                    ✕
-                </button>
-
+                    <IoCloseOutline />
+                </div>
                 {children}
             </div>
         </div>
