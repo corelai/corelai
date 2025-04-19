@@ -23,12 +23,12 @@ export interface TimelineEntry {
 
 interface HistoryEntryExpandedProps {
     className:string;
-    historyEntry: TimelineEntry;
+    timelineEntry: TimelineEntry;
 }
 
 
 
-const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry, className}) => {
+const TimelineEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({timelineEntry, className}) => {
 
     return (
         <div className={className}>
@@ -45,15 +45,15 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 overflow-hidden
                 ">
 
-                <TimelineEntryHeroImage imagePath={historyEntry.imagePath}>
-                    <HistoryEntryDate textColor={`text-writing-50`} date={historyEntry.date}/>
-                    <HistoryEntryCode code={historyEntry.code}/>
+                <TimelineEntryHeroImage imagePath={timelineEntry.imagePath}>
+                    <HistoryEntryDate textColor={`text-writing-50`} date={timelineEntry.date}/>
+                    <HistoryEntryCode code={timelineEntry.code}/>
                 </TimelineEntryHeroImage>
 
 
-                <HistoryEntryTitle title={historyEntry.title} relative={true}/>
+                <HistoryEntryTitle title={timelineEntry.title} relative={true}/>
 
-                <HistoryEntrySummary summary={historyEntry.summary}/>
+                <HistoryEntrySummary summary={timelineEntry.summary}/>
 
                 <div className="flex justify-center
                 px-8 pb-8
@@ -61,7 +61,7 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
                 gap-2
                 flex-wrap
                 ">
-                    {historyEntry.tags.map((tag: string) => (
+                    {timelineEntry.tags.map((tag: string) => (
                        <HistoryEntryTag key={tag} tag={tag}/>
                     ))}
                 </div>
@@ -71,4 +71,4 @@ const HistoryEntryExpanded: React.FC<HistoryEntryExpandedProps> = ({historyEntry
     )
 }
 
-export default HistoryEntryExpanded;
+export default TimelineEntryExpanded;

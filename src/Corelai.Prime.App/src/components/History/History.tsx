@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {TimelineEntry} from "./HistoryEntryExpanded.tsx";
+import TimelineEntryExpanded, {TimelineEntry} from "./TimelineEntryExpanded.tsx";
 import {HistoryEntryFullDate, HistoryEntryHour} from "./HistoryEntryDate.tsx";
 
 const isValidHistoryEntry = (obj: any): obj is TimelineEntry =>
@@ -159,11 +159,11 @@ const History: React.FC = () => {
                 )
             )}
 
-            {/*{data.map((historyEntry: HistoryEntry) => (*/}
+            {data.map((timelineEntry: TimelineEntry) => (
 
-            {/*        <HistoryEntryExpanded key={historyEntry.id} className="py-2" historyEntry={historyEntry}/>*/}
-            {/*    )*/}
-            {/*)}*/}
+                    <TimelineEntryExpanded key={timelineEntry.id} className="py-2" timelineEntry={timelineEntry}/>
+                )
+            )}
 
         </div>
     );
