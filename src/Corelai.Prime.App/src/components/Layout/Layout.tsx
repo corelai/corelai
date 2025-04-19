@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Header from './Header';
 import Footer from './Footer';
 import '../../styles/layout.css';
-import History from "../History/History.tsx";
+import Timeline from "../Timeline/Timeline.tsx";
 import {WelcomeCitizen} from "../WelcomeCitizen/WelcomeCitizen.tsx";
 
 
@@ -28,7 +28,7 @@ const Layout: React.FC = () => {
                             ">
                         <div
                             className="overflow-y-auto min-h-[75%] max-h-[75%] scrollbar-thin scrollbar-thumb-surface-400 scrollbar-track-transparent">
-                            <History/>
+                            <Timeline/>
                         </div>
                     </div>
                 </main>

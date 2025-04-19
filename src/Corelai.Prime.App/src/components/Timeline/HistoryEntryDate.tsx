@@ -6,7 +6,7 @@ interface HistoryEntryDateProps {
     date: Date;
 }
 
-export const HistoryEntryFullDate = ({textColor, date}: HistoryEntryDateProps) =>
+export const TimelineEntryFullDate = ({textColor, date}: HistoryEntryDateProps) =>
     (
         <h2 className={`uppercase tracking-wide font-[700] 
             ${textColor}
@@ -17,7 +17,7 @@ export const HistoryEntryFullDate = ({textColor, date}: HistoryEntryDateProps) =
             {formatEntryDateOnly(date)}
         </h2>
     )
-export const HistoryEntryHour = ({textColor, date}: HistoryEntryDateProps) =>
+export const TimelineEntryTime = ({textColor, date}: HistoryEntryDateProps) =>
     (
         <h4 className={`uppercase tracking-wide font-[400] 
             ${textColor}
@@ -31,10 +31,10 @@ const HistoryEntryDate = ({textColor, date}: HistoryEntryDateProps) => {
     return (
         <div className="ps-8">
             <div className="pt-8">
-                <HistoryEntryFullDate textColor={textColor} date={date} />
+                <TimelineEntryFullDate textColor={textColor} date={date} />
             </div>
             <div className="pt-0">
-                <HistoryEntryHour textColor={textColor} date={date} />
+                <TimelineEntryTime textColor={textColor} date={date} />
             </div>
         </div>
     )

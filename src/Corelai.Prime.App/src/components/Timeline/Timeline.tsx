@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import TimelineEntryExpanded, {TimelineEntry} from "./TimelineEntryExpanded.tsx";
-import {HistoryEntryFullDate, HistoryEntryHour} from "./HistoryEntryDate.tsx";
+import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
 
-const isValidHistoryEntry = (obj: any): obj is TimelineEntry =>
+const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
     typeof obj.id === 'string' &&
     typeof obj.code === 'string' &&
@@ -13,10 +13,10 @@ const isValidHistoryEntry = (obj: any): obj is TimelineEntry =>
     typeof obj.body === 'string' &&
     typeof obj.imagePath === 'string';
 
-const parseHistoryData = (raw: any): TimelineEntry[] => {
+const parseTimelineData = (raw: any): TimelineEntry[] => {
     if (!Array.isArray(raw)) throw new Error('Invalid JSON structure');
     return raw.map(item => {
-        if (!isValidHistoryEntry(item)) throw new Error('Invalid history entry');
+        if (!isValidTimelineEntry(item)) throw new Error('Invalid timeline entry');
         return {
             ...item,
             date: new Date(item.date),
@@ -28,7 +28,7 @@ interface HistoryPlainDateProps {
     date: Date;
 }
 
-const HistoryPlainDate = ({date}: HistoryPlainDateProps) => (
+const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
     <div className="
                         w-48 sm:w-32
                         flex flex-row sm:flex-col
@@ -37,19 +37,19 @@ const HistoryPlainDate = ({date}: HistoryPlainDateProps) => (
 
                         sm:pe-2 ">
         <div>
-            <HistoryEntryFullDate textColor={`
+            <TimelineEntryFullDate textColor={`
                             text-writing-800
                             dark:text-writing-200                            
                             `} date={date}/>
         </div>
-        <HistoryEntryHour textColor={`
+        <TimelineEntryTime textColor={`
                             text-writing-800
                             dark:text-writing-200                            
                             `} date={date}/>
     </div>
 )
 
-const History: React.FC = () => {
+const Timeline: React.FC = () => {
     const [data, setData] = useState<TimelineEntry[]>([]);
     const {open} = useModal();
 
@@ -59,7 +59,7 @@ const History: React.FC = () => {
                 const response = await fetch('/history/prime-history.json');
                 if (!response.ok) throw new Error('Fetch Error');
                 const jsonData = await response.json();
-                const parsed = parseHistoryData(jsonData);
+                const parsed = parseTimelineData(jsonData);
                 setData(parsed);
             } catch (error) {
                 console.error('JSON fetch error:', error);
@@ -161,7 +161,7 @@ const History: React.FC = () => {
                         grow
                         ">
                             {/*date*/}
-                            <HistoryPlainDate date={timelineEntry.date}/>
+                            <TimelinePlainDate date={timelineEntry.date}/>
 
                             {/*title*/}
                             <div className={`uppercase tracking-tight
@@ -200,4 +200,4 @@ const History: React.FC = () => {
     );
 };
 
-export default History;
+export default Timeline;
