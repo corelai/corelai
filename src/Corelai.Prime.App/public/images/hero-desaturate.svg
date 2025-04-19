@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2560"
+   height="1080"
+   viewBox="0 0 2560 1080"
+   version="1.1"
+   id="svg126"
+   sodipodi:docname="hero-desaturate.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview126"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.71054688"
+     inkscape:cx="1280.7037"
+     inkscape:cy="540.42881"
+     inkscape:window-width="1920"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg126" />
+  <defs
+     id="defs9">
+    <linearGradient
+       id="bgGrad"
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
+      <stop
+         offset="0"
+         stop-color="#010216"
+         id="stop1"
+         style="stop-color:#010216;stop-opacity:0;" />
+      <stop
+         offset="1"
+         stop-color="#061425"
+         id="stop2"
+         style="stop-color:#061425;stop-opacity:0;" />
+    </linearGradient>
+    <radialGradient
+       id="planetGrad"
+       cx="50%"
+       cy="50%"
+       r="50%">
+      <stop
+         offset="0"
+         stop-color="#4674d4"
+         id="stop3"
+         style="stop-color:#d4cd46;stop-opacity:1;" />
+      <stop
+         offset="0.60000002"
+         stop-color="#2d4b94"
+         id="stop4"
+         style="stop-color:#948a2d;stop-opacity:1;" />
+      <stop
+         offset="1"
+         stop-color="#0c1b3c"
+         id="stop5"
+         style="stop-color:#3c370c;stop-opacity:1;" />
+    </radialGradient>
+    <linearGradient
+       id="shootGrad"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="0%">
+      <stop
+         offset="0%"
+         stop-color="white"
+         stop-opacity="0"
+         id="stop6" />
+      <stop
+         offset="30%"
+         stop-color="white"
+         stop-opacity="0.7"
+         id="stop7" />
+      <stop
+         offset="100%"
+         stop-color="white"
+         stop-opacity="0"
+         id="stop8" />
+    </linearGradient>
+    <filter
+       id="glow"
+       x="-0.19113757"
+       y="-0.19113757"
+       width="1.3822751"
+       height="1.3822751">
+      <feGaussianBlur
+         stdDeviation="60"
+         result="coloredBlur"
+         id="feGaussianBlur8" />
+      <feMerge
+         id="feMerge9">
+        <feMergeNode
+           in="coloredBlur"
+           id="feMergeNode8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9" />
+      </feMerge>
+    </filter>
+    <filter
+       id="trailBlur"
+       x="-0.040333333"
+       y="-0.21"
+       width="1.0806667"
+       height="1.42">
+      <feGaussianBlur
+         stdDeviation="2"
+         id="feGaussianBlur9" />
+    </filter>
+  </defs>
+  <rect
+     width="100%"
+     height="100%"
+     fill="url(#bgGrad)"
+     id="rect9"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1840"
+     cy="954"
+     r="1.5"
+     fill="white"
+     opacity="0.53"
+     id="circle9"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2086"
+     cy="106"
+     r="2"
+     fill="white"
+     opacity="0.69"
+     id="circle10"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1337"
+     cy="24"
+     r="2"
+     fill="white"
+     opacity="0.74"
+     id="circle11"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1106"
+     cy="117"
+     r="1.5"
+     fill="white"
+     opacity="0.63"
+     id="circle12"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1746"
+     cy="888"
+     r="2"
+     fill="white"
+     opacity="0.86"
+     id="circle13"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1106"
+     cy="117"
+     r="1.5"
+     fill="white"
+     opacity="0.63"
+     id="circle14"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1746"
+     cy="888"
+     r="2"
+     fill="white"
+     opacity="0.86"
+     id="circle15"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="50"
+     cy="50"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle16"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="200"
+     cy="150"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle17"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="350"
+     cy="80"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle18"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="100"
+     cy="250"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle19"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="280"
+     cy="300"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle20"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="450"
+     cy="180"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle21"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="550"
+     cy="280"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle22"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="650"
+     cy="50"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle23"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="750"
+     cy="120"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle24"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="850"
+     cy="220"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle25"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="950"
+     cy="80"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle26"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1050"
+     cy="180"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle27"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1150"
+     cy="30"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle28"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1250"
+     cy="150"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle29"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1350"
+     cy="100"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle30"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1450"
+     cy="250"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle31"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1550"
+     cy="70"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle32"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1650"
+     cy="190"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle33"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1750"
+     cy="50"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle34"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1850"
+     cy="120"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle35"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1950"
+     cy="280"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle36"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2050"
+     cy="70"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle37"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2150"
+     cy="180"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle38"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2250"
+     cy="30"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle39"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2350"
+     cy="110"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle40"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2450"
+     cy="210"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle41"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2500"
+     cy="50"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle42"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="50"
+     cy="350"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle43"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="150"
+     cy="450"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle44"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="300"
+     cy="380"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle45"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="480"
+     cy="420"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle46"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="600"
+     cy="350"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle47"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="720"
+     cy="480"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle48"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="850"
+     cy="320"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle49"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="980"
+     cy="450"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle50"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1100"
+     cy="380"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle51"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1220"
+     cy="420"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle52"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1350"
+     cy="350"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle53"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1480"
+     cy="480"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle54"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1600"
+     cy="320"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle55"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1720"
+     cy="450"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle56"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1850"
+     cy="380"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle57"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1980"
+     cy="420"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle58"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2100"
+     cy="350"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle59"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2220"
+     cy="480"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle60"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2350"
+     cy="320"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle61"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2480"
+     cy="450"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle62"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2530"
+     cy="380"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle63"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="100"
+     cy="650"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle64"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="250"
+     cy="580"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle65"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="400"
+     cy="620"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle66"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="550"
+     cy="550"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle67"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="700"
+     cy="680"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle68"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="850"
+     cy="520"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle69"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1000"
+     cy="650"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle70"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1150"
+     cy="580"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle71"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1300"
+     cy="620"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle72"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1450"
+     cy="550"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle73"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1600"
+     cy="680"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle74"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1750"
+     cy="520"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle75"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1900"
+     cy="650"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle76"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2050"
+     cy="580"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle77"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2200"
+     cy="620"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle78"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2350"
+     cy="550"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle79"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2500"
+     cy="680"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle80"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="50"
+     cy="850"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle81"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="200"
+     cy="780"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle82"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="350"
+     cy="820"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle83"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="500"
+     cy="750"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle84"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="650"
+     cy="880"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle85"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="800"
+     cy="720"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle86"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="950"
+     cy="850"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle87"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1100"
+     cy="780"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle88"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1250"
+     cy="820"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle89"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1400"
+     cy="750"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle90"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1550"
+     cy="880"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle91"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1700"
+     cy="720"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle92"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1850"
+     cy="850"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle93"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2000"
+     cy="780"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle94"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2150"
+     cy="820"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle95"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2300"
+     cy="750"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle96"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2450"
+     cy="880"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle97"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2550"
+     cy="720"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle98"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="150"
+     cy="980"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle99"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="300"
+     cy="910"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle100"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="450"
+     cy="950"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle101"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="600"
+     cy="880"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle102"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="750"
+     cy="1010"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle103"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="900"
+     cy="850"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle104"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1050"
+     cy="980"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle105"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1200"
+     cy="910"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle106"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1350"
+     cy="950"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle107"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1500"
+     cy="880"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle108"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1650"
+     cy="1010"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle109"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1800"
+     cy="850"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle110"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1950"
+     cy="980"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle111"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2100"
+     cy="910"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle112"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2250"
+     cy="950"
+     r="1.3"
+     fill="white"
+     opacity="0.9"
+     id="circle113"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2400"
+     cy="880"
+     r="1"
+     fill="white"
+     opacity="0.7"
+     id="circle114"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="2550"
+     cy="1010"
+     r="0.8"
+     fill="white"
+     opacity="0.6"
+     id="circle115"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="50"
+     cy="1050"
+     r="1.2"
+     fill="white"
+     opacity="0.8"
+     id="circle116"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="200"
+     cy="980"
+     r="0.9"
+     fill="white"
+     opacity="0.75"
+     id="circle117"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="350"
+     cy="1020"
+     r="1.1"
+     fill="white"
+     opacity="0.85"
+     id="circle118"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="500"
+     cy="950"
+     r="0.7"
+     fill="white"
+     opacity="0.55"
+     id="circle119"
+     style="stroke:#000000;stroke-opacity:1" />
+  <circle
+     cx="1024.0"
+     cy="216.0"
+     r="378.0"
+     fill="#5c3dad"
+     opacity="0.25"
+     filter="url(#glow)"
+     id="circle123"
+     style="stroke:#000000;stroke-opacity:1;fill:#726334;fill-opacity:0.24988817" />
+  <circle
+     cx="768.0"
+     cy="540.0"
+     r="453.6000000000001"
+     fill="#833ab4"
+     opacity="0.18"
+     filter="url(#glow)"
+     id="circle124"
+     style="stroke:#000000;stroke-opacity:1;fill:#bfa970;fill-opacity:0.37665355" />
+  <circle
+     cx="1408.0"
+     cy="324.0"
+     r="432.0"
+     fill="#4a2f87"
+     opacity="0.22"
+     filter="url(#glow)"
+     id="circle125"
+     style="stroke:#000000;stroke-opacity:1;fill:#bfa970;fill-opacity:0.50465715" />
+</svg>

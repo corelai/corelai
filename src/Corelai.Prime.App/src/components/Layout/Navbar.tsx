@@ -20,9 +20,11 @@ const Navbar: React.FC = () => {
         <div className="fixed w-full  flex justify-end
 
         border-t-4 sm:border-t-6 md:border-t-8 golden-border z-1
+        pt-5 pe-5
         ">
 
                 <ThemeToggleButton className="
+
                 size-8
                 rounded-full
                 transition-colors

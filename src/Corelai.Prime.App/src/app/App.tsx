@@ -9,7 +9,7 @@ const App: React.FC = () => {
         <>
             <ThemeProvider/>
             <ModalProvider>
-                <Layout />
+                <Layout/>
             </ModalProvider>
         </>
     )
