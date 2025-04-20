@@ -99,7 +99,7 @@ const Timeline: React.FC = () => {
             </div>
             <div
                 className="overflow-y-auto
-                max-h-48
+                max-h-72
                 scrollbar-thin
                 scrollbar-thumb-surface-300
                 scrollbar-track-transparent">
