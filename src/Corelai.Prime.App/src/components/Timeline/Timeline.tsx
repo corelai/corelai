@@ -8,9 +8,8 @@ const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
     typeof obj.id === 'string' &&
     typeof obj.code === 'string' &&
     typeof obj.title === 'string' &&
-    typeof obj.date === 'string' && // verrà poi convertita
+    typeof obj.date === 'string' &&
     typeof obj.summary === 'string' &&
-    typeof obj.body === 'string' &&
     typeof obj.imagePath === 'string';
 
 const parseTimelineData = (raw: any): TimelineEntry[] => {
