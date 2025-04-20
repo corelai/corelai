@@ -35,14 +35,6 @@ export const CorelaiLogo: React.FC = () => {
                          lg:h-[300%] lg:w-[300%] lg:-top-[110%] lg:-left-[130%]
                          `}>
                 </div>
-                {/*watermark cutter*/}
-                {/*<div className={`z-1  transform-style-preserve-3d */}
-                {/*        bg-surface-900/30 */}
-                {/*        bottom-1*/}
-                {/*       absolute*/}
-                {/*        `}>*/}
-
-                {/*</div>*/}
 
                 <div className={`translate-x-6  translate-z-32 transform-style-preserve-3d   
                 flex

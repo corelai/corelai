@@ -49,7 +49,9 @@ const Layout: React.FC = () => {
                     </div>
                     <Header/>
                 </header>
-                <main className="grid-in-main col-span-4 sm:col-span-4">
+                <main className="grid-in-main col-span-4 sm:col-span-4
+
+                ">
                     <div className="py-4"></div>
                     <WelcomeCitizen/>
                     <div className={`col-span-1`}></div>
