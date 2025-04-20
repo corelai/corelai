@@ -14,10 +14,9 @@ const Layout: React.FC = () => {
                 <nav className="grid-in-nav col-span-4">
                     <Navbar/>
                 </nav>
-                <header className="py-12
+                <header className="py-20
                 sm:py-24
-                 md:py-36
-                 lg:py-48
+                 md:py-48
                  grid-in-header col-span-4 relative overflow-hidden">
                     <Header/>
                 </header>

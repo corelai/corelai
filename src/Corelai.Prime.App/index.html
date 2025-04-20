@@ -44,8 +44,8 @@
             panY: false,
             wheelX: "none",
             wheelY: "none",
-            startAngle: 0,
-            endAngle: 360,
+            startAngle: 192,
+            endAngle: 528,
             innerRadius: am5.percent(90)
           }));
 
@@ -137,27 +137,27 @@
           xAxis.data.setAll(data);
           series.data.setAll(data);
 
-          chart.animate({
-            key: "startAngle",
-            to: 185,
-            duration: 4000,
-            easing: am5.ease.out(am5.ease.cubic)
-          });
-
-          chart.animate({
-            key: "endAngle",
-            to: 545,
-            duration: 4000,
-            easing: am5.ease.out(am5.ease.cubic)
-          });
+          // chart.animate({
+          //   key: "startAngle",
+          //   to: 185,
+          //   duration: 200,
+          //   easing: null
+          // });
           //
-          chart.appear(5000, 100);
-          series.appear(3000,100);
+          // chart.animate({
+          //   key: "endAngle",
+          //   to: 545,
+          //   duration: 4000,
+          //   easing: am5.ease.out(am5.ease.cubic)
+          // });
+          //
+          chart.appear(500, 100);
+          series.appear(2000,100);
 
         }); // end am5.ready()
 
 
-      },500);
+      },2000);
 
     </script>
 

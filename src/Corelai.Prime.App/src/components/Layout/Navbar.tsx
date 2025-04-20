@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
             "
                                    iconClassName="size-6 sm:size-12"
                 />
-                <MediaSpy show={false}/>
+                <MediaSpy show={true}/>
         </div>
     );
 };
