@@ -10,7 +10,8 @@ import {WelcomeCitizen} from "../WelcomeCitizen/WelcomeCitizen.tsx";
 const Layout: React.FC = () => {
     return (
         <>
-            <div className="grid grid-areas-layout grid-cols-4 grid-rows-[auto_auto_1fr_auto] min-h-dvh ">
+            <div className="grid grid-areas-layout
+             grid-cols-4 grid-rows-[auto_auto_1fr_auto] min-h-dvh ">
                 <nav className="grid-in-nav col-span-4">
                     <Navbar/>
                 </nav>
@@ -28,16 +29,16 @@ const Layout: React.FC = () => {
                     <div className={`
                     absolute inset-0
                     bg-[url(/images/corelai-background.png)] bg-no-repeat bg-bottom
-                    
-                    sm:bg-[length:1536px_auto]
-                    md:bg-[length:1536px_auto]
+                    bg-[length:640px_auto]
+                    sm:bg-[length:890px_auto]
+                    md:bg-[length:1200px_auto]
                     lg:bg-[length:1536px_auto]
                     xl:bg-[length:1536px_auto]
                     2xl:bg-cover
                     
                     opacity-100
                     dark:opacity-100
-                    blur-[0.1rem]
+                    sm:blur-[0.1rem]
                     `}>
                     </div>
                     <div className={` absolute inset-0 bg-linear-to-b 
