@@ -36,62 +36,8 @@
     "imagePath": "/images/timeline/0001.png"
   },
   {
-    "id": "42229c5d-13cb-4910-b63a-4a0d68c83822",
-    "code": "CL-PRM-HIST-0001",
-    "title": "ILION start orbiting Terra",
-    "date": "2125-04-02T22:45:00Z",
-    "summary": "Avendo CORELAI SECTOR una nave ammiraglia puo' richiedere autorizzazione di colonia a UEG",
-    "body": "",
-    "tags": [
-      "ueg",
-      "soran",
-      "expansion",
-      "first-contact",
-      "sector-prime"
-    ],
-    "lang": "en",
-    "version": 1,
-    "imagePath": "/images/timeline/0002.png"
-  },
-  {
-    "id": "31967274-f5f6-4732-99b3-5d1872df9860",
-    "code": "CL-PRM-HIST-0001",
-    "title": "ILION start orbiting Terra",
-    "date": "2125-04-02T22:45:00Z",
-    "summary": "Avendo CORELAI SECTOR una nave ammiraglia puo' richiedere autorizzazione di colonia a UEG",
-    "body": "",
-    "tags": [
-      "ueg",
-      "soran",
-      "expansion",
-      "first-contact",
-      "sector-prime"
-    ],
-    "lang": "en",
-    "version": 1,
-    "imagePath": "/images/timeline/0003.png"
-  },
-  {
-    "id": "342c3c95-0260-4e7a-877f-aab056548653",
-    "code": "CL-PRM-HIST-0002",
-    "title": "Orbital Arrival at TE-110D",
-    "date": "2125-04-02T22:45:00Z",
-    "summary": "CORELAI SECTOR establishes initial presence on TE-110D (SORAN) following successful interstellar arrival.",
-    "body": "On 2125-04-02, the CORELAI SECTOR colonization fleet successfully completed its interstellar transit and entered orbital position above planetary body TE-110D, designated \"SORAN\".\n\nThis milestone marks the activation of Phase 1 of Operation Expansion Prime, initiating planetary surface deployment and infrastructural establishment.\n\nAutomated descent units were dispatched to predefined zones, commencing terrain mapping, atmospheric analysis, and activation of primary infrastructure nodes.\n\nLanding confirmation was received by the United Earth Governance at 22:45 UTC, marking the official beginning of permanent human-aligned presence on SORAN.\n\nThe event is classified as humanity's first sanctioned interstellar settlement beyond Earth orbit.\n",
-    "tags": [
-      "ueg",
-      "soran",
-      "expansion",
-      "first-contact",
-      "sector-prime"
-    ],
-    "lang": "en",
-    "version": 1,
-    "imagePath": "/images/timeline/0005.png"
-  },
-  {
     "id": "8923a1f0-6718-4067-b918-c15375a9c19c",
-    "code": "CL-PRM-HIST-0001",
+    "code": "CL-PRM-HIST-0002",
     "title": "First Planet Authorized",
     "date": "2125-03-09T12:19:00Z",
     "summary": "Authorization granted to CORELAI SECTOR to initiate its first interstellar deployment toward system TE-110D (SORAN).",
@@ -106,5 +52,60 @@
     "lang": "en",
     "version": 1,
     "imagePath": "/images/timeline/0004.png"
+  },
+  {
+    "id": "42229c5d-13cb-4910-b63a-4a0d68c83822",
+    "code": "CL-PRM-HIST-0003",
+    "title": "EMBER is build",
+    "date": "2125-04-02T22:45:00Z",
+    "summary": "Viene costruito un nuovo battle cruiser (EMBER) come piattaforma operativa delle missioni SECTOR",
+    "body": "",
+    "tags": [
+      "ueg",
+      "soran",
+      "expansion",
+      "first-contact",
+      "sector-prime"
+    ],
+    "lang": "en",
+    "version": 1,
+    "imagePath": "/images/timeline/0002.png"
+  },
+  {
+    "id": "31967274-f5f6-4732-99b3-5d1872df9860",
+    "code": "CL-PRM-HIST-0004",
+    "title": "EMBER join ILION fleet",
+    "date": "2125-04-02T22:45:00Z",
+    "summary": "Il nuovo battle cruiser EMBER si unisce alla flotta con l'ammiraglia ILION",
+    "body": "",
+    "tags": [
+      "ueg",
+      "soran",
+      "expansion",
+      "first-contact",
+      "sector-prime"
+    ],
+    "lang": "en",
+    "version": 1,
+    "imagePath": "/images/timeline/0003.png"
+  },
+  {
+    "id": "342c3c95-0260-4e7a-877f-aab056548653",
+    "code": "CL-PRM-HIST-0005",
+    "title": "Orbital Arrival at TE-110D",
+    "date": "2125-04-02T22:45:00Z",
+    "summary": "CORELAI SECTOR establishes initial presence on TE-110D (SORAN) following successful interstellar arrival.",
+    "body": "On 2125-04-02, the CORELAI SECTOR colonization fleet successfully completed its interstellar transit and entered orbital position above planetary body TE-110D, designated \"SORAN\".\n\nThis milestone marks the activation of Phase 1 of Operation Expansion Prime, initiating planetary surface deployment and infrastructural establishment.\n\nAutomated descent units were dispatched to predefined zones, commencing terrain mapping, atmospheric analysis, and activation of primary infrastructure nodes.\n\nLanding confirmation was received by the United Earth Governance at 22:45 UTC, marking the official beginning of permanent human-aligned presence on SORAN.\n\nThe event is classified as humanity's first sanctioned interstellar settlement beyond Earth orbit.\n",
+    "tags": [
+      "ueg",
+      "soran",
+      "expansion",
+      "first-contact",
+      "sector-prime"
+    ],
+    "lang": "en",
+    "version": 1,
+    "imagePath": "/images/timeline/0005.png"
   }
+
 ]
