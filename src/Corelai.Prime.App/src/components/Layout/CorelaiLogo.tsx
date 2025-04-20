@@ -33,7 +33,7 @@ export const CorelaiLogo: React.FC = () => {
                  ${rotation} transform-style-preserve-3d                 
                  absolute
                  
-                 h-[260%] w-[240%] -top-[90%] -left-[95%]
+                 h-[260%] w-[240%] -top-[90%] -left-[100%]
                  
                  sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
                  
@@ -56,6 +56,8 @@ export const CorelaiLogo: React.FC = () => {
             flex-col
             items-center            
             bg-sky-500/0
+            sm:pe-0
+            pe-10
             `}
             >
 
