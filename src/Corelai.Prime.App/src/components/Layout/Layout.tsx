@@ -18,7 +18,24 @@ const Layout: React.FC = () => {
                 sm:py-24
                  md:py-40
                  lg:py-48
-                 grid-in-header col-span-4 relative overflow-hidden">
+                 grid-in-header col-span-4 relative overflow-hidden
+                 bg-surface-900
+
+                 ">
+                    <div className={`
+                    absolute inset-0
+                    bg-[url(/images/corelai-background.png)] bg-no-repeat bg-top
+                    
+                    opacity-100
+                    dark:opacity-100
+                    blur-[0.1rem]
+                    `}>
+                    </div>
+                    <div className={` absolute inset-0 bg-linear-to-b 
+                    from-surface-900/20 
+                    via-surface-900/50 
+                    to-surface-900/90`}>
+                    </div>
                     <Header/>
                 </header>
                 <main className="grid-in-main col-span-4 sm:col-span-4">

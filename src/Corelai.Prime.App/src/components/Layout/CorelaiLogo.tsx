@@ -9,7 +9,7 @@ export const CorelaiLogo: React.FC = () => {
     useEffect(
         () => {
             setTimeout(() => {
-                setRotation('rotate-y-[40deg]');
+                setRotation('-rotate-y-[0deg]');
             }, 101);
 
         }, []
@@ -29,17 +29,17 @@ export const CorelaiLogo: React.FC = () => {
             {/*ring*/}
             <div id="corelaiRing"
                  className={` bg-lime-500/0 
-                 opacity-100
+                 opacity-95
                  ${rotation} transform-style-preserve-3d                 
                  absolute
                  
-                 h-[220%] w-[200%] -top-[100%] -left-[28%]
+                 h-[260%] w-[240%] -top-[90%] -left-[95%]
                  
-                 sm:h-[300%] sm:w-[148%] sm:-top-[148%] sm:-left-[10%]
+                 sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
                  
-                 md:h-[200%] md:w-[160%] md:-top-[120%] md:-left-[25%]
+                 md:h-[270%] md:w-[250%] md:-top-[95%] md:-left-[105%]
                  
-                 lg:h-[200%] lg:w-[160%] lg:-top-[120%] lg:-left-[25%]
+                 lg:h-[300%] lg:w-[300%] lg:-top-[110%] lg:-left-[130%]
                  `}>
 
                 {/*<div className={`z-1 h-5 w-15  ${rotation} transform-style-preserve-3d */}
@@ -65,17 +65,17 @@ export const CorelaiLogo: React.FC = () => {
                     ">
                     {/*Laurel*/}
                     <div className="
-                        size-16
+                        size-12 pt-1
                         sm:size-18 sm:pt-2
                         md:size-22 md:pt-2
                         lg:size-32 lg:pt-0
                     ">
                         <CorelaiLaurel className="
                         size-full
-                        text-writing-900
+                        text-writing-100
                         dark:text-writing-100"/>
                     </div>
-                    <div className="text-writing-800
+                    <div className="text-writing-200
                                     dark:text-writing-200
                                     font-orbitron
                                     tracking-widest
@@ -83,7 +83,7 @@ export const CorelaiLogo: React.FC = () => {
                                     sm:pt-5
 
 
-                                    text-5xl
+                                    text-4xl
                                     sm:text-6xl
                                     md:text-7xl
                                     lg:text-8xl
@@ -98,7 +98,7 @@ export const CorelaiLogo: React.FC = () => {
                 <div
                     className="
                     pe-14
-                    text-writing-800
+                    text-writing-200
                       dark:text-writing-200
 
                     font-oxanium font-[400] uppercase

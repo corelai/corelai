@@ -44,9 +44,9 @@
             panY: false,
             wheelX: "none",
             wheelY: "none",
-            startAngle: 192,
-            endAngle: 528,
-            innerRadius: am5.percent(90)
+            startAngle: 48,
+            endAngle: 342,
+            innerRadius: am5.percent(80)
           }));
 
 
@@ -129,9 +129,18 @@
 
 // Set data
           var data = [];
+          let maxValue = 30;
+          var getValue = function (value) {
+            if(value > maxValue/2)
+            {
+              return maxValue-value;
+            }
+            return value;
 
-          for (var i = 0; i < 30; i++) {
-            data.push({ category: i, value: i });
+          }
+
+          for (var i = 0; i < maxValue; i++) {
+            data.push({ category: i, value: getValue(i) });
           }
 
           xAxis.data.setAll(data);
