@@ -17,7 +17,8 @@ export const CorelaiLogo: React.FC = () => {
 
     return (
         <AnimatePresence>
-        <motion.div initial={{opacity:0}} animate={{ opacity: 1 }} transition={{ duration: 2,delay: 0.3 }} className="relative bg-pink-400/0
+        <motion.div initial={{opacity:0}} animate={{ opacity: 1 }} transition={{ duration: 2,delay: 0.3 }}
+                    className="relative bg-pink-400/0
         py-3 perspective-[500px] perspective-origin-center
         ">
             <a href="/" className="">
@@ -26,11 +27,14 @@ export const CorelaiLogo: React.FC = () => {
 
             {/*ring*/}
             <div id="corelaiRing"
-                 className={` bg-lime-500/0 overflow-hidden
+                 className={` bg-lime-500/0 
+                 
                  ${rotation} transform-style-preserve-3d                 
                  absolute
                  
                  h-[300%] w-[120%] -top-[140%] -left-[10%]
+                 sm:h-[300%] sm:w-[180%] sm:-top-[175%] sm:-left-[16%]
+                 md:h-[300%] md:w-[189%] md:-top-[219%] md:-left-[20%]
                  `}>
                 {/*<div className={`z-1 h-5 w-15  ${rotation} transform-style-preserve-3d */}
                 {/*        dark:bg-surface-900/30 bg-surface-100 absolute*/}

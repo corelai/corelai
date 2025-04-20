@@ -21,7 +21,7 @@ const CORELAI_SLOGAN = `
 
 export const WelcomeCitizen : React.FC = () => {
     return (
-        <div className="text-center" >
+        <div className="text-center relative" >
             <h1 className="font-[700]
             pt-1 pb-2
             sm:py-4
@@ -50,6 +50,7 @@ export const WelcomeCitizen : React.FC = () => {
             m-auto
             md:max-w-[75%]
             lg:max-w-[50%]
+            z-0
             dark:text-writing-400
             ">
                 {welcomeMessage}

@@ -18,7 +18,7 @@ const Layout: React.FC = () => {
                 sm:py-24
                  md:py-36
                  lg:py-48
-                 grid-in-header col-span-4 relative">
+                 grid-in-header col-span-4 relative overflow-hidden">
                     <Header/>
                 </header>
                 <main className="grid-in-main col-span-4 sm:col-span-4">
