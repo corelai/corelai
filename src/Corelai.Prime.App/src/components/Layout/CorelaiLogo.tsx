@@ -38,6 +38,8 @@ export const CorelaiLogo: React.FC = () => {
                  sm:h-[300%] sm:w-[148%] sm:-top-[148%] sm:-left-[10%]
                  
                  md:h-[200%] md:w-[160%] md:-top-[120%] md:-left-[25%]
+                 
+                 lg:h-[200%] lg:w-[160%] lg:-top-[120%] lg:-left-[25%]
                  `}>
 
                 {/*<div className={`z-1 h-5 w-15  ${rotation} transform-style-preserve-3d */}
@@ -65,7 +67,8 @@ export const CorelaiLogo: React.FC = () => {
                     <div className="
                         size-16
                         sm:size-18 sm:pt-2
-                        md:size-32 md:pt-0
+                        md:size-22 md:pt-2
+                        lg:size-32 lg:pt-0
                     ">
                         <CorelaiLaurel className="
                         size-full
@@ -82,7 +85,8 @@ export const CorelaiLogo: React.FC = () => {
 
                                     text-5xl
                                     sm:text-6xl
-                                    md:text-8xl
+                                    md:text-7xl
+                                    lg:text-8xl
                                     uppercase
                                     whitespace-nowrap">
                         orelai
