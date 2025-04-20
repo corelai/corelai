@@ -11,7 +11,7 @@ export const CorelaiLogo: React.FC = () => {
         <AnimatePresence>
             <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.4, delay: 0.4}}
                         className="relative bg-pink-400/0
-        py-3 perspective-[800px] perspective-origin-center
+        py-3
 
         ">
                 {/*logo link*/}
@@ -28,7 +28,6 @@ export const CorelaiLogo: React.FC = () => {
                          opacity-95
                                        
                          absolute
-                         bg-pink-500/0
                          h-[260%] w-[140%] -top-[90%] -left-[50%]
                          
                          sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
@@ -39,7 +38,7 @@ export const CorelaiLogo: React.FC = () => {
                          `}>
                 </div>
 
-                <div className={`translate-x-6  translate-z-32 transform-style-preserve-3d   
+                <div className={`translate-x-6  translate-z-32    
                 flex
             flex-col
             items-center            
@@ -51,7 +50,7 @@ export const CorelaiLogo: React.FC = () => {
 
 
                     {/*CORELAI*/}
-                    <div className="flex flex-row
+                    <div className="flex flex-row bg-pink-500/0
                     ">
                         {/*Laurel*/}
                         <div className="
