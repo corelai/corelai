@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
                 size-8
                 rounded-full
                 transition-colors
-                text-surface-950
+                text-surface-400
                 hover:text-gold-400
                 dark:text-surface-300
                 dark:hover:text-gold-400

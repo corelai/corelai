@@ -1,23 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
 import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
 import {AnimatePresence, motion} from "framer-motion";
 
 
 export const CorelaiLogo: React.FC = () => {
-    const [rotation, setRotation] = useState<string>('rotate-y-[0deg]');
-    useEffect(
-        () => {
-            setTimeout(() => {
-                setRotation('-rotate-y-[0deg]');
-            }, 101);
 
-        }, []
-    );
 
     return (
         <AnimatePresence>
-        <motion.div initial={{opacity:0}} animate={{ opacity: 1 }} transition={{ duration: 2,delay: 0.3 }}
+        <motion.div initial={{opacity:0}} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.4 }}
                     className="relative bg-pink-400/0
         py-3 perspective-[800px] perspective-origin-center
         ">
@@ -30,7 +22,7 @@ export const CorelaiLogo: React.FC = () => {
             <div id="corelaiRing"
                  className={` bg-lime-500/0 
                  opacity-95
-                 ${rotation} transform-style-preserve-3d                 
+                               
                  absolute
                  
                  h-[260%] w-[240%] -top-[90%] -left-[100%]
@@ -51,7 +43,7 @@ export const CorelaiLogo: React.FC = () => {
 
             </div>
 
-            <div className={`${rotation} translate-x-6  translate-z-32 transform-style-preserve-3d   
+            <div className={`translate-x-6  translate-z-32 transform-style-preserve-3d   
                 flex
             flex-col
             items-center            

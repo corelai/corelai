@@ -17,14 +17,23 @@ const Layout: React.FC = () => {
                 <header className="py-20
                 sm:py-24
                  md:py-40
-                 lg:py-48
+                 lg:py-44
+                 xl:py-48
                  grid-in-header col-span-4 relative overflow-hidden
                  bg-surface-900
 
                  ">
+                    {/*header darkening mask*/}
+
                     <div className={`
                     absolute inset-0
-                    bg-[url(/images/corelai-background.png)] bg-no-repeat bg-top
+                    bg-[url(/images/corelai-background.png)] bg-no-repeat bg-bottom
+                    
+                    sm:bg-[length:1536px_auto]
+                    md:bg-[length:1536px_auto]
+                    lg:bg-[length:1536px_auto]
+                    xl:bg-[length:1536px_auto]
+                    2xl:bg-cover
                     
                     opacity-100
                     dark:opacity-100
@@ -32,9 +41,11 @@ const Layout: React.FC = () => {
                     `}>
                     </div>
                     <div className={` absolute inset-0 bg-linear-to-b 
-                    from-surface-900/20 
-                    via-surface-900/50 
-                    to-surface-900/90`}>
+                    from-surface-900/30 
+                    from-10%
+                    via-surface-900/90
+                    to-90%
+                    to-surface-900/30`}>
                     </div>
                     <Header/>
                 </header>
