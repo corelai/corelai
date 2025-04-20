@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
 import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
+import {AnimatePresence, motion} from "framer-motion";
 
 
 export const CorelaiLogo: React.FC = () => {
@@ -8,14 +9,15 @@ export const CorelaiLogo: React.FC = () => {
     useEffect(
         () => {
             setTimeout(() => {
-                setRotation('rotate-y-[0deg]');
+                setRotation('rotate-y-[40deg]');
             }, 101);
 
         }, []
     );
 
     return (
-        <div className="relative
+        <AnimatePresence>
+        <motion.div initial={{opacity:0}} animate={{ opacity: 1 }} transition={{ duration: 2,delay: 0.3 }} className="relative bg-pink-400/0
         py-3 perspective-[500px] perspective-origin-center
         ">
             <a href="/" className="">
@@ -24,20 +26,25 @@ export const CorelaiLogo: React.FC = () => {
 
             {/*ring*/}
             <div id="corelaiRing"
-                 className={` bg-lime-500/30
+                 className={` bg-lime-500/0 overflow-hidden
                  ${rotation} transform-style-preserve-3d                 
                  absolute
-                 -z-1  
-                 h-[300%] w-[120%] -top-[100%] -left-[10%]
+                 
+                 h-[300%] w-[120%] -top-[140%] -left-[10%]
                  `}>
-                <div className="z-1 h-5 w-15 dark:bg-surface-900 bg-surface-100 absolute bottom-0 left-0"></div>
+                {/*<div className={`z-1 h-5 w-15  ${rotation} transform-style-preserve-3d */}
+                {/*        dark:bg-surface-900/30 bg-surface-100 absolute*/}
+                {/*        h-[30%] w-[120%] top-[120%] -left-[40%]*/}
+                {/*        `}>*/}
+
+                {/*</div>*/}
             </div>
 
-            <div className="
+            <div className={`${rotation} translate-x-6  translate-z-32 transform-style-preserve-3d   
                 flex
             flex-col
-            items-center
-            ">
+            items-center`}
+            >
 
 
                 {/*CORELAI*/}
@@ -103,6 +110,7 @@ export const CorelaiLogo: React.FC = () => {
                     "/>
                 </div>
             </div>
-        </div>
+        </motion.div>
+        </AnimatePresence>
     );
 }

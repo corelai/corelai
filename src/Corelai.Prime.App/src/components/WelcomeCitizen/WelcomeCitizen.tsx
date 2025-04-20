@@ -50,7 +50,6 @@ export const WelcomeCitizen : React.FC = () => {
             m-auto
             md:max-w-[75%]
             lg:max-w-[50%]
-
             dark:text-writing-400
             ">
                 {welcomeMessage}

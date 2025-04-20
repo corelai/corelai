@@ -136,6 +136,20 @@
 
           xAxis.data.setAll(data);
           series.data.setAll(data);
+
+          chart.animate({
+            key: "startAngle",
+            to: 185,
+            duration: 4000,
+            easing: am5.ease.out(am5.ease.cubic)
+          });
+
+          chart.animate({
+            key: "endAngle",
+            to: 545,
+            duration: 4000,
+            easing: am5.ease.out(am5.ease.cubic)
+          });
           //
           chart.appear(5000, 100);
           series.appear(3000,100);
