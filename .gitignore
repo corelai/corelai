@@ -10,7 +10,7 @@
 /css/*
 # Vite
 **/.vite/
-
+**/dist/
 # Test coverage
 **/*.opencover.xml
 TestResults

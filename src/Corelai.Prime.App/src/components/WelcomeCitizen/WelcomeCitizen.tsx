@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 
 const welcomeMessage = `
 Welcome, Citizen.
@@ -17,16 +18,19 @@ the official entrypoint to Corelai SECTOR operations.
 const CORELAI_SLOGAN = `
 ✦ Control to Corelai ✦ 
 `
-const MainContent: React.FC = () => {
+
+export const WelcomeCitizen : React.FC = () => {
     return (
-        <div className="text-center" >
+        <div className="text-center relative" >
             <h1 className="font-[700]
             pt-1 pb-2
             sm:py-4
             text-sm
             sm:text-base
             md:text-lg
-            relative overflow-hidden">
+            relative overflow-hidden
+            dark:text-writing-200
+            ">
                 {/*<div className="*/}
                 {/*rotate-30*/}
                 {/*size-20 -translate-y-9 -translate-x-16*/}
@@ -42,12 +46,12 @@ const MainContent: React.FC = () => {
             sm:text-sm
             md:text-base
 
-            font-text
-            text-normal
             whitespace-pre-line
             m-auto
             md:max-w-[75%]
             lg:max-w-[50%]
+            z-0
+            dark:text-writing-400
             ">
                 {welcomeMessage}
 
@@ -57,45 +61,11 @@ const MainContent: React.FC = () => {
             text-sm
             sm:text-base
             md:text-lg
+            dark:text-writing-200
             ">
                 {CORELAI_SLOGAN}
             </p>
 
-
-            {/*<h3 className="font-[600]">*/}
-            {/*    h3 text*/}
-            {/*</h3>*/}
-
-            {/*<h6 className="font-[400]">*/}
-            {/*    h6 text*/}
-            {/*</h6>*/}
-
-            {/*<p className="*/}
-            {/*    text-secondary*/}
-            {/*    bg-secondary-surface*/}
-            {/*    font-text font-[400]">*/}
-            {/*    Secondary text 400*/}
-            {/*</p>*/}
-
-            {/*<p className="*/}
-            {/*    text-secondary*/}
-            {/*    bg-secondary-surface*/}
-            {/*    font-text font-[200]">*/}
-            {/*    Secondary text 200*/}
-            {/*</p>*/}
-
-            {/*<p className="*/}
-            {/*    text-secondary*/}
-            {/*    bg-secondary-surface*/}
-            {/*    font-text font-[600]">*/}
-            {/*    Secondary text 600*/}
-            {/*</p>*/}
-
-            {/*<p>*/}
-            {/*    P without nothing applied*/}
-            {/*</p>*/}
         </div>
     );
 };
-
-export default MainContent;

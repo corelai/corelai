@@ -1,53 +1,125 @@
 import React from "react";
 import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
+import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
+import {AnimatePresence, motion} from "framer-motion";
 
 
 export const CorelaiLogo: React.FC = () => {
+
+
     return (
-        <div className="relative
-        py-3
+        <AnimatePresence>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.4, delay: 0.4}}
+                        className="relative bg-pink-400/0
+        py-3 perspective-[800px] perspective-origin-center
+
         ">
-            <a href="/" className="">
-                <span className="absolute inset-0"></span>
-            </a>
-            <div className="
+                {/*logo link*/}
+                <a href="/" className="">
+                    <span className="z-1 absolute inset-0"></span>
+                </a>
+
+
+                {/*ring*/}
+                <div id="corelaiRing"
+                     className={`
+                      
+                      bg-lime-500/0 
+                         opacity-95
+                                       
+                         absolute
+                         bg-pink-500/0
+                         h-[260%] w-[140%] -top-[90%] -left-[50%]
+                         
+                         sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
+                         
+                         md:h-[270%] md:w-[210%] md:-top-[95%] md:-left-[85%] 
+                         
+                         lg:h-[300%] lg:w-[220%] lg:-top-[110%] lg:-left-[90%]
+                         `}>
+                </div>
+
+                <div className={`translate-x-6  translate-z-32 transform-style-preserve-3d   
                 flex
-            flex-row
-            sm:flex-col
-            items-center
-            ">
-                <div className="flex flex-row">
-                    <div className="
-                        size-8 pt-0.5
-                        sm:size-13
+            flex-col
+            items-center            
+            bg-sky-500/0
+            sm:pe-0
+            pe-10
+            `}
+                >
+
+
+                    {/*CORELAI*/}
+                    <div className="flex flex-row
                     ">
-                        <CorelaiLaurel className="size-full text-primary"/>
-                    </div>
-                    <div className="text-primary/65 font-orbitron tracking-widest
+                        {/*Laurel*/}
+                        <div className="
+                        size-12 pt-1
+                        sm:size-18 sm:pt-2
+                        md:size-22 md:pt-2
+                        lg:size-32 lg:pt-0
+                    ">
+                            <CorelaiLaurel className="
+                        size-full
+                        text-writing-100
+                        dark:text-writing-100"/>
+                        </div>
+                        <div className="text-writing-200
+                                    dark:text-writing-200
+                                    font-orbitron
+                                    tracking-widest
                                     pt-3
                                     sm:pt-5
-                                    text-lg
-                                    sm:text-4xl
+
+
+                                    text-4xl
+                                    sm:text-6xl
+                                    md:text-7xl
+                                    lg:text-8xl
                                     uppercase
                                     whitespace-nowrap">
-                        orelai
+                            orelai
+                        </div>
+                    </div>
+
+
+                    {/*sector prime*/}
+                    <div
+                        className="
+                    pe-14
+                    text-writing-200
+                      dark:text-writing-200
+
+                    font-oxanium font-[400] uppercase
+                     pb-0.5 ps-3
+                     sm:pb-0 sm:ps-0
+                    text-base
+                    sm:text-2xl
+                    md:text-3xl
+                    md:leading-[3rem]
+                    flex align-center gap-x-1
+                ">
+                        <SlArrowLeft className="
+                    text-[0.5rem]
+                    sm:text-[0.8rem]
+                    md:text-[1rem]
+                    sm:pb-1
+                    "/>
+                        sector
+                        <span
+                            className="
+                    text-gold-300"
+                        > prime </span>
+                        <SlArrowRight className="
+                    text-[0.5rem]
+                    sm:text-[0.8rem]
+                    md:text-[1rem]
+                    sm:pb-1
+                    "/>
                     </div>
                 </div>
-                <div
-                    className="text-division  font-oxanium font-[400] uppercase
-                self-end pb-0.5 ps-3
-                sm:self-auto sm:pb-0 sm:ps-0
-                text-xs
-                sm:text-sm
-                md:text-lg
-
-                {/*-translate-x-11 translate-y-8*/}
-                {/*sm:-translate-x-13 sm:translate-y-13*/}
-                {/*md:-translate-x-16 */}
-                ">
-                    sector // prime
-                </div>
-            </div>
-        </div>
+            </motion.div>
+        </AnimatePresence>
     );
 }

@@ -26,22 +26,22 @@
     font-display: swap;
 }
 
-/* Encode Sans Expanded - Body Text */
+/* Montserrat - Body Text */
 @font-face {
-    font-family: 'Encode Sans Expanded';
-    src: url('/fonts/encode-sans-expanded-v11-latin/encode-sans-expanded-v11-latin-200.woff2') format('woff2');
+    font-family: 'Montserrat';
+    src: url('/fonts/montserrat-v29-latin/montserrat-v29-latin-200.woff2') format('woff2');
     font-weight: 200;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Encode Sans Expanded';
-    src: url('/fonts/encode-sans-expanded-v11-latin/encode-sans-expanded-v11-latin-regular.woff2') format('woff2');
+    font-family: 'Montserrat';
+    src: url('/fonts/montserrat-v29-latin/montserrat-v29-latin-regular.woff2') format('woff2');
     font-weight: 400;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Encode Sans Expanded';
-    src: url('/fonts/encode-sans-expanded-v11-latin/encode-sans-expanded-v11-latin-600.woff2') format('woff2');
+    font-family: 'Montserrat';
+    src: url('/fonts/montserrat-v29-latin/montserrat-v29-latin-600.woff2') format('woff2');
     font-weight: 600;
     font-display: swap;
 }

@@ -5,10 +5,10 @@ import tailwindLogo from "/images/tailwindcss-mark.svg";
 
 export const TechStack: React.FC = () => {
     return (<section
-        className="text-xs bg-neutral-950 text-division flex items-center justify-end gap-2 align-middle p-2 py-4 ">
+        className="text-xs bg-neutral-950 text-gold-300 flex items-center justify-end gap-2 align-middle p-2 py-4 ">
 
         <a href="https://github.com/corelai" target="_blank" rel="noopener noreferrer">
-            <FaGithub className="w-4 h-4 sm:w-6 sm:h-6 hover:text-secondary transition-colors"/>
+            <FaGithub className="w-4 h-4 sm:w-6 sm:h-6 hover:text-gold-600 transition-colors"/>
         </a>
         <div>Powered by</div>
         <div className="h-4 w-4 sm:w-6 sm:h-6">
