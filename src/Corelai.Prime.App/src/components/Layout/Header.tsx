@@ -9,6 +9,8 @@ const Header: React.FC = () => {
         <div
             className="
              flex justify-center
+
+
              ">
             <CorelaiLogo/>
         </div>

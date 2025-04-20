@@ -9,41 +9,42 @@ export const CorelaiLogo: React.FC = () => {
 
     return (
         <AnimatePresence>
-        <motion.div initial={{opacity:0}} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.4 }}
-                    className="relative bg-pink-400/0
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.4, delay: 0.4}}
+                        className="relative bg-pink-400/0
         py-3 perspective-[800px] perspective-origin-center
+
         ">
-            <a href="/" className="">
-                <span className="absolute inset-0"></span>
-            </a>
+                <a href="/" className="">
+                    <span className="z-1 absolute inset-0"></span>
+                </a>
 
-            {/*md:h-[300%] md:w-[189%] md:-top-[219%] md:-left-[20%]*/}
-            {/*ring*/}
-            <div id="corelaiRing"
-                 className={` bg-lime-500/0 
-                 opacity-95
-                               
-                 absolute
-                 
-                 h-[260%] w-[240%] -top-[90%] -left-[100%]
-                 
-                 sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
-                 
-                 md:h-[270%] md:w-[250%] md:-top-[95%] md:-left-[105%]
-                 
-                 lg:h-[300%] lg:w-[300%] lg:-top-[110%] lg:-left-[130%]
-                 `}>
 
-                {/*<div className={`z-1 h-5 w-15  ${rotation} transform-style-preserve-3d */}
-                {/*        dark:bg-surface-900 bg-surface-100 absolute*/}
-                {/*        h-[30%] w-[80%] top-[110%] -left-[40%]*/}
+                {/*ring*/}
+                <div id="corelaiRing"
+                     className={` bg-lime-500/0 
+                         opacity-95
+                                       
+                         absolute
+                         
+                         h-[260%] w-[240%] -top-[90%] -left-[100%]
+                         
+                         sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
+                         
+                         md:h-[270%] md:w-[250%] md:-top-[95%] md:-left-[105%]
+                         
+                         lg:h-[300%] lg:w-[300%] lg:-top-[110%] lg:-left-[130%]
+                         `}>
+                </div>
+                {/*watermark cutter*/}
+                {/*<div className={`z-1  transform-style-preserve-3d */}
+                {/*        bg-surface-900/30 */}
+                {/*        bottom-1*/}
+                {/*       absolute*/}
                 {/*        `}>*/}
+
                 {/*</div>*/}
 
-
-            </div>
-
-            <div className={`translate-x-6  translate-z-32 transform-style-preserve-3d   
+                <div className={`translate-x-6  translate-z-32 transform-style-preserve-3d   
                 flex
             flex-col
             items-center            
@@ -51,25 +52,25 @@ export const CorelaiLogo: React.FC = () => {
             sm:pe-0
             pe-10
             `}
-            >
+                >
 
 
-                {/*CORELAI*/}
-                <div className="flex flex-row
+                    {/*CORELAI*/}
+                    <div className="flex flex-row
                     ">
-                    {/*Laurel*/}
-                    <div className="
+                        {/*Laurel*/}
+                        <div className="
                         size-12 pt-1
                         sm:size-18 sm:pt-2
                         md:size-22 md:pt-2
                         lg:size-32 lg:pt-0
                     ">
-                        <CorelaiLaurel className="
+                            <CorelaiLaurel className="
                         size-full
                         text-writing-100
                         dark:text-writing-100"/>
-                    </div>
-                    <div className="text-writing-200
+                        </div>
+                        <div className="text-writing-200
                                     dark:text-writing-200
                                     font-orbitron
                                     tracking-widest
@@ -83,14 +84,14 @@ export const CorelaiLogo: React.FC = () => {
                                     lg:text-8xl
                                     uppercase
                                     whitespace-nowrap">
-                        orelai
+                            orelai
+                        </div>
                     </div>
-                </div>
 
 
-                {/*sector prime*/}
-                <div
-                    className="
+                    {/*sector prime*/}
+                    <div
+                        className="
                     pe-14
                     text-writing-200
                       dark:text-writing-200
@@ -104,26 +105,26 @@ export const CorelaiLogo: React.FC = () => {
                     md:leading-[3rem]
                     flex align-center gap-x-1
                 ">
-                    <SlArrowLeft className="
+                        <SlArrowLeft className="
                     text-[0.5rem]
                     sm:text-[0.8rem]
                     md:text-[1rem]
                     sm:pb-1
                     "/>
-                    sector
-                    <span
-                        className="
+                        sector
+                        <span
+                            className="
                     text-gold-300"
-                    > prime </span>
-                    <SlArrowRight className="
+                        > prime </span>
+                        <SlArrowRight className="
                     text-[0.5rem]
                     sm:text-[0.8rem]
                     md:text-[1rem]
                     sm:pb-1
                     "/>
+                    </div>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
         </AnimatePresence>
     );
 }

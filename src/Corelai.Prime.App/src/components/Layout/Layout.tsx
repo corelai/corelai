@@ -20,8 +20,7 @@ const Layout: React.FC = () => {
                  md:py-40
                  lg:py-44
                  xl:py-48
-                 grid-in-header col-span-4 relative overflow-hidden
-                 bg-surface-900
+                 grid-in-header col-span-4 relative
 
                  ">
                     {/*header darkening mask*/}
