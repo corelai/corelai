@@ -14,6 +14,7 @@ export const CorelaiLogo: React.FC = () => {
         py-3 perspective-[800px] perspective-origin-center
 
         ">
+                {/*logo link*/}
                 <a href="/" className="">
                     <span className="z-1 absolute inset-0"></span>
                 </a>
@@ -21,18 +22,20 @@ export const CorelaiLogo: React.FC = () => {
 
                 {/*ring*/}
                 <div id="corelaiRing"
-                     className={` bg-lime-500/0 
+                     className={`
+                      
+                      bg-lime-500/0 
                          opacity-95
                                        
                          absolute
-                         
-                         h-[260%] w-[240%] -top-[90%] -left-[100%]
+                         bg-pink-500/0
+                         h-[260%] w-[140%] -top-[90%] -left-[50%]
                          
                          sm:h-[260%] sm:w-[130%] sm:-top-[85%] sm:-left-[43%]
                          
-                         md:h-[270%] md:w-[250%] md:-top-[95%] md:-left-[105%]
+                         md:h-[270%] md:w-[210%] md:-top-[95%] md:-left-[85%] 
                          
-                         lg:h-[300%] lg:w-[300%] lg:-top-[110%] lg:-left-[130%]
+                         lg:h-[300%] lg:w-[220%] lg:-top-[110%] lg:-left-[90%]
                          `}>
                 </div>
 
