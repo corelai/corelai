@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import TimelineEntryExpanded, {TimelineEntry} from "./TimelineEntryExpanded.tsx";
 import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
+import {pipe} from "fp-ts/function";
+import {sortBy} from "fp-ts/Array";
+import {contramap, ordDate, reverse} from "fp-ts/Ord";
 
 const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
@@ -51,14 +54,22 @@ const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
 const Timeline: React.FC = () => {
     const [data, setData] = useState<TimelineEntry[]>([]);
     const {open} = useModal();
-
+    const byDateDesc = pipe(
+        ordDate,
+        reverse,
+        contramap((entry: TimelineEntry) => new Date(entry.date))
+    )
     useEffect(() => {
         const loadJson = async () => {
             try {
                 const response = await fetch('/timeline/prime-timeline.json');
                 if (!response.ok) throw new Error('Fetch Error');
                 const jsonData = await response.json();
-                const parsed = parseTimelineData(jsonData);
+                const parsed = pipe(
+                    jsonData,
+                    parseTimelineData,
+                    sortBy([byDateDesc])
+                );
                 setData(parsed);
             } catch (error) {
                 console.error('JSON fetch error:', error);
@@ -81,7 +92,7 @@ const Timeline: React.FC = () => {
                     ps-20
                     sm:ps-23         
                     `}>
-                            events
+                    events
                 </h3>
                 <h1 className={`
                     text-xl
@@ -103,51 +114,51 @@ const Timeline: React.FC = () => {
                 scrollbar-thumb-surface-300
                 scrollbar-track-transparent">
 
-            {/*timeline table*/}
-            {data.map((timelineEntry: TimelineEntry) => (
-                    // main timeline container
-                    <div key={timelineEntry.id} className={`flex flex-row 
+                {/*timeline table*/}
+                {data.map((timelineEntry: TimelineEntry) => (
+                        // main timeline container
+                        <div key={timelineEntry.id} className={`flex flex-row 
                         items-center
                         cursor-pointer group
                         `}
-                         onClick={() =>
-                             open(
-                                 <div>
-                                     <TimelineEntryExpanded className="py-2" timelineEntry={timelineEntry}/>
-                                 </div>
-                             )
-                         }
+                             onClick={() =>
+                                 open(
+                                     <div>
+                                         <TimelineEntryExpanded className="py-2" timelineEntry={timelineEntry}/>
+                                     </div>
+                                 )
+                             }
 
-                    >
+                        >
 
 
-                        {/*spacer*/}
-                        <div className={`
+                            {/*spacer*/}
+                            <div className={`
                         pe-8
                         sm:pe-10
                         
                         `}></div>
 
-                        {/*image*/}
-                        <div className={`     
+                            {/*image*/}
+                            <div className={`     
                                            
                         h-14 sm:h-18
                          aspect-square bg-center bg-cover bg-no-repeat 
                         border-surface-950   dark:border-gold-100/25
                          border-2 dark:border-2
                         rounded-full`}
-                             style={{backgroundImage: `url(${timelineEntry.imagePath})`}}>
+                                 style={{backgroundImage: `url(${timelineEntry.imagePath})`}}>
 
-                        </div>
-                        <div className={`
+                            </div>
+                            <div className={`
                         px-5
                         sm:ps-4 sm:pe-5
                         `}>
 
-                        </div>
+                            </div>
 
-                        {/*timeline data*/}
-                        <div key={timelineEntry.id} className="
+                            {/*timeline data*/}
+                            <div key={timelineEntry.id} className="
                         border-l-2
                         border-surface-400 group-hover:border-surface-900
                          dark:border-surface-600 dark:group-hover:border-surface-400
@@ -167,23 +178,23 @@ const Timeline: React.FC = () => {
                         shadow-xs
                         grow
                         ">
-                            {/*date*/}
-                            <TimelinePlainDate date={timelineEntry.date}/>
+                                {/*date*/}
+                                <TimelinePlainDate date={timelineEntry.date}/>
 
-                            {/*title*/}
-                            <div className={`uppercase tracking-tight
+                                {/*title*/}
+                                <div className={`uppercase tracking-tight
                             dark:text-writing-300
                             text-xs
                             sm:text-base
                             `}>
-                                {timelineEntry.title}
-                            </div>
+                                    {timelineEntry.title}
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
-                )
-            )}
-        </div>
+                    )
+                )}
+            </div>
         </div>
     );
 };
