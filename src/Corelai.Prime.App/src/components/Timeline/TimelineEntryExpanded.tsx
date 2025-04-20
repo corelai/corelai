@@ -14,7 +14,6 @@ export interface TimelineEntry {
     title: string;
     date: Date;
     summary: string;
-    body: string;
     imagePath: string;
     tags: string[];
 
