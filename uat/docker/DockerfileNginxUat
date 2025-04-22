@@ -4,4 +4,5 @@ FROM nginx:latest
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy overridden configuration
-COPY /uat/nginx-uat.conf /etc/nginx/conf.d/default.conf
+COPY /uat/docker/nginx/nginx-uat.conf /etc/nginx/nginx.conf
+COPY /uat/docker/nginx/conf.d/ /etc/nginx/conf.d/
