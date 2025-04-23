@@ -1,35 +1,42 @@
 namespace Corelai.Prime.Bff
-#nowarn "20"
-open System
-open System.Collections.Generic
-open System.IO
-open System.Linq
-open System.Threading.Tasks
-open Microsoft.AspNetCore
+
 open Microsoft.AspNetCore.Builder
-open Microsoft.AspNetCore.Hosting
-open Microsoft.AspNetCore.HttpsPolicy
-open Microsoft.Extensions.Configuration
-open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
-open Microsoft.Extensions.Logging
+open Railway
+open Giraffe
+open Timeline
+open ApiResponder
 
 module Program =
     let exitCode = 0
+
+    let sampleApiCall: ApiResult<int, string> =
+        ror {
+            let! a = task { return Ok(Some 2) }
+            let! b = task { return Ok(Some(a + 3)) }
+            return b * 10
+        }
+
+    let webApp =
+        choose [ route "/test" >=> text "ok"
+                 route "/timeline/0000" >=> json ilionEvent
+                 route "/rail" >=> toHttp sampleApiCall
+                 route "/my-error"
+                 >=> toHttp (task { return Error "Bonzio error" })
+                 route "/my-not-found"
+                 >=> toHttp (task { return Ok None }) ]
 
     [<EntryPoint>]
     let main args =
 
         let builder = WebApplication.CreateBuilder(args)
 
-        builder.Services.AddControllers()
+
+        builder.Services.AddGiraffe() |> ignore
 
         let app = builder.Build()
 
-        app.UseHttpsRedirection()
-
-        app.UseAuthorization()
-        app.MapControllers()
+        app.UseGiraffe(webApp)
 
         app.Run()
 
