@@ -1,0 +1,22 @@
+name: corelai
+
+services:
+  
+  nginx:
+    image: corelai-nginx-local
+    ports:
+      - "80:80"
+    networks:
+      - corelai-network
+
+  primeapp:
+    image: corelai-prime-app-local
+    ports:
+      - "33000:80"
+    networks:
+      - corelai-network
+
+
+networks:
+  corelai-network:
+    driver: bridge
