@@ -1,0 +1,8 @@
+FROM nginx:latest
+
+# Remove default nginx configs
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy overridden configuration
+COPY /local/docker/nginx/nginx-local.conf /etc/nginx/nginx.conf
+COPY /local/docker/nginx/conf.d/ /etc/nginx/conf.d/

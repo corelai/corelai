@@ -1,7 +1,14 @@
+### Roadmaps
+
+- [ROADMAP 001](/ROADMAP001.md)
+
 ### Cheate sheets
 
 - [React](./react19_ts_cheatsheet.md)
 
-### Roadmaps
 
-- [ROADMAP 001](/ROADMAP001.md)
+### Some docs
+
+- [Certbot](./docs/infra/CERTBOT_CMD.md)
+- [Local dev](./docs/infra/LOCAL.md)
+- [Ports setup proposal](./docs/infra/PORTS.md)
