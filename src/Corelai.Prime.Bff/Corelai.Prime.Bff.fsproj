@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="Giraffe"/>
+    <PackageReference Include="Giraffe.TokenRouter"/>
+    <PackageReference Include="Giraffe.Pipelines"/>
+    <PackageReference Include="Ply"/>
   </ItemGroup>
   
   <ItemGroup>

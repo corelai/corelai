@@ -6,6 +6,9 @@
 
         <PackageVersion Include="FSharp.Core" Version="9.0.201"/>
         <PackageVersion Include="Giraffe" Version="7.0.2"/>
+        <PackageVersion Include="Giraffe.TokenRouter" Version="2.0.0"/>
+        <PackageVersion Include="Giraffe.Pipelines" Version="0.7.0"/>
+        <PackageVersion Include="Ply" Version="0.3.1"/>
     </ItemGroup>
 </Project>
 
