@@ -33,7 +33,7 @@ module Program =
             notFound
             [ route "/" (text "index")
               route "/test" (text "ok")
-              routef "parsing/%s/%i" (fun (s, i) -> text (sprintf "Received %s & %i" s i))
+              routef "/parsing/%s/%i" (fun (s, i) -> text $"Received %s{s} & %i{i}")
               errorsEndpoint
               subRoute
                   "/oks"
