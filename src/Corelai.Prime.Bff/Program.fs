@@ -22,18 +22,19 @@ module Program =
 
 
     let notFound = setStatusCode 404 >=> text "Not found"
-
+    let errorsEndpoint =
+        subRoute
+                  "/errors"
+                  [ GET [ route "/my-error" (toHttp (task { return Error "Bonzio error" }))
+                          route "/my-not-found" (toHttp (task { return Ok None }))
+                          subRoute "/v2" [ route "/my-not-found" (toHttp (task { return Ok None })) ] ] ]
     let routing =
         router
             notFound
             [ route "/" (text "index")
               route "/test" (text "ok")
               routef "parsing/%s/%i" (fun (s, i) -> text (sprintf "Received %s & %i" s i))
-              subRoute
-                  "/errors"
-                  [ GET [ route "/my-error" (toHttp (task { return Error "Bonzio error" }))
-                          route "/my-not-found" (toHttp (task { return Ok None }))
-                          subRoute "/v2" [ route "/my-not-found" (toHttp (task { return Ok None })) ] ] ]
+              errorsEndpoint
               subRoute
                   "/oks"
                   [ route "/test" (text "ok")
