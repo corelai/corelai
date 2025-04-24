@@ -17,15 +17,13 @@ module ApiResponder =
                     do! ctx.Response.WriteAsJsonAsync(value)
                     return Some ctx
                 | Ok None ->
-                    let payload = {| message = "Resource not found" |}
+                    let payload = {| message = "Not found" |}
                     ctx.Response.StatusCode <- StatusCodes.Status404NotFound
-                    ctx.Response.ContentType <- "application/json"
                     do! ctx.Response.WriteAsJsonAsync(payload)
                     return Some ctx
                 | Error err ->
                     let payload = {| message = err |}
                     ctx.Response.StatusCode <- StatusCodes.Status500InternalServerError
-                    ctx.Response.ContentType <- "application/json"
                     do! ctx.Response.WriteAsJsonAsync(payload)
                     return Some ctx
             }

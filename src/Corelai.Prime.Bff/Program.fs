@@ -50,7 +50,15 @@ module Program =
 
     //let notFound = setStatusCode 404 >=> text "Not found"
 
-    let notFound' =
+
+    let errorApi =
+        ror {
+            let! res = task { return Error "my error"}
+            return res
+        }
+        |> toHttp
+
+    let notFound =
         (ror {
             let! res = task { return Ok(None) }
             return res
@@ -66,8 +74,9 @@ module Program =
 
     let routing =
         TokenRouter.router
-            notFound'
-            [ TokenRouter.route "/zippo" <| notFound'
+            notFound
+            [
+              TokenRouter.route "/my-errors" <| errorApi
               TokenRouter.route "/timelines" <| getTimelineEvents ]
 
     [<EntryPoint>]
