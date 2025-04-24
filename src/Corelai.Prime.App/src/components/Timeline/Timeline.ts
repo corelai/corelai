@@ -1,8 +1,10 @@
+import {Guid} from "../../utils/guid.ts";
+
 export interface Timeline {
-    id: string
+    id: Guid
     code: string
     title: string
-    date: string
+    date: Date
     summary: string
     tags: string[]
     lang: string

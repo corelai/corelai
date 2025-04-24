@@ -6,6 +6,7 @@ import HistoryEntryDate from "./HistoryEntryDate.tsx";
 import HistoryEntryCode from "./HistoryEntryCode.tsx";
 import HistoryEntryTag from "./HistoryEntryTag.tsx";
 import TimelineEntrySummary from "./TimelineEntrySummary.tsx";
+import {Timeline} from "./Timeline.ts";
 
 
 export interface TimelineEntry {
@@ -22,7 +23,7 @@ export interface TimelineEntry {
 
 interface HistoryEntryExpandedProps {
     className:string;
-    timelineEntry: TimelineEntry;
+    timelineEntry: Timeline;
 }
 
 
