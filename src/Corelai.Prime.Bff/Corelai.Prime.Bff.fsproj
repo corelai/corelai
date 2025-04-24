@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FSharp.SystemTextJson"/>
     <PackageReference Include="Giraffe"/>
     <PackageReference Include="Giraffe.TokenRouter"/>
     <PackageReference Include="Giraffe.Pipelines"/>

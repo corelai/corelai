@@ -14,17 +14,18 @@ module ApiResponder =
                 let! res = result
                 match res with
                 | Ok (Some value) ->
-                    return! json value next ctx
+                    do! ctx.Response.WriteAsJsonAsync(value)
+                    return Some ctx
                 | Ok None ->
-                    let payload = JsonSerializer.Serialize({| status = "not_found"; message = "Resource not found" |})
+                    let payload = {| message = "Resource not found" |}
                     ctx.Response.StatusCode <- StatusCodes.Status404NotFound
                     ctx.Response.ContentType <- "application/json"
-                    do! ctx.Response.WriteAsync(payload)
+                    do! ctx.Response.WriteAsJsonAsync(payload)
                     return Some ctx
                 | Error err ->
-                    let payload = JsonSerializer.Serialize({| status = "error"; message = err |})
+                    let payload = {| message = err |}
                     ctx.Response.StatusCode <- StatusCodes.Status500InternalServerError
                     ctx.Response.ContentType <- "application/json"
-                    do! ctx.Response.WriteAsync(payload)
+                    do! ctx.Response.WriteAsJsonAsync(payload)
                     return Some ctx
             }

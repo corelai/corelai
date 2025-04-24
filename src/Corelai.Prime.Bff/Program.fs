@@ -1,59 +1,87 @@
 namespace Corelai.Prime.Bff
 
-open Giraffe.TokenRouter
-open Giraffe.ViewEngine
+open System.Text.Json
+open System.Text.Json.Serialization
 open Microsoft.AspNetCore.Builder
+open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open Railway
 open Giraffe
 open Timeline
 open ApiResponder
-open TokenRouter
 
 module Program =
     let exitCode = 0
+    //
+    // let sampleApiCall: ApiResult<int, string> =
+    //     ror {
+    //         let! a = task { return Ok(Some 2) }
+    //         let! b = task { return Ok(Some(a + 3)) }
+    //         return b * 10
+    //     }
+    //
+    //
+    // let errorsEndpoint =
+    //     subRoute
+    //               "/errors"
+    //               [ GET [ route "/my-error" (toHttp (task { return Error "Bonzio error" }))
+    //                       route "/my-not-found" (toHttp (task { return Ok None }))
+    //                       subRoute "/v2" [ route "/my-not-found" (toHttp (task { return Ok None })) ] ] ]
+    // let routing =
+    //     router
+    //         notFound
+    //         [ route "/" (text "index")
+    //           route "/test" (text "ok")
+    //           routef "/parsing/%s/%i" (fun (s, i) -> text $"Received %s{s} & %i{i}")
+    //           errorsEndpoint
+    //           subRoute
+    //               "/oks"
+    //               [ route "/test" (text "ok")
+    //                 route "/rail" (toHttp sampleApiCall) ]
+    //           route
+    //               "/timelines/0000"
+    //               (ror {
+    //                   let! a = task { return Ok(Some ilionEvent) }
+    //                   return a
+    //                }
+    //                |> toHttp)
+    //
+    //           ]
 
-    let sampleApiCall: ApiResult<int, string> =
+    //let notFound = setStatusCode 404 >=> text "Not found"
+
+    let notFound' =
+        (ror {
+            let! res = task { return Ok(None) }
+            return res
+         }
+         |> toHttp)
+
+    let getTimelineEvents =
         ror {
-            let! a = task { return Ok(Some 2) }
-            let! b = task { return Ok(Some(a + 3)) }
-            return b * 10
+            let! timelineEvents = task { return Ok(Some timelineEvents) }
+            return timelineEvents
         }
+        |> toHttp
 
-
-    let notFound = setStatusCode 404 >=> text "Not found"
-    let errorsEndpoint =
-        subRoute
-                  "/errors"
-                  [ GET [ route "/my-error" (toHttp (task { return Error "Bonzio error" }))
-                          route "/my-not-found" (toHttp (task { return Ok None }))
-                          subRoute "/v2" [ route "/my-not-found" (toHttp (task { return Ok None })) ] ] ]
     let routing =
-        router
-            notFound
-            [ route "/" (text "index")
-              route "/test" (text "ok")
-              routef "/parsing/%s/%i" (fun (s, i) -> text $"Received %s{s} & %i{i}")
-              errorsEndpoint
-              subRoute
-                  "/oks"
-                  [ route "/test" (text "ok")
-                    route "/rail" (toHttp sampleApiCall) ]
-              route
-                  "/timelines/0000"
-                  (ror {
-                      let! a = task { return Ok(Some ilionEvent) }
-                      return a
-                   }
-                   |> toHttp)
-
-              ]
+        TokenRouter.router
+            notFound'
+            [ TokenRouter.route "/zippo" <| notFound'
+              TokenRouter.route "/timelines" <| getTimelineEvents ]
 
     [<EntryPoint>]
     let main args =
 
         let builder = WebApplication.CreateBuilder(args)
 
+
+        builder.Services.ConfigureHttpJsonOptions(fun options ->
+            options.SerializerOptions.WriteIndented <- false
+            options.SerializerOptions.PropertyNamingPolicy <- JsonNamingPolicy.CamelCase
+            options.SerializerOptions.DefaultIgnoreCondition <- JsonIgnoreCondition.WhenWritingNull
+            JsonFSharpOptions.Default().AddToJsonSerializerOptions(options.SerializerOptions))
+        |> ignore
 
         builder.Services.AddGiraffe() |> ignore
 
