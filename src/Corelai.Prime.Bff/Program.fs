@@ -79,6 +79,17 @@ module Program =
               TokenRouter.route "/my-errors" <| errorApi
               TokenRouter.route "/timelines" <| getTimelineEvents ]
 
+    let configureCors (builder: WebApplicationBuilder) =
+        builder.Services.AddCors(fun options ->
+            options.AddDefaultPolicy(fun policy ->
+                policy
+                    .WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                |> ignore
+            )
+        ) |> ignore
+
     [<EntryPoint>]
     let main args =
 
@@ -92,21 +103,16 @@ module Program =
             JsonFSharpOptions.Default().AddToJsonSerializerOptions(options.SerializerOptions))
         |> ignore
 
-        builder.Services.AddCors(fun options ->
-            options.AddDefaultPolicy(fun policy ->
-                policy
-                    .WithOrigins("http://localhost:3000")
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                |> ignore
-            )
-        ) |> ignore
+        if builder.Environment.IsDevelopment() then
+            configureCors builder
 
         builder.Services.AddGiraffe() |> ignore
 
         let app = builder.Build()
 
-        app.UseCors() |> ignore
+        if builder.Environment.IsDevelopment() then
+            app.UseCors() |> ignore
+
         app.UseGiraffe(routing)
 
         app.Run()
