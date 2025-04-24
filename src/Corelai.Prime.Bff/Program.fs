@@ -53,7 +53,7 @@ module Program =
 
     let errorApi =
         ror {
-            let! res = task { return Error "my error"}
+            let! res = task { return Error "my error" }
             return res
         }
         |> toHttp
@@ -75,20 +75,15 @@ module Program =
     let routing =
         TokenRouter.router
             notFound
-            [
-              TokenRouter.route "/my-errors" <| errorApi
+            [ TokenRouter.route "/my-errors" <| errorApi
               TokenRouter.route "/timelines" <| getTimelineEvents ]
 
     let configureCors (builder: WebApplicationBuilder) =
         builder.Services.AddCors(fun options ->
             options.AddDefaultPolicy(fun policy ->
-                policy
-                    .WithOrigins("http://localhost:3000")
-                    .AllowAnyHeader()
-                    .AllowAnyMethod()
-                |> ignore
-            )
-        ) |> ignore
+                policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod()
+                |> ignore))
+        |> ignore
 
     [<EntryPoint>]
     let main args =
