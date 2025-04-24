@@ -92,10 +92,21 @@ module Program =
             JsonFSharpOptions.Default().AddToJsonSerializerOptions(options.SerializerOptions))
         |> ignore
 
+        builder.Services.AddCors(fun options ->
+            options.AddDefaultPolicy(fun policy ->
+                policy
+                    .WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                |> ignore
+            )
+        ) |> ignore
+
         builder.Services.AddGiraffe() |> ignore
 
         let app = builder.Build()
 
+        app.UseCors() |> ignore
         app.UseGiraffe(routing)
 
         app.Run()

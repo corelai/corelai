@@ -5,6 +5,9 @@ import {useModal} from "../../context/ModalContext.tsx";
 import {pipe} from "fp-ts/function";
 import {sortBy} from "fp-ts/Array";
 import {contramap, ordDate, reverse} from "fp-ts/Ord";
+import {fromFetch} from "rxjs/internal/observable/dom/fetch";
+import {switchMap} from "rxjs";
+import {Timeline as TimelineDto} from "./Timeline.ts";
 
 const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
@@ -52,149 +55,168 @@ const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
 )
 
 const Timeline: React.FC = () => {
-    const [data, setData] = useState<TimelineEntry[]>([]);
+    //const [data, setData] = useState<TimelineEntry[]>([]);
     const {open} = useModal();
-    const byDateDesc = pipe(
-        ordDate,
-        reverse,
-        contramap((entry: TimelineEntry) => new Date(entry.date))
-    )
-    useEffect(() => {
-        const loadJson = async () => {
-            try {
-                const response = await fetch('/timeline/prime-timeline.json');
-                if (!response.ok) throw new Error('Fetch Error');
-                const jsonData = await response.json();
-                const parsed = pipe(
-                    jsonData,
-                    parseTimelineData,
-                    sortBy([byDateDesc])
-                );
-                setData(parsed);
-            } catch (error) {
-                console.error('JSON fetch error:', error);
-            }
-        };
+    // const byDateDesc = pipe(
+    //     ordDate,
+    //     reverse,
+    //     contramap((entry: TimelineEntry) => new Date(entry.date))
+    // )
+    // useEffect(() => {
+    //     const loadJson = async () => {
+    //         try {
+    //             const response = await fetch('/timeline/prime-timeline.json');
+    //             if (!response.ok) throw new Error('Fetch Error');
+    //             const jsonData = await response.json();
+    //             const parsed = pipe(
+    //                 jsonData,
+    //                 parseTimelineData,
+    //                 sortBy([byDateDesc])
+    //             );
+    //             setData(parsed);
+    //         } catch (error) {
+    //             console.error('JSON fetch error:', error);
+    //         }
+    //     };
+    //
+    //     loadJson();
+    // }, [byDateDesc]);
 
-        loadJson();
-    }, []);
+    const [timelines, setTimelines] = useState<TimelineDto[]>([])
+
+    useEffect(() => {
+        const sub = fromFetch('http://localhost:4000/timelines').pipe(
+            switchMap(res => res.json())
+        ).subscribe({
+            next: setTimelines,
+            error: err => console.error('Timeline fetch failed', err)
+        })
+
+        return () => sub.unsubscribe()
+    }, [])
 
     return (
         <div>
+            <ul>
+                {timelines.map(t => (
+                    <li key={t.id}>
+                        <strong>{t.title}</strong> — {new Date(t.date).toLocaleDateString()}
+                    </li>
+                ))}
+            </ul>
+            {/*/!*timeline header*!/*/}
+            {/*<div className="flex flex-row sm:flex-col">*/}
+            {/*    <h3 className={`font-[200]             */}
+            {/*        sm:text-xl*/}
+            {/*        text-writing-600*/}
+            {/*        dark:text-writing-500*/}
+            {/*        hidden sm:block*/}
+            {/*        ps-20*/}
+            {/*        sm:ps-23         */}
+            {/*        `}>*/}
+            {/*        events*/}
+            {/*    </h3>*/}
+            {/*    <h1 className={`*/}
+            {/*        text-xl*/}
+            {/*        sm:text-2xl*/}
+            {/*        font-oxanium font-[600] uppercase*/}
+            {/*        dark:text-writing-300*/}
+            {/*        ps-20*/}
+            {/*        sm:ps-23*/}
+            {/*        -mb-1*/}
+            {/*        underline*/}
+            {/*        `}>*/}
+            {/*        Timeline*/}
+            {/*    </h1>*/}
+            {/*</div>*/}
+            {/*<div*/}
+            {/*    className="overflow-y-auto*/}
+            {/*    max-h-72*/}
+            {/*    scrollbar-thin*/}
+            {/*    scrollbar-thumb-surface-300*/}
+            {/*    scrollbar-track-transparent">*/}
 
-            {/*timeline header*/}
-            <div className="flex flex-row sm:flex-col">
-                <h3 className={`font-[200]             
-                    sm:text-xl
-                    text-writing-600
-                    dark:text-writing-500
-                    hidden sm:block
-                    ps-20
-                    sm:ps-23         
-                    `}>
-                    events
-                </h3>
-                <h1 className={`
-                    text-xl
-                    sm:text-2xl
-                    font-oxanium font-[600] uppercase
-                    dark:text-writing-300
-                    ps-20
-                    sm:ps-23
-                    -mb-1
-                    underline
-                    `}>
-                    Timeline
-                </h1>
-            </div>
-            <div
-                className="overflow-y-auto
-                max-h-72
-                scrollbar-thin
-                scrollbar-thumb-surface-300
-                scrollbar-track-transparent">
+            {/*    /!*timeline table*!/*/}
+            {/*    {data.map((timelineEntry: TimelineEntry) => (*/}
+            {/*            // main timeline container*/}
+            {/*            <div key={timelineEntry.id} className={`flex flex-row */}
+            {/*            items-center*/}
+            {/*            cursor-pointer group*/}
+            {/*            `}*/}
+            {/*                 onClick={() =>*/}
+            {/*                     open(*/}
+            {/*                         <div>*/}
+            {/*                             <TimelineEntryExpanded className="py-2" timelineEntry={timelineEntry}/>*/}
+            {/*                         </div>*/}
+            {/*                     )*/}
+            {/*                 }*/}
 
-                {/*timeline table*/}
-                {data.map((timelineEntry: TimelineEntry) => (
-                        // main timeline container
-                        <div key={timelineEntry.id} className={`flex flex-row 
-                        items-center
-                        cursor-pointer group
-                        `}
-                             onClick={() =>
-                                 open(
-                                     <div>
-                                         <TimelineEntryExpanded className="py-2" timelineEntry={timelineEntry}/>
-                                     </div>
-                                 )
-                             }
-
-                        >
-
-
-                            {/*spacer*/}
-                            <div className={`
-                        pe-8
-                        sm:pe-10
-                        
-                        `}></div>
-
-                            {/*image*/}
-                            <div className={`     
-                                           
-                        h-14 sm:h-18
-                         aspect-square bg-center bg-cover bg-no-repeat 
-                        border-surface-950   dark:border-gold-100/25
-                         border-2 dark:border-2
-                        rounded-full`}
-                                 style={{backgroundImage: `url(${timelineEntry.imagePath})`}}>
-
-                            </div>
-                            <div className={`
-                        px-5
-                        sm:ps-4 sm:pe-5
-                        `}>
-
-                            </div>
-
-                            {/*timeline data*/}
-                            <div key={timelineEntry.id} className="
-                        border-l-2
-                        border-surface-400 group-hover:border-surface-900
-                         dark:border-surface-600 dark:group-hover:border-surface-400
-
-                        group-hover:bg-gold-200 dark:group-hover:bg-transparent
-                        active:bg-gold-200 dark:active:bg-transparent
-                        dark:group-hover:bg-linear-to-r dark:group-hover:from-surface-300/25 dark:group-hover:to-surface-900/0
-                        dark:active:bg-linear-to-r dark:active:from-surface-300/25 dark:active:to-surface-900/0
-                        dark:bg-linear-to-r dark:from-surface-300/5 dark:to-surface-900/0
+            {/*            >*/}
 
 
-                        ps-8
-                        flex
-                        flex-col sm:flex-row
-                        relative
-                        py-6 sm:py-8
-                        shadow-xs
-                        grow
-                        ">
-                                {/*date*/}
-                                <TimelinePlainDate date={timelineEntry.date}/>
+            {/*                /!*spacer*!/*/}
+            {/*                <div className={`*/}
+            {/*            pe-8*/}
+            {/*            sm:pe-10*/}
+            {/*            */}
+            {/*            `}></div>*/}
 
-                                {/*title*/}
-                                <div className={`uppercase tracking-tight
-                            dark:text-writing-300
-                            text-xs
-                            sm:text-base
-                            `}>
-                                    {timelineEntry.title}
-                                </div>
+            {/*                /!*image*!/*/}
+            {/*                <div className={`     */}
+            {/*                               */}
+            {/*            h-14 sm:h-18*/}
+            {/*             aspect-square bg-center bg-cover bg-no-repeat */}
+            {/*            border-surface-950   dark:border-gold-100/25*/}
+            {/*             border-2 dark:border-2*/}
+            {/*            rounded-full`}*/}
+            {/*                     style={{backgroundImage: `url(${timelineEntry.imagePath})`}}>*/}
 
-                            </div>
-                        </div>
-                    )
-                )}
-            </div>
+            {/*                </div>*/}
+            {/*                <div className={`*/}
+            {/*            px-5*/}
+            {/*            sm:ps-4 sm:pe-5*/}
+            {/*            `}>*/}
+
+            {/*                </div>*/}
+
+            {/*                /!*timeline data*!/*/}
+            {/*                <div key={timelineEntry.id} className="*/}
+            {/*            border-l-2*/}
+            {/*            border-surface-400 group-hover:border-surface-900*/}
+            {/*             dark:border-surface-600 dark:group-hover:border-surface-400*/}
+
+            {/*            group-hover:bg-gold-200 dark:group-hover:bg-transparent*/}
+            {/*            active:bg-gold-200 dark:active:bg-transparent*/}
+            {/*            dark:group-hover:bg-linear-to-r dark:group-hover:from-surface-300/25 dark:group-hover:to-surface-900/0*/}
+            {/*            dark:active:bg-linear-to-r dark:active:from-surface-300/25 dark:active:to-surface-900/0*/}
+            {/*            dark:bg-linear-to-r dark:from-surface-300/5 dark:to-surface-900/0*/}
+
+
+            {/*            ps-8*/}
+            {/*            flex*/}
+            {/*            flex-col sm:flex-row*/}
+            {/*            relative*/}
+            {/*            py-6 sm:py-8*/}
+            {/*            shadow-xs*/}
+            {/*            grow*/}
+            {/*            ">*/}
+            {/*                    /!*date*!/*/}
+            {/*                    <TimelinePlainDate date={timelineEntry.date}/>*/}
+
+            {/*                    /!*title*!/*/}
+            {/*                    <div className={`uppercase tracking-tight*/}
+            {/*                dark:text-writing-300*/}
+            {/*                text-xs*/}
+            {/*                sm:text-base*/}
+            {/*                `}>*/}
+            {/*                        {timelineEntry.title}*/}
+            {/*                    </div>*/}
+
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        )*/}
+            {/*    )}*/}
+            {/*</div>*/}
         </div>
     );
 };
