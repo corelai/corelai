@@ -11,8 +11,21 @@ services:
 
   primeapp:
     image: corelai-prime-app-local
-    ports:
-      - "33000:80"
+#    ports:
+#      - "33000:80"
+    expose:
+      - "80"
+    networks:
+      - corelai-network
+
+  primebff:
+    image: corelai-prime-bff-local
+#    ports:
+#      - "34000:80"
+    expose:
+      - "80"
+    environment:
+      ASPNETCORE_HTTP_PORTS: "80"
     networks:
       - corelai-network
 
@@ -20,3 +33,8 @@ services:
 networks:
   corelai-network:
     driver: bridge
+
+
+#  Directive	Description
+#  ports	🔓 Exposes the container port to the host machine, making it accessible via localhost or external IP.
+#  expose	🔐 Makes the port available only to other containers in the same Docker network. It is not accessible from the host.
