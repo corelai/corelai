@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import TimelineEntryExpanded from "./TimelineEntryExpanded.tsx";
-import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate.tsx";
-import {useModal} from "../../context/ModalContext.tsx";
+import TimelineEntryExpanded from "./TimelineEntryExpanded";
+import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate";
+import {useModal} from "../../context/ModalContext";
 import {pipe} from "fp-ts/function";
 import {sortBy} from "fp-ts/Array";
 import {contramap, ordDate, reverse} from "fp-ts/Ord";
 import {fromFetch} from "rxjs/internal/observable/dom/fetch";
 import {map, switchMap} from "rxjs";
-import {Timeline as TimelineDto} from "./Timeline.ts";
-import {parseGuid} from "../../utils/guid.ts";
-import {useAppSettings} from "../../context/SettingsContext.tsx";
+import {Timeline as TimelineDto} from "./Timeline";
+import {parseGuid} from "../../utils/guid";
+import useAppSettings from "../../hooks/useAppSettings";
 
 
 const parse = (raw: TimelineDto[]): TimelineDto[] => {
@@ -93,7 +93,7 @@ const Timeline: React.FC = () => {
             })
 
         return () => sub.unsubscribe()
-    }, [])
+    }, [bff])
 
     return (
         <div>
