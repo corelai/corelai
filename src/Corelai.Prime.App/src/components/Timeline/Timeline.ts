@@ -11,3 +11,4 @@ export interface Timeline {
     version: number
     imagePath: string
 }
+

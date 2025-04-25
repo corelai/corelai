@@ -31,7 +31,7 @@ const parseTimelineData = (raw: any): TimelineEntry[] => {
 };
 
 const parse = (raw: any): TimelineDto[] => {
-    return raw.map((item:TimelineDto) => {
+    return raw.map((item: TimelineDto) => {
         return {
             ...item,
             id: parseGuid(item.id),
@@ -68,11 +68,7 @@ const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
 const Timeline: React.FC = () => {
     //const [data, setData] = useState<TimelineEntry[]>([]);
     const {open} = useModal();
-    // const byDateDesc = pipe(
-    //     ordDate,
-    //     reverse,
-    //     contramap((entry: TimelineEntry) => new Date(entry.date))
-    // )
+
     // useEffect(() => {
     //     const loadJson = async () => {
     //         try {
@@ -96,13 +92,22 @@ const Timeline: React.FC = () => {
     const [timelines, setTimelines] = useState<TimelineDto[]>([])
 
     useEffect(() => {
-        const sub = fromFetch('http://localhost:4000/timelines').pipe(
-            switchMap(res => res.json()),
-            map((el:TimelineDto[]) => parse(el))
-        ).subscribe({
-            next: setTimelines,
-            error: err => console.error('Timeline fetch failed', err)
-        })
+        const byDateDesc = pipe(
+            ordDate,
+            reverse,
+            contramap((entry: TimelineDto) => new Date(entry.date))
+        )
+
+        const sub = fromFetch('http://localhost:4000/timelines')
+            .pipe(
+                switchMap(res => res.json()),
+                map((el: TimelineDto[]) => parse(el)),
+                map((timelines: TimelineDto[]) => sortBy([byDateDesc])(timelines))
+            ).subscribe({
+                next: setTimelines,
+                error: err => console.error('Timeline fetch failed', err),
+                //complete: () => console.log('Timeline fetch complete')
+            })
 
         return () => sub.unsubscribe()
     }, [])
