@@ -24,12 +24,19 @@ services:
 
   primeapp:
     image: corelai-prime-app-prod
-    ports:
-      - "3000:80"
+    expose:
+      - "80"
     networks:
       - corelai-network
 
-
+  primebff:
+    image: corelai-prime-bff-prod
+    expose:
+      - "80"
+    environment:
+      ASPNETCORE_HTTP_PORTS: "80"
+    networks:
+      - corelai-network
 
 
 networks:
