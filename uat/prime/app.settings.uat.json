@@ -1,0 +1,6 @@
+{
+  "envName": "uat",
+  "bff": {
+    "apiBaseUrl": "/bff"
+  }
+}

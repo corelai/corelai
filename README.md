@@ -2,7 +2,7 @@
 
 - [ROADMAP 001](/ROADMAP001.md)
 
-### Cheate sheets
+### Cheat sheets
 
 - [React](./react19_ts_cheatsheet.md)
 

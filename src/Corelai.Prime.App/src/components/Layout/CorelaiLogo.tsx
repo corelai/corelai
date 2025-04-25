@@ -2,6 +2,7 @@ import React from "react";
 import {CorelaiLaurel} from "../UI/CorelaiLaurel.tsx";
 import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
 import {AnimatePresence, motion} from "framer-motion";
+import CorelaiRing from "../UI/CorelaiRing.tsx";
 
 
 export const CorelaiLogo: React.FC = () => {
@@ -21,8 +22,7 @@ export const CorelaiLogo: React.FC = () => {
 
 
                 {/*ring*/}
-                <div id="corelaiRing"
-                     className={`
+                <CorelaiRing className={`
                       
                       bg-lime-500/0 
                          opacity-95
@@ -35,8 +35,7 @@ export const CorelaiLogo: React.FC = () => {
                          md:h-[270%] md:w-[210%] md:-top-[95%] md:-left-[85%] 
                          
                          lg:h-[300%] lg:w-[220%] lg:-top-[110%] lg:-left-[90%]
-                         `}>
-                </div>
+                         `}/>
 
                 <div className={`translate-x-6  translate-z-32    
                 flex

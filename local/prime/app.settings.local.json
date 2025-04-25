@@ -1,0 +1,6 @@
+{
+  "envName": "local",
+  "bff": {
+    "apiBaseUrl": "/bff"
+  }
+}

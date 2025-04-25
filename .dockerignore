@@ -12,3 +12,5 @@ coverage
 *.bak
 *.swp
 **/.vite
+[Bb]in
+[Oo]bj

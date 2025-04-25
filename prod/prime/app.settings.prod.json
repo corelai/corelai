@@ -1,0 +1,6 @@
+{
+  "envName": "prod",
+  "bff": {
+    "apiBaseUrl": "/bff"
+  }
+}

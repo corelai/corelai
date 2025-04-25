@@ -1,27 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import TimelineEntryExpanded, {TimelineEntry} from "./TimelineEntryExpanded.tsx";
-import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate.tsx";
-import {useModal} from "../../context/ModalContext.tsx";
+import TimelineEntryExpanded from "./TimelineEntryExpanded";
+import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate";
+import {useModal} from "../../context/ModalContext";
 import {pipe} from "fp-ts/function";
 import {sortBy} from "fp-ts/Array";
 import {contramap, ordDate, reverse} from "fp-ts/Ord";
+import {fromFetch} from "rxjs/internal/observable/dom/fetch";
+import {map, switchMap} from "rxjs";
+import {Timeline as TimelineDto} from "./Timeline";
+import {parseGuid} from "../../utils/guid";
+import useAppSettings from "../../hooks/useAppSettings";
 
-const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
-    typeof obj === 'object' &&
-    typeof obj.id === 'string' &&
-    typeof obj.code === 'string' &&
-    typeof obj.title === 'string' &&
-    typeof obj.date === 'string' &&
-    typeof obj.summary === 'string' &&
-    typeof obj.imagePath === 'string';
 
-const parseTimelineData = (raw: any): TimelineEntry[] => {
-    if (!Array.isArray(raw)) throw new Error('Invalid JSON structure');
-    return raw.map(item => {
-        if (!isValidTimelineEntry(item)) throw new Error('Invalid timeline entry');
+const parse = (raw: TimelineDto[]): TimelineDto[] => {
+    return raw.map((item: TimelineDto) => {
         return {
             ...item,
-            date: new Date(item.date),
+            id: parseGuid(item.id),
+            date: new Date(item.date)
         };
     });
 };
@@ -52,36 +48,55 @@ const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
 )
 
 const Timeline: React.FC = () => {
-    const [data, setData] = useState<TimelineEntry[]>([]);
+    //const [data, setData] = useState<TimelineEntry[]>([]);
     const {open} = useModal();
-    const byDateDesc = pipe(
-        ordDate,
-        reverse,
-        contramap((entry: TimelineEntry) => new Date(entry.date))
-    )
-    useEffect(() => {
-        const loadJson = async () => {
-            try {
-                const response = await fetch('/timeline/prime-timeline.json');
-                if (!response.ok) throw new Error('Fetch Error');
-                const jsonData = await response.json();
-                const parsed = pipe(
-                    jsonData,
-                    parseTimelineData,
-                    sortBy([byDateDesc])
-                );
-                setData(parsed);
-            } catch (error) {
-                console.error('JSON fetch error:', error);
-            }
-        };
 
-        loadJson();
-    }, []);
+    // useEffect(() => {
+    //     const loadJson = async () => {
+    //         try {
+    //             const response = await fetch('/timeline/prime-timeline.json');
+    //             if (!response.ok) throw new Error('Fetch Error');
+    //             const jsonData = await response.json();
+    //             const parsed = pipe(
+    //                 jsonData,
+    //                 parseTimelineData,
+    //                 sortBy([byDateDesc])
+    //             );
+    //             setData(parsed);
+    //         } catch (error) {
+    //             console.error('JSON fetch error:', error);
+    //         }
+    //     };
+    //
+    //     loadJson();
+    // }, [byDateDesc]);
+
+    const [timelines, setTimelines] = useState<TimelineDto[]>([]);
+    const { bff } = useAppSettings();
+
+    useEffect(() => {
+        const byDateDesc = pipe(
+            ordDate,
+            reverse,
+            contramap((entry: TimelineDto) => new Date(entry.date))
+        )
+
+        const sub = fromFetch(`${bff.apiBaseUrl}/timelines`)
+            .pipe(
+                switchMap(res => res.json()),
+                map((el: TimelineDto[]) => parse(el)),
+                map((timelines: TimelineDto[]) => sortBy([byDateDesc])(timelines))
+            ).subscribe({
+                next: setTimelines,
+                error: err => console.error('Timeline fetch failed', err),
+                //complete: () => console.log('Timeline fetch complete')
+            })
+
+        return () => sub.unsubscribe()
+    }, [bff])
 
     return (
         <div>
-
             {/*timeline header*/}
             <div className="flex flex-row sm:flex-col">
                 <h3 className={`font-[200]             
@@ -115,7 +130,7 @@ const Timeline: React.FC = () => {
                 scrollbar-track-transparent">
 
                 {/*timeline table*/}
-                {data.map((timelineEntry: TimelineEntry) => (
+                {timelines.map((timelineEntry: TimelineDto) => (
                         // main timeline container
                         <div key={timelineEntry.id} className={`flex flex-row 
                         items-center

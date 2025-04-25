@@ -12,6 +12,7 @@ on:
           - all
           - nginx
           - primeapp
+          - primebff
       runner-labels:
         description: 'Runner labels (as JSON string, e.g. ["self-hosted", "build-runner"])'
         required: true
@@ -74,6 +75,19 @@ jobs:
       service-name: 'primeapp'
       image-name: 'corelai-prime-app'
       dockerfile-name: 'DockerfilePrimeAppProd'
+      runner-labels: ${{ needs.set-defaults.outputs.runners }}
+      timestamp: ${{ needs.prepare-metadata.outputs.timestamp }}
+      build-share: "/mnt/buildshare/builds"
+
+  build-primebff:
+    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'primebff' }}
+    needs: [ prepare-metadata, set-defaults ]
+    uses: ./.github/workflows/shared-01-build.yaml
+    with:
+      environment-name: 'prod'
+      service-name: 'primebff'
+      image-name: 'corelai-prime-bff'
+      dockerfile-name: 'DockerfilePrimeBffProd'
       runner-labels: ${{ needs.set-defaults.outputs.runners }}
       timestamp: ${{ needs.prepare-metadata.outputs.timestamp }}
       build-share: "/mnt/buildshare/builds"

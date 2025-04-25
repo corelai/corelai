@@ -1,28 +1,17 @@
 import React from "react";
-import {Guid} from "../../utils/guid.ts";
 import HistoryEntryTitle from "./HistoryEntryTitle.tsx";
 import TimelineEntryHeroImage from "./TimelineEntryHeroImage.tsx";
 import HistoryEntryDate from "./HistoryEntryDate.tsx";
 import HistoryEntryCode from "./HistoryEntryCode.tsx";
 import HistoryEntryTag from "./HistoryEntryTag.tsx";
 import TimelineEntrySummary from "./TimelineEntrySummary.tsx";
+import {Timeline} from "./Timeline.ts";
 
-
-export interface TimelineEntry {
-    id: Guid;
-    code: string;
-    title: string;
-    date: Date;
-    summary: string;
-    imagePath: string;
-    tags: string[];
-
-}
 
 
 interface HistoryEntryExpandedProps {
     className:string;
-    timelineEntry: TimelineEntry;
+    timelineEntry: Timeline;
 }
 
 

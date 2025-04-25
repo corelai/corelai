@@ -10,12 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.12.1",
+    "@amcharts/amcharts5-fonts": "^5.0.1",
+    "@amcharts/amcharts5-geodata": "^5.1.4",
     "@tailwindcss/vite": "^4.1.3",
     "fp-ts": "^2.16.9",
     "framer-motion": "^12.7.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "rxjs": "^7.8.2",
     "tailwindcss": "^4.1.3",
     "uuid": "^11.1.0"
   },

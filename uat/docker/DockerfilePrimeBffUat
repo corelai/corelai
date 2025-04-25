@@ -1,0 +1,39 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /source
+
+COPY src/*.sln .
+
+COPY src/. .
+RUN dotnet restore
+
+
+WORKDIR /source/Corelai.Prime.Bff
+RUN dotnet publish -c release -o /app --no-restore  /p:UseAppHost=false
+
+
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /app
+
+
+# Define build-time args with defaults
+ARG APP_UID=10000
+ARG APP_GID=39000
+ARG APP_USER=appuser
+ARG APP_GROUP=appgroup
+
+
+# Create group and user with provided UID/GID
+RUN addgroup --gid ${APP_GID} ${APP_GROUP} && \
+    adduser --system --uid ${APP_UID} --ingroup ${APP_GROUP} ${APP_USER}
+
+COPY --from=build /app ./
+RUN chown -R ${APP_USER}:${APP_GROUP} /app && chmod -R 755 /app
+
+# Switch to non-root user
+USER ${APP_USER}
+
+SHELL ["/bin/false"]
+
+
+ENTRYPOINT ["dotnet", "Corelai.Prime.Bff.dll"]
