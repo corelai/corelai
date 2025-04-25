@@ -19,7 +19,7 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
         ]);
 
 
-        var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+        const chart = root.container.children.push(am5radar.RadarChart.new(root, {
             panX: false,
             panY: false,
             wheelX: "none",
@@ -34,7 +34,7 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
             behavior: "none" // <--- IMPORTANTE
         }));
         chart.zoomOutButton.set("forceHidden", true);
-        var xRenderer = am5radar.AxisRendererCircular.new(root, {
+        const xRenderer = am5radar.AxisRendererCircular.new(root, {
             minGridDistance: 1
         });
 
@@ -46,7 +46,7 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
 
         xRenderer.labels.template.set("text", "");
 
-        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+        const xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
             maxDeviation: 0,
             categoryField: "category",
             renderer: xRenderer
@@ -56,17 +56,17 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
             startLocation: 0,
             endLocation: 1,
             zoomX: false, // sicurezza extra
-            tooltip: null
+            tooltip: undefined
         });
 
 // Forza disattivazione dello zoom/scroll interno
         xAxis.get("renderer").set("minGridDistance", 50); // aumenta spazio tra categorie
         xAxis.set("forceHidden", false);
 
-        var yRenderer = am5radar.AxisRendererRadial.new(root, {});
+        const yRenderer = am5radar.AxisRendererRadial.new(root, {});
         yRenderer.labels.template.set("centerX", am5.p50);
         yRenderer.labels.template.set("forceHidden", true);
-        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+        const yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
             maxDeviation: 0.3,
             min: 0,
             renderer: yRenderer,
@@ -82,7 +82,7 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
         }));
 
 
-        var series = chart.series.push(am5radar.RadarColumnSeries.new(root, {
+        const series = chart.series.push(am5radar.RadarColumnSeries.new(root, {
             name: "Series 1",
             sequencedInterpolation: true,
             xAxis: xAxis,
@@ -94,22 +94,22 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
 
         series.columns.template.setAll({
             cornerRadius: 0,
-            tooltipText: null
+            tooltipText: undefined
         });
 
-        series.columns.template.adapters.add("fill", function (fill, target) {
+        series.columns.template.adapters.add("fill", function () {
             return am5.color(0xD6C38D);
         });
 
-        series.columns.template.adapters.add("stroke", function (stroke, target) {
+        series.columns.template.adapters.add("stroke", function () {
             return am5.color(0xD6C38D);
         });
 
 
 // Set data
-        var data = [];
-        let maxValue = 30;
-        var getValue = function (value) {
+        const data = [];
+        const maxValue = 30;
+        const getValue = function (value:number) {
             if (value > maxValue / 2) {
                 return maxValue - value;
             }
@@ -117,7 +117,7 @@ const CorelaiRing: React.FC<CorelaiRingProps> = ({className}: CorelaiRingProps) 
 
         }
 
-        for (var i = 0; i < maxValue; i++) {
+        for (let i = 0; i < maxValue; i++) {
             data.push({category: i, value: getValue(i)});
         }
 

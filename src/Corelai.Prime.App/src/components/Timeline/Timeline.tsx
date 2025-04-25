@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import TimelineEntryExpanded, {TimelineEntry} from "./TimelineEntryExpanded.tsx";
+import TimelineEntryExpanded from "./TimelineEntryExpanded.tsx";
 import {TimelineEntryFullDate, TimelineEntryTime} from "./HistoryEntryDate.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
 import {pipe} from "fp-ts/function";
@@ -11,27 +11,8 @@ import {Timeline as TimelineDto} from "./Timeline.ts";
 import {parseGuid} from "../../utils/guid.ts";
 import {useAppSettings} from "../../context/SettingsContext.tsx";
 
-const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
-    typeof obj === 'object' &&
-    typeof obj.id === 'string' &&
-    typeof obj.code === 'string' &&
-    typeof obj.title === 'string' &&
-    typeof obj.date === 'string' &&
-    typeof obj.summary === 'string' &&
-    typeof obj.imagePath === 'string';
 
-const parseTimelineData = (raw: any): TimelineEntry[] => {
-    if (!Array.isArray(raw)) throw new Error('Invalid JSON structure');
-    return raw.map(item => {
-        if (!isValidTimelineEntry(item)) throw new Error('Invalid timeline entry');
-        return {
-            ...item,
-            date: new Date(item.date),
-        };
-    });
-};
-
-const parse = (raw: any): TimelineDto[] => {
+const parse = (raw: TimelineDto[]): TimelineDto[] => {
     return raw.map((item: TimelineDto) => {
         return {
             ...item,
