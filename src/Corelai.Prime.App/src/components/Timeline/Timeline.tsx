@@ -9,6 +9,7 @@ import {fromFetch} from "rxjs/internal/observable/dom/fetch";
 import {map, switchMap} from "rxjs";
 import {Timeline as TimelineDto} from "./Timeline.ts";
 import {parseGuid} from "../../utils/guid.ts";
+import {useAppSettings} from "../../context/SettingsContext.tsx";
 
 const isValidTimelineEntry = (obj: any): obj is TimelineEntry =>
     typeof obj === 'object' &&
@@ -89,7 +90,8 @@ const Timeline: React.FC = () => {
     //     loadJson();
     // }, [byDateDesc]);
 
-    const [timelines, setTimelines] = useState<TimelineDto[]>([])
+    const [timelines, setTimelines] = useState<TimelineDto[]>([]);
+    const { bff } = useAppSettings();
 
     useEffect(() => {
         const byDateDesc = pipe(
@@ -98,7 +100,7 @@ const Timeline: React.FC = () => {
             contramap((entry: TimelineDto) => new Date(entry.date))
         )
 
-        const sub = fromFetch('http://localhost:4000/timelines')
+        const sub = fromFetch(`${bff.apiBaseUrl}/timelines`)
             .pipe(
                 switchMap(res => res.json()),
                 map((el: TimelineDto[]) => parse(el)),
