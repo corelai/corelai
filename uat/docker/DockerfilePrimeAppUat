@@ -5,6 +5,14 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY src/Corelai.Prime.App .
 
+COPY uat/prime/app.settings.uat.json ./app.override.json
+
+RUN jq -s '.[0] * .[1]' app.settings.json app.override.json > merged.config.json \
+    && mv merged.config.json ./public/app.settings.json && rm app.override.json
+
+RUN echo "📁 Listing di /app dopo COPY:" && ls -lah /app/public && cat /app/public/app.settings.json
+
+
 RUN pnpm install --frozen-lockfile
 
 RUN pnpm run build
@@ -12,7 +20,7 @@ RUN pnpm run build
 
 FROM nginx:alpine AS production-stage
 
-COPY ./uat/nginx-uat-prime-app.conf /etc/nginx/conf.d/default.conf
+COPY ./uat/prime/nginx-uat.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 

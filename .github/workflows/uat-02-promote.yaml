@@ -16,6 +16,7 @@ on:
           - all
           - nginx
           - primeapp
+          - primebff
       runner-labels:
         description: 'Runner labels (as JSON string, e.g. ["self-hosted", "build-runner"])'
         required: true
@@ -66,6 +67,18 @@ jobs:
       environment-name: 'uat'
       service-name: 'primeapp'
       image-name: 'corelai-prime-app'
+      runner-labels: ${{ needs.set-defaults.outputs.runners }}
+      remote: "SENESCHAL"
+      build-share: "/mnt/buildshare/builds"
+
+  promote-primebff:
+    if: ${{ needs.set-defaults.outputs.service == 'all' || needs.set-defaults.outputs.service == 'primebff' }}
+    needs: [ set-defaults ]
+    uses: ./.github/workflows/shared-02-promote.yaml
+    with:
+      environment-name: 'uat'
+      service-name: 'primebff'
+      image-name: 'corelai-prime-bff'
       runner-labels: ${{ needs.set-defaults.outputs.runners }}
       remote: "SENESCHAL"
       build-share: "/mnt/buildshare/builds"
