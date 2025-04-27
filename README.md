@@ -12,3 +12,4 @@
 - [Certbot](./docs/infra/CERTBOT_CMD.md)
 - [Local dev](./docs/infra/LOCAL.md)
 - [Ports setup proposal](./docs/infra/PORTS.md)
+- [SQL Hydra](./docs/infra/SQLHYDRA.md)

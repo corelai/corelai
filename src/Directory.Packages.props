@@ -10,6 +10,8 @@
         <PackageVersion Include="Giraffe.TokenRouter" Version="2.0.0"/>
         <PackageVersion Include="Giraffe.Pipelines" Version="0.7.0"/>
         <PackageVersion Include="Ply" Version="0.3.1"/>
+        <PackageVersion Include="Npgsql" Version="9.0.3"/>
+        <PackageVersion Include="SqlHydra.Query" Version="3.0.1"/>
     </ItemGroup>
 </Project>
 
