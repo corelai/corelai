@@ -10,8 +10,9 @@ module ApiResponder =
     let toHttp (result: ApiResult<'T, string>) (ctx: HttpContext) : Task =
         task {
             let! res = result
+
             match res with
-            | Ok (Some value) ->
+            | Ok(Some value) ->
                 ctx.Response.StatusCode <- StatusCodes.Status200OK
                 do! ctx.Response.WriteAsJsonAsync(value)
             | Ok None ->
@@ -23,5 +24,5 @@ module ApiResponder =
                 ctx.Response.StatusCode <- StatusCodes.Status500InternalServerError
                 do! ctx.Response.WriteAsJsonAsync(payload)
         }
-    let applyToHttp ctx result =
-        toHttp result ctx
+
+    let applyToHttp ctx result = toHttp result ctx

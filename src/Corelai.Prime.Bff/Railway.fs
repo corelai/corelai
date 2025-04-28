@@ -17,7 +17,7 @@ module Railway =
                 let! result = input
 
                 match result with
-                | Ok (Some value) -> return! binder value
+                | Ok(Some value) -> return! binder value
                 | Ok None -> return Ok None
                 | Error e -> return Error e
             }
@@ -33,7 +33,7 @@ module Railway =
             let! res = input
 
             match res with
-            | Ok (Some v) -> return Ok(Some(f v))
+            | Ok(Some v) -> return Ok(Some(f v))
             | Ok None -> return Ok None
             | Error e -> return Error e
         }

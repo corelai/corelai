@@ -103,9 +103,11 @@ module Timeline =
 
                     let! maybeResult = conn.QuerySingleOrDefaultAsync<TimelineTable>(sql, {| id = id |})
 
-                    let resultOption = match maybeResult with
-                                        | null -> None
-                                        | v -> Some v
+                    let resultOption =
+                        match maybeResult with
+                        | null -> None
+                        | v -> Some v
+
                     return
                         resultOption
                         |> Option.map (fun t ->
