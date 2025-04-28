@@ -1,20 +1,22 @@
 namespace Corelai.Prime.Bff
 
+open System
 open System.Text.Json
 open System.Text.Json.Serialization
-open FSharp.Control.Tasks
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
+open Microsoft.AspNetCore.Mvc
+open Microsoft.AspNetCore.Routing
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open Microsoft.VisualBasic.CompilerServices
-open Timeline
 open Railway
-
+open Timeline
 open ApiResponder
 
 module Program =
     let exitCode = 0
+
 
     let toStringCore (value: string option) : string =
         match value with
@@ -22,83 +24,29 @@ module Program =
         | None -> raise (IncompleteInitialization())
 
     let toString value = value |> Option.ofObj |> toStringCore
-    //
-    // let sampleApiCall: ApiResult<int, string> =
-    //     ror {
-    //         let! a = task { return Ok(Some 2) }
-    //         let! b = task { return Ok(Some(a + 3)) }
-    //         return b * 10
-    //     }
-    //
-    //
-    // let errorsEndpoint =
-    //     subRoute
-    //               "/errors"
-    //               [ GET [ route "/my-error" (toHttp (task { return Error "Bonzio error" }))
-    //                       route "/my-not-found" (toHttp (task { return Ok None }))
-    //                       subRoute "/v2" [ route "/my-not-found" (toHttp (task { return Ok None })) ] ] ]
-    // let routing =
-    //     router
-    //         notFound
-    //         [ route "/" (text "index")
-    //           route "/test" (text "ok")
-    //           routef "/parsing/%s/%i" (fun (s, i) -> text $"Received %s{s} & %i{i}")
-    //           errorsEndpoint
-    //           subRoute
-    //               "/oks"
-    //               [ route "/test" (text "ok")
-    //                 route "/rail" (toHttp sampleApiCall) ]
-    //           route
-    //               "/timelines/0000"
-    //               (ror {
-    //                   let! a = task { return Ok(Some ilionEvent) }
-    //                   return a
-    //                }
-    //                |> toHttp)
-    //
-    //           ]
 
-    //let notFound = setStatusCode 404 >=> text "Not found"
+    let fromRoute mapper name (ctx: HttpContext) =
+        let myRouteValue =
+            ctx.GetRouteValue(name)
+            |> Option.ofObj
+            |> Option.map _.ToString()
+            |> Option.defaultValue ""
+            |> fun v ->
+                match v with
+                | null -> ""
+                | va -> va
 
+        myRouteValue |> mapper
 
-    let errorApi =
-        ror {
-            let! res = task { return Error "my error" }
-            return res
-        }
-        |> toHttp
-
-    let testApi (ctx: HttpContext) =
-        let bongo =
-            ror {
-                let! res = task { return Ok(Some(toString ctx.Request.Path.Value)) }
-                return res
-            }
-
-        toHttp bongo ctx
-
-    let testApi2 (ctx: HttpContext) =
-        ror {
-            let! res = task { return Ok(Some(toString ctx.Request.Path.Value)) }
-            return res
-        }
-        |> toHttp
+    let fromRouteGuid name (ctx: HttpContext) = fromRoute Guid.Parse name ctx
 
     let getTimelineEvents connectionString (ctx: HttpContext) =
+        ror { return! getAllTimelines connectionString } |> applyToHttp ctx
+
+    let getTimelineEvent (connectionString: string) (ctx: HttpContext) =
         ror {
-            let! timelineEvents =
-                task {
-                    let! res = Timeline.getAllTimelines connectionString
-
-                    return
-                        Ok(
-                            Some(
-                                res
-                            )
-                        )
-                }
-
-            return timelineEvents
+            let! timeline = fromRouteGuid "id" ctx |> getTimeline connectionString
+            return timeline
         }
         |> applyToHttp ctx
 
@@ -128,19 +76,14 @@ module Program =
             configureCors builder
 
 
-        let connectionString = builder.Configuration["Storage:PrimeBffDbConnectionString"] |> toString
+        let connectionString =
+            builder.Configuration["Storage:PrimeBffDbConnectionString"] |> toString
 
         let app = builder.Build()
 
-        app.MapGet("/", RorBuilder().Return("oki doki") |> toHttp) |> ignore
-
-        app.MapGet("/test", testApi) |> ignore
-
-        app.MapGet("/my-errors", errorApi) |> ignore
-
         app.MapGet("/timelines", getTimelineEvents connectionString) |> ignore
+        app.MapGet("/timeline/{id:Guid}", getTimelineEvent connectionString) |> ignore
 
-        //app.MapFallback(notFoundApi) |> ignore
 
         if builder.Environment.IsDevelopment() then
             app.UseCors() |> ignore
