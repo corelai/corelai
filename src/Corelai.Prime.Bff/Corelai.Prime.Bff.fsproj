@@ -6,12 +6,9 @@
         <PackageReference Include="FSharp.SystemTextJson" />
         <PackageReference Include="Ply" />
         <PackageReference Include="Npgsql" />
-        <PackageReference Include="SqlHydra.Query" />
+        <PackageReference Include="Dapper" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="CorelaiPrimeDatabase.fs">
-            <Visible>False</Visible>
-        </Compile>
         <Compile Include="Railway.fs" />
         <Compile Include="ApiResponder.fs" />
         <Compile Include="Timeline.fs" />

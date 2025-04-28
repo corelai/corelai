@@ -2,17 +2,20 @@ namespace Corelai.Prime.Bff
 
 open System.Text.Json
 open System.Text.Json.Serialization
+open FSharp.Control.Tasks
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
 open Microsoft.VisualBasic.CompilerServices
-open Railway
 open Timeline
+open Railway
+
 open ApiResponder
 
 module Program =
     let exitCode = 0
+
     let toStringCore (value: string option) : string =
         match value with
         | Some v -> v
@@ -66,37 +69,35 @@ module Program =
         |> toHttp
 
     let testApi (ctx: HttpContext) =
-        let bongo = ror {
-            let! res = task { return Ok(Some (toString ctx.Request.Path.Value)) }
-            return res
-        }
+        let bongo =
+            ror {
+                let! res = task { return Ok(Some(toString ctx.Request.Path.Value)) }
+                return res
+            }
+
         toHttp bongo ctx
 
     let testApi2 (ctx: HttpContext) =
         ror {
-            let! res = task { return Ok(Some (toString ctx.Request.Path.Value)) }
+            let! res = task { return Ok(Some(toString ctx.Request.Path.Value)) }
             return res
         }
-        |>
-        toHttp
+        |> toHttp
 
     let getTimelineEvents connectionString (ctx: HttpContext) =
         ror {
             let! timelineEvents =
                 task {
-                    let! res = getAllTimelines connectionString
-                    return Ok(Some(res |> Seq.map (fun t -> {
-                        Timeline.id = t.id
-                        code = t.code
-                        title = t.title
-                        date = t.date
-                        summary = t.summary
-                        tags = t.tags
-                        lang = t.lang
-                        version = t.version
-                        imagePath = t.image_path
-                    })))
+                    let! res = Timeline.getAllTimelines connectionString
+
+                    return
+                        Ok(
+                            Some(
+                                res
+                            )
+                        )
                 }
+
             return timelineEvents
         }
         |> applyToHttp ctx
@@ -131,13 +132,13 @@ module Program =
 
         let app = builder.Build()
 
-        app.MapGet("/", RorBuilder().Return( "oki doki") |> toHttp) |> ignore
+        app.MapGet("/", RorBuilder().Return("oki doki") |> toHttp) |> ignore
 
         app.MapGet("/test", testApi) |> ignore
 
-        app.MapGet("/my-errors", errorApi)|> ignore
+        app.MapGet("/my-errors", errorApi) |> ignore
 
-        app.MapGet("/timelines", getTimelineEvents connectionString)|> ignore
+        app.MapGet("/timelines", getTimelineEvents connectionString) |> ignore
 
         //app.MapFallback(notFoundApi) |> ignore
 
