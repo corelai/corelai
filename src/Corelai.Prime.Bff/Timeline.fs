@@ -8,7 +8,7 @@ open Npgsql
 
 module Timeline =
 
-    type TimelineDto() =
+    type private TimelineTable() =
         member val id: Guid = Guid.Empty with get, set
         member val code: string = "" with get, set
         member val title: string = "" with get, set
@@ -54,7 +54,7 @@ module Timeline =
                 FROM time.timeline
             """
 
-            let! results = conn.QueryAsync<TimelineDto>(sql)
+            let! results = conn.QueryAsync<TimelineTable>(sql)
 
             return
                 results
