@@ -3,15 +3,22 @@ namespace Corelai.Prime.Bff
 open System.Text.Json
 open System.Text.Json.Serialization
 open Microsoft.AspNetCore.Builder
+open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
+open Microsoft.VisualBasic.CompilerServices
 open Railway
-open Giraffe
 open Timeline
 open ApiResponder
 
 module Program =
     let exitCode = 0
+    let toStringCore (value: string option) : string =
+        match value with
+        | Some v -> v
+        | None -> raise (IncompleteInitialization())
+
+    let toString value = value |> Option.ofObj |> toStringCore
     //
     // let sampleApiCall: ApiResult<int, string> =
     //     ror {
@@ -58,25 +65,42 @@ module Program =
         }
         |> toHttp
 
-    let notFound =
-        (ror {
-            let! res = task { return Ok(None) }
+    let testApi (ctx: HttpContext) =
+        let bongo = ror {
+            let! res = task { return Ok(Some (toString ctx.Request.Path.Value)) }
             return res
-         }
-         |> toHttp)
+        }
+        toHttp bongo ctx
 
-    let getTimelineEvents =
+    let testApi2 (ctx: HttpContext) =
         ror {
-            let! timelineEvents = task { return Ok(Some timelineEvents) }
+            let! res = task { return Ok(Some (toString ctx.Request.Path.Value)) }
+            return res
+        }
+        |>
+        toHttp
+
+    let getTimelineEvents connectionString (ctx: HttpContext) =
+        ror {
+            let! timelineEvents =
+                task {
+                    let! res = getAllTimelines connectionString
+                    return Ok(Some(res |> Seq.map (fun t -> {
+                        Timeline.id = t.id
+                        code = t.code
+                        title = t.title
+                        date = t.date
+                        summary = t.summary
+                        tags = t.tags
+                        lang = t.lang
+                        version = t.version
+                        imagePath = t.image_path
+                    })))
+                }
             return timelineEvents
         }
-        |> toHttp
+        |> applyToHttp ctx
 
-    let routing =
-        TokenRouter.router
-            notFound
-            [ TokenRouter.route "/my-errors" <| errorApi
-              TokenRouter.route "/timelines" <| getTimelineEvents ]
 
     let configureCors (builder: WebApplicationBuilder) =
         builder.Services.AddCors(fun options ->
@@ -84,6 +108,7 @@ module Program =
                 policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod()
                 |> ignore))
         |> ignore
+
 
     [<EntryPoint>]
     let main args =
@@ -101,14 +126,24 @@ module Program =
         if builder.Environment.IsDevelopment() then
             configureCors builder
 
-        builder.Services.AddGiraffe() |> ignore
+
+        let connectionString = builder.Configuration["CorelaiPrimeBffDb"] |> toString
 
         let app = builder.Build()
+
+        app.MapGet("/", RorBuilder().Return( "oki doki") |> toHttp) |> ignore
+
+        app.MapGet("/test", testApi) |> ignore
+
+        app.MapGet("/my-errors", errorApi)|> ignore
+
+        app.MapGet("/timelines", getTimelineEvents connectionString)|> ignore
+
+        //app.MapFallback(notFoundApi) |> ignore
 
         if builder.Environment.IsDevelopment() then
             app.UseCors() |> ignore
 
-        app.UseGiraffe(routing)
 
         app.Run()
 
