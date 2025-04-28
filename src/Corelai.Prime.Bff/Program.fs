@@ -128,7 +128,7 @@ module Program =
             configureCors builder
 
 
-        let connectionString = builder.Configuration["Storage:CorelaiPrimeBffDbConnectionString"] |> toString
+        let connectionString = builder.Configuration["Storage:PrimeBffDbConnectionString"] |> toString
 
         let app = builder.Build()
 
