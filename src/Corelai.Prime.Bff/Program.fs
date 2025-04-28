@@ -40,15 +40,13 @@ module Program =
 
     let fromRouteGuid name (ctx: HttpContext) = fromRoute Guid.Parse name ctx
 
+    let id ctx = fromRouteGuid "id" ctx
+
     let getTimelineEvents connectionString (ctx: HttpContext) =
-        ror { return! getAllTimelines connectionString } |> applyToHttp ctx
+        ror { return! getTimelines connectionString } |> applyToHttp ctx
 
     let getTimelineEvent (connectionString: string) (ctx: HttpContext) =
-        ror {
-            let! timeline = fromRouteGuid "id" ctx |> getTimeline connectionString
-            return timeline
-        }
-        |> applyToHttp ctx
+        ror { return! id >> getTimelineById connectionString <| ctx } |> applyToHttp ctx
 
 
     let configureCors (builder: WebApplicationBuilder) =

@@ -36,7 +36,7 @@ module Timeline =
         conn.Open()
         conn
 
-    let getAllTimelines (connectionString: string) =
+    let getTimelines (connectionString: string) =
         ror {
             let! result =
                 task {
@@ -79,7 +79,7 @@ module Timeline =
             return result
         }
 
-    let getTimeline (connectionString: string) (id: Guid) =
+    let getTimelineById (connectionString: string) (id: Guid) =
         ror {
             let! result =
                 task {
