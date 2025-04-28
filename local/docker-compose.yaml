@@ -26,6 +26,7 @@ services:
       - "80"
     environment:
       ASPNETCORE_HTTP_PORTS: "80"
+      Storage__CorelaiPrimeBffDbConnectionString: ${CORELAI_Storage__CorelaiPrimeBffDbConnectionString}
     networks:
       - corelai-network
       - prime-network

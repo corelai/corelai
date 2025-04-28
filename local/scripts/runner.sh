@@ -40,3 +40,5 @@ else
   echo "🚀 Starting new $SERVICENAME container..."
   docker compose -f ../docker-compose.yaml up -d "$SERVICENAME"
 fi
+
+docker container ps -a
