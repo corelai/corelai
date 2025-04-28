@@ -7,7 +7,7 @@ open FSharp.Control.Tasks
 module ApiResponder =
     open Railway
 
-    let toHttp (result: ApiResult<'T, string>) (ctx: HttpContext) : Task =
+    let toResponse (result: ApiResult<'T, string>) (ctx: HttpContext) : Task =
         task {
             try
                 let! res = result
@@ -30,4 +30,4 @@ module ApiResponder =
                 do! ctx.Response.WriteAsJsonAsync(payload)
         }
 
-    let applyToHttp ctx result = toHttp result ctx
+    let applyToResponse ctx result = toResponse result ctx

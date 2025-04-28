@@ -5,7 +5,6 @@ open System.Text.Json
 open System.Text.Json.Serialization
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
-open Microsoft.AspNetCore.Mvc
 open Microsoft.AspNetCore.Routing
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
@@ -40,13 +39,7 @@ module Program =
 
     let fromRouteGuid name (ctx: HttpContext) = fromRoute Guid.Parse name ctx
 
-    let id ctx = fromRouteGuid "id" ctx
-
-    let getTimelineEvents connectionString (ctx: HttpContext) =
-        ror { return! getTimelines connectionString } |> applyToHttp ctx
-
-    let getTimelineEvent (connectionString: string) (ctx: HttpContext) =
-        ror { return! id >> getTimelineById connectionString <| ctx } |> applyToHttp ctx
+    let fromRouteId ctx = fromRouteGuid "id" ctx
 
 
     let configureCors (builder: WebApplicationBuilder) =
@@ -79,8 +72,16 @@ module Program =
 
         let app = builder.Build()
 
-        app.MapGet("/timelines", getTimelineEvents connectionString) |> ignore
-        app.MapGet("/timeline/{id:Guid}", getTimelineEvent connectionString) |> ignore
+        app.MapGet("/timelines", fun ctx -> ror { return! getTimelines connectionString } |> applyToResponse ctx)
+        |> ignore
+
+        app.MapGet(
+            "/timeline/{id:Guid}",
+            fun ctx ->
+                ror { return! ctx |> fromRouteId |> getTimelineById connectionString }
+                |> applyToResponse ctx
+        )
+        |> ignore
 
 
         if builder.Environment.IsDevelopment() then
