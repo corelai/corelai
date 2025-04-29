@@ -11,7 +11,7 @@ import useAppSettings from "../../hooks/useAppSettings.ts";
 const Layout: React.FC = () => {
 
     const { mediaBaseUrl } = useAppSettings();
-    const backgroundUrl = `${mediaBaseUrl}/corelai-background.png`;
+    const backgroundUrl = `${mediaBaseUrl}/corelai-background.jpg`;
     return (
         <>
             <div className="grid grid-areas-layout
