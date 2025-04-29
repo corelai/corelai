@@ -2,6 +2,7 @@ import {Option, none, some} from 'fp-ts/Option'
 
 export interface AppSettings {
     envName: string,
+    mediaBaseUrl: string,
     bff: {
         apiBaseUrl: string
     }
