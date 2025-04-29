@@ -2,8 +2,8 @@
 
 sudo docker compose down && \
 
-sudo ./runner.sh primebffdb && \
-sudo ./runner.sh primebff && \
-sudo ./runner.sh primeapp && \
-sudo ./runner.sh nginx && \
-sudo docker container ps -a
+sudo ./runner.sh prime-bff-db && \
+sudo ./runner.sh prime-bff-db-flyway && \
+sudo ./runner.sh prime-bff && \
+sudo ./runner.sh prime-app && \
+sudo ./runner.sh nginx
