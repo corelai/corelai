@@ -41,6 +41,8 @@ services:
       POSTGRES_DB: ${CORELAI_PrimeBffDb}
       POSTGRES_USER: ${CORELAI_PrimeBffDbUser}
       POSTGRES_PASSWORD: ${CORELAI_PrimeBffDbPassword}
+    volumes:
+      - /data/corelai/prime/bff-db:/var/lib/postgresql/data
     networks:
       - prime-network
 
