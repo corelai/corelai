@@ -32,7 +32,7 @@ services:
       - prime-network
 
   prime-bff-db:
-    image: postgres:17
+    image: corelai-prime-bff-db-local
     ports:
       - "35000:5432"
     expose:
