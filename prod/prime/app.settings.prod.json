@@ -1,5 +1,6 @@
 {
   "envName": "prod",
+  "mediaBaseUrl": "https://media.corelai.io",
   "bff": {
     "apiBaseUrl": "/bff"
   }
