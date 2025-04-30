@@ -9,16 +9,19 @@ open Npgsql
 
 module Timeline =
 
-    type private TimelineTable() =
-        member val id: Guid = Guid.Empty with get, set
-        member val code: string = "" with get, set
-        member val title: string = "" with get, set
-        member val date: DateTime = DateTime.MinValue with get, set
-        member val summary: string = "" with get, set
-        member val tags: string array = [||] with get, set
-        member val lang: string = "" with get, set
-        member val version: int = 0 with get, set
-        member val image_path: string = "" with get, set
+
+
+    [<CLIMutable>]
+    type TimelineTable =
+        { id: Guid
+          code: string
+          title: string
+          date: DateTime
+          summary: string
+          tags: string array
+          lang: string
+          version: int
+          image_path: string }
 
     type Timeline =
         { id: Guid
