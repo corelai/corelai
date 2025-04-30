@@ -55,13 +55,12 @@ services:
 
   prime-bff-db-flyway:
     image: corelai-prime-bff-db-flyway-uat
-    depends_on:
-      - prime-bff-db
-    command: -url=jdbc:postgresql://prime-bff-db:5432/${CORELAI_PrimeBffDb}
-             -user=${CORELAI_PrimeBffDbUser}
-             -password=${CORELAI_PrimeBffDbPassword}
-             -locations=filesystem:/flyway/sql
-             migrate
+    command:
+      - -url=jdbc:postgresql://prime-bff-db:5432/${CORELAI_PrimeBffDb}
+      - -user=${CORELAI_PrimeBffDbUser}
+      - -password=${CORELAI_PrimeBffDbPassword}
+      - -locations=filesystem:/flyway/sql
+      - migrate
     networks:
       - prime-network
 
