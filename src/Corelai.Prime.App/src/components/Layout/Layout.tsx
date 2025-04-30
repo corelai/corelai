@@ -5,9 +5,13 @@ import Footer from './Footer';
 import '../../styles/layout.css';
 import Timeline from "../Timeline/Timeline.tsx";
 import {WelcomeCitizen} from "../WelcomeCitizen/WelcomeCitizen.tsx";
+import useAppSettings from "../../hooks/useAppSettings.ts";
 
 
 const Layout: React.FC = () => {
+
+    const { mediaBaseUrl } = useAppSettings();
+    const backgroundUrl = `${mediaBaseUrl}/corelai-background.jpg`;
     return (
         <>
             <div className="grid grid-areas-layout
@@ -25,9 +29,10 @@ const Layout: React.FC = () => {
                  ">
                     {/*header darkening mask*/}
 
-                    <div className={`
+                    <div style={{backgroundImage: `url(${backgroundUrl})`}}
+                         className={`
                     absolute inset-0
-                    bg-[url(/images/corelai-background.png)] bg-no-repeat bg-bottom
+                    bg-no-repeat bg-bottom
                     bg-[length:640px_auto]
                     sm:bg-[length:890px_auto]
                     md:bg-[length:1200px_auto]

@@ -1,5 +1,6 @@
 {
   "envName": "local",
+  "mediaBaseUrl": "https://media.corelai.io",
   "bff": {
     "apiBaseUrl": "/bff"
   }

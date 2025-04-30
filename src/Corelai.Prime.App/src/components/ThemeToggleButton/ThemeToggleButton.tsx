@@ -17,9 +17,9 @@ export const ThemeToggleButton: React.FC<Props> = ({className, iconClassName}) =
             ${className}`
         }>
             {theme === 'dark' ?
-                <CiLight className={`${iconClassName}`}/>
-                :
                 <WiMoonAltWaxingCrescent2 className={`${iconClassName}`}/>
+                :
+                <CiLight className={`${iconClassName}`}/>
             }
         </div>
     );

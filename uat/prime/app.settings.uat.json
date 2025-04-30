@@ -1,5 +1,6 @@
 {
   "envName": "uat",
+  "mediaBaseUrl": "https://media.corelai.io",
   "bff": {
     "apiBaseUrl": "/bff"
   }

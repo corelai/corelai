@@ -1,82 +1,46 @@
 namespace Corelai.Prime.Bff
 
+open System
 open System.Text.Json
 open System.Text.Json.Serialization
 open Microsoft.AspNetCore.Builder
+open Microsoft.AspNetCore.Http
+open Microsoft.AspNetCore.Routing
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Hosting
+open Microsoft.VisualBasic.CompilerServices
 open Railway
-open Giraffe
 open Timeline
 open ApiResponder
 
 module Program =
     let exitCode = 0
-    //
-    // let sampleApiCall: ApiResult<int, string> =
-    //     ror {
-    //         let! a = task { return Ok(Some 2) }
-    //         let! b = task { return Ok(Some(a + 3)) }
-    //         return b * 10
-    //     }
-    //
-    //
-    // let errorsEndpoint =
-    //     subRoute
-    //               "/errors"
-    //               [ GET [ route "/my-error" (toHttp (task { return Error "Bonzio error" }))
-    //                       route "/my-not-found" (toHttp (task { return Ok None }))
-    //                       subRoute "/v2" [ route "/my-not-found" (toHttp (task { return Ok None })) ] ] ]
-    // let routing =
-    //     router
-    //         notFound
-    //         [ route "/" (text "index")
-    //           route "/test" (text "ok")
-    //           routef "/parsing/%s/%i" (fun (s, i) -> text $"Received %s{s} & %i{i}")
-    //           errorsEndpoint
-    //           subRoute
-    //               "/oks"
-    //               [ route "/test" (text "ok")
-    //                 route "/rail" (toHttp sampleApiCall) ]
-    //           route
-    //               "/timelines/0000"
-    //               (ror {
-    //                   let! a = task { return Ok(Some ilionEvent) }
-    //                   return a
-    //                }
-    //                |> toHttp)
-    //
-    //           ]
-
-    //let notFound = setStatusCode 404 >=> text "Not found"
 
 
-    let errorApi =
-        ror {
-            let! res = task { return Error "my error" }
-            return res
-        }
-        |> toHttp
+    let toStringCore (value: string option) : string =
+        match value with
+        | Some v -> v
+        | None -> raise (IncompleteInitialization())
 
-    let notFound =
-        (ror {
-            let! res = task { return Ok(None) }
-            return res
-         }
-         |> toHttp)
+    let toString value = value |> Option.ofObj |> toStringCore
 
-    let getTimelineEvents =
-        ror {
-            let! timelineEvents = task { return Ok(Some timelineEvents) }
-            return timelineEvents
-        }
-        |> toHttp
+    let fromRoute mapper name (ctx: HttpContext) =
+        let myRouteValue =
+            ctx.GetRouteValue(name)
+            |> Option.ofObj
+            |> Option.map _.ToString()
+            |> Option.defaultValue ""
+            |> fun v ->
+                match v with
+                | null -> ""
+                | va -> va
 
-    let routing =
-        TokenRouter.router
-            notFound
-            [ TokenRouter.route "/my-errors" <| errorApi
-              TokenRouter.route "/timelines" <| getTimelineEvents ]
+        myRouteValue |> mapper
+
+    let fromRouteGuid name (ctx: HttpContext) = fromRoute Guid.Parse name ctx
+
+    let fromRouteId ctx = fromRouteGuid "id" ctx
+
 
     let configureCors (builder: WebApplicationBuilder) =
         builder.Services.AddCors(fun options ->
@@ -84,6 +48,7 @@ module Program =
                 policy.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod()
                 |> ignore))
         |> ignore
+
 
     [<EntryPoint>]
     let main args =
@@ -101,14 +66,27 @@ module Program =
         if builder.Environment.IsDevelopment() then
             configureCors builder
 
-        builder.Services.AddGiraffe() |> ignore
+
+        let connectionString =
+            builder.Configuration["Storage:PrimeBffDbConnectionString"] |> toString
 
         let app = builder.Build()
+
+        app.MapGet("/timelines", fun ctx -> ror { return! getTimelines connectionString } |> applyToResponse ctx)
+        |> ignore
+
+        app.MapGet(
+            "/timeline/{id:Guid}",
+            fun ctx ->
+                ror { return! ctx |> fromRouteId |> getTimelineById connectionString }
+                |> applyToResponse ctx
+        )
+        |> ignore
+
 
         if builder.Environment.IsDevelopment() then
             app.UseCors() |> ignore
 
-        app.UseGiraffe(routing)
 
         app.Run()
 

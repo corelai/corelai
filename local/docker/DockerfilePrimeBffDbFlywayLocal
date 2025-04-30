@@ -1,0 +1,7 @@
+FROM redgate/flyway:latest
+
+# Copy migration files
+RUN mkdir -p /flyway/sql
+COPY src/Corelai.Prime.Database/migrations /flyway/sql
+
+RUN echo "📁 Listing /flyway/sql after COPY:" && ls -lah /flyway/sql

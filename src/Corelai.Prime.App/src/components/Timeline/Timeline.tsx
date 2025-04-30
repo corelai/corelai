@@ -12,12 +12,13 @@ import {parseGuid} from "../../utils/guid";
 import useAppSettings from "../../hooks/useAppSettings";
 
 
-const parse = (raw: TimelineDto[]): TimelineDto[] => {
+const parse = (raw: TimelineDto[],mediaBaseUrl:string): TimelineDto[] => {
     return raw.map((item: TimelineDto) => {
         return {
             ...item,
             id: parseGuid(item.id),
-            date: new Date(item.date)
+            date: new Date(item.date),
+            imagePath: `${mediaBaseUrl}/${item.imagePath}`,
         };
     });
 };
@@ -50,7 +51,7 @@ const TimelinePlainDate = ({date}: HistoryPlainDateProps) => (
 const Timeline: React.FC = () => {
     //const [data, setData] = useState<TimelineEntry[]>([]);
     const {open} = useModal();
-
+    const {mediaBaseUrl} = useAppSettings();
     // useEffect(() => {
     //     const loadJson = async () => {
     //         try {
@@ -84,7 +85,7 @@ const Timeline: React.FC = () => {
         const sub = fromFetch(`${bff.apiBaseUrl}/timelines`)
             .pipe(
                 switchMap(res => res.json()),
-                map((el: TimelineDto[]) => parse(el)),
+                map((el: TimelineDto[]) => parse(el,mediaBaseUrl)),
                 map((timelines: TimelineDto[]) => sortBy([byDateDesc])(timelines))
             ).subscribe({
                 next: setTimelines,
@@ -93,7 +94,7 @@ const Timeline: React.FC = () => {
             })
 
         return () => sub.unsubscribe()
-    }, [bff])
+    }, [bff,mediaBaseUrl])
 
     return (
         <div>

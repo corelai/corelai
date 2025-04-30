@@ -12,7 +12,7 @@ COPY local/prime/app.settings.local.json ./app.override.json
 RUN jq -s '.[0] * .[1]' app.settings.json app.override.json > merged.config.json \
     && mv merged.config.json ./public/app.settings.json && rm app.override.json
 
-RUN echo "📁 Listing di /app dopo COPY:" && ls -lah /app/public && cat /app/public/app.settings.json
+RUN echo "📁 Listing /app after COPY:" && ls -lah /app/public && cat /app/public/app.settings.json
 
 RUN pnpm install --frozen-lockfile
 
