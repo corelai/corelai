@@ -13,8 +13,10 @@ on:
         options:
           - all
           - nginx
-          - primeapp
-          - primebff
+          - prime-app
+          - prime-bff
+          - prime-bff-db
+          - prime-bff-db-flyway
       runner-labels:
         description: 'Runner labels (as JSON string, e.g. ["self-hosted", "build-runner"])'
         required: true
@@ -69,28 +71,54 @@ jobs:
       build-share: "/mnt/buildshare/builds"
 
 
-  build-primeapp:
-    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'primeapp' }}
+  build-prime-app:
+    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'prime-app' }}
     needs: [prepare-metadata, set-defaults]
     uses: ./.github/workflows/shared-01-build.yaml
     with:
       environment-name: 'uat'
-      service-name: 'primeapp'
+      service-name: 'prime-app'
       image-name: 'corelai-prime-app'
       dockerfile-name: 'DockerfilePrimeAppUat'
       runner-labels: ${{ needs.set-defaults.outputs.runners }}
       timestamp: ${{ needs.prepare-metadata.outputs.timestamp }}
       build-share: "/mnt/buildshare/builds"
 
-  build-primebff:
-    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'primebff' }}
+  build-prime-bff:
+    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'prime-bff' }}
     needs: [ prepare-metadata, set-defaults ]
     uses: ./.github/workflows/shared-01-build.yaml
     with:
       environment-name: 'uat'
-      service-name: 'primebff'
+      service-name: 'prime-bff'
       image-name: 'corelai-prime-bff'
       dockerfile-name: 'DockerfilePrimeBffUat'
+      runner-labels: ${{ needs.set-defaults.outputs.runners }}
+      timestamp: ${{ needs.prepare-metadata.outputs.timestamp }}
+      build-share: "/mnt/buildshare/builds"
+
+  build-prime-bff-db:
+    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'prime-bff-db' }}
+    needs: [ prepare-metadata, set-defaults ]
+    uses: ./.github/workflows/shared-01-build.yaml
+    with:
+      environment-name: 'uat'
+      service-name: 'prime-bff-db'
+      image-name: 'corelai-prime-bff-db'
+      dockerfile-name: 'DockerfilePrimeBffDbUat'
+      runner-labels: ${{ needs.set-defaults.outputs.runners }}
+      timestamp: ${{ needs.prepare-metadata.outputs.timestamp }}
+      build-share: "/mnt/buildshare/builds"
+
+  build-prime-bff-db-flyway:
+    if: ${{ github.event_name == 'push' || github.event.inputs.service-to-build == 'all' || github.event.inputs.service-to-build == 'prime-bff-db-flyway' }}
+    needs: [ prepare-metadata, set-defaults ]
+    uses: ./.github/workflows/shared-01-build.yaml
+    with:
+      environment-name: 'uat'
+      service-name: 'prime-bff-db-flyway'
+      image-name: 'corelai-prime-bff-db-flyway'
+      dockerfile-name: 'DockerfilePrimeBffDbFlywayUat'
       runner-labels: ${{ needs.set-defaults.outputs.runners }}
       timestamp: ${{ needs.prepare-metadata.outputs.timestamp }}
       build-share: "/mnt/buildshare/builds"
