@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev-prime": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint corelai-prime-app",
     "preview": "vite preview"
