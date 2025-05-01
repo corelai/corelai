@@ -22,23 +22,50 @@ services:
     networks:
       - corelai-network
 
-  primeapp:
+  prime-app:
     image: corelai-prime-app-prod
     expose:
       - "80"
     networks:
       - corelai-network
 
-  primebff:
+  prime-bff:
     image: corelai-prime-bff-prod
     expose:
       - "80"
     environment:
       ASPNETCORE_HTTP_PORTS: "80"
+      Storage__PrimeBffDbConnectionString: ${CORELAI_Storage__PrimeBffDbConnectionString}
     networks:
       - corelai-network
+      - prime-network
 
+  prime-bff-db:
+    image: corelai-prime-bff-db-prod
+    expose:
+      - 5432
+    environment:
+      POSTGRES_DB: ${CORELAI_PrimeBffDb}
+      POSTGRES_USER: ${CORELAI_PrimeBffDbUser}
+      POSTGRES_PASSWORD: ${CORELAI_PrimeBffDbPassword}
+    volumes:
+      - /data/corelai/prime/bff-db:/var/lib/postgresql/data
+    networks:
+      - prime-network
+
+  prime-bff-db-flyway:
+    image: corelai-prime-bff-db-flyway-prod
+    command:
+      - -url=jdbc:postgresql://prime-bff-db:5432/${CORELAI_PrimeBffDb}
+      - -user=${CORELAI_PrimeBffDbUser}
+      - -password=${CORELAI_PrimeBffDbPassword}
+      - -locations=filesystem:/flyway/sql
+      - migrate
+    networks:
+      - prime-network
 
 networks:
   corelai-network:
+    driver: bridge
+  prime-network:
     driver: bridge
