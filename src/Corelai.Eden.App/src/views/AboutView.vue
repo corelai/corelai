@@ -20,7 +20,7 @@ const { count } = storeToRefs(counterStore)
          hover:bg-teal-500
          hover:text-teal-800
     "
-    @click="increment"
+    v-on:click="increment"
     >Press me for changing actual value
     </button>
     <p>{{ count }}</p>
